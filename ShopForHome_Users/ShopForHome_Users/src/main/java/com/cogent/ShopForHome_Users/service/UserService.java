@@ -29,11 +29,6 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void deleteUserById(int userId) {
-
-        userRepository.deleteById(userId);
-    }
-
     public User updateUser(int userId, User user) {
        Optional<User> existingUser = userRepository.findById(userId);
        if(existingUser.isEmpty()) {

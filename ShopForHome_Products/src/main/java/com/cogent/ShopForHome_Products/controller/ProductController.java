@@ -5,9 +5,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +29,7 @@ public class ProductController {
 			return ResponseEntity.badRequest().build();
 		}
 		productService.saveProduct(product);
-		return ResponseEntity.ok(existingProduct.get());
+		return ResponseEntity.ok(product);
 
 	}
 
@@ -49,4 +51,23 @@ public class ProductController {
 		return ResponseEntity.notFound().build();
 	}
 
+	@PutMapping("/products/{productId}")
+	public ResponseEntity<Product> updateProduct(@PathVariable int productId, @RequestBody Product product) {
+		Optional<Product> existingProduct = productService.findProductById(productId);
+		if (existingProduct.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		productService.updateProduct(productId, product);
+		return ResponseEntity.ok(product);
+	}
+
+	@DeleteMapping("/products/{productId}")
+	public ResponseEntity<String> deleteProduct(@PathVariable int productId) {
+		Optional<Product> existingProduct = productService.findProductById(productId);
+		if (existingProduct.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		productService.deleteProduct(productId);
+		return ResponseEntity.ok("Product deleted successfully");
+	}
 }
