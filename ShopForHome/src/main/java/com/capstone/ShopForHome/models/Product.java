@@ -34,19 +34,19 @@ public class Product {
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
-	
+
 	public Product() {
-		//default
+		// default
 	}
-	
+
 	public Product(String name, String description, BigDecimal price, String category) {
 		this.name = name;
 		this.description = description;
 		this.price = price;
-		this.category= category;
+		this.category = category;
 	}
 
-	// getters&setters	
+	// getters&setters
 	public int getProductId() {
 		return productId;
 	}
@@ -102,5 +102,5 @@ public class Product {
 	public void setCreated_at(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-	
+
 }

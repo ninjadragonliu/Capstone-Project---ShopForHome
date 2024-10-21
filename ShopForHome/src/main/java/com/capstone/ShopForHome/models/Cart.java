@@ -17,14 +17,14 @@ import jakarta.persistence.Table;
 public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int cart_id;
+	private int cartId;
 
 	@OneToOne
 	@JoinColumn(name = "userId", nullable = false)
 	private User user;
 
 	@CreationTimestamp
-	private LocalDateTime created_at;
+	private LocalDateTime createdAt;
 
 	public Cart() {
 		// default
@@ -35,12 +35,12 @@ public class Cart {
 	}
 
 	// getters&setters
-	public int getCart_id() {
-		return cart_id;
+	public int getCartId() {
+		return cartId;
 	}
 
-	public void setCart_id(int cart_id) {
-		this.cart_id = cart_id;
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 
 	public User getUser() {
@@ -51,13 +51,12 @@ public class Cart {
 		this.user = user;
 	}
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
+	public void setCreated_at(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
 	}
 
-	
 }
