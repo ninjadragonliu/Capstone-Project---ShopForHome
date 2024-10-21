@@ -1,4 +1,4 @@
-package com.cogent.ShopForHome_Cart.controller;
+package com.cogent.ShopForHome_Carts.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cogent.ShopForHome_Cart.service.CartItemService;
-import com.cogent.ShopForHome_Cart.service.CartService;
-import com.cogent.ShopForHome_Cart.service.WishlistItemService;
-import com.cogent.ShopForHome_Cart.service.WishlistService;
+import com.cogent.ShopForHome_Carts.model.Cart;
+import com.cogent.ShopForHome_Carts.service.CartItemService;
+import com.cogent.ShopForHome_Carts.service.CartService;
+import com.cogent.ShopForHome_Carts.service.WishlistItemService;
+import com.cogent.ShopForHome_Carts.service.WishlistService;
 
 import java.util.List;
 import java.util.Optional;
-import com.cogent.ShopForHome_Cart.model.Cart;
 
 
 //not a bean
 @RestController
-public class CartController {
+public class CartsController {
 	@Autowired
 	CartService cartService;
 	@Autowired

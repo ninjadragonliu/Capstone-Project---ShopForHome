@@ -1,4 +1,4 @@
-package com.cogent.ShopForHome_Cart.model;
+package com.cogent.ShopForHome_Carts.model;
 
 
 import jakarta.persistence.Entity;

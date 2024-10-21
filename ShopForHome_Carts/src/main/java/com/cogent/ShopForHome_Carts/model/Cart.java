@@ -1,13 +1,13 @@
-package com.cogent.ShopForHome_Cart.model;
+package com.cogent.ShopForHome_Carts.model;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="wishlist")
-public class Wishlist {
-	
+@Table(name="cart")
+public class Cart {
 	
 	@Id
 	private int id;
@@ -17,6 +17,7 @@ public class Wishlist {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	
 
 }
