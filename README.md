@@ -1,6 +1,6 @@
 # Capstone Project:ShopForHome 
 
-##Table Names
+## Table Names
 user
 product
 cart
