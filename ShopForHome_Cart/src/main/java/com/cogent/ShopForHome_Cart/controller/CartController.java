@@ -20,7 +20,7 @@ import com.cogent.ShopForHome_Cart.model.Cart;
 
 //not a bean
 @RestController
-public class DemoController {
+public class CartController {
 	@Autowired
 	CartService cartService;
 	@Autowired
