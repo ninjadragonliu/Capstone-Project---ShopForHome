@@ -1,7 +1,7 @@
 "# Capstone-Project---ShopForHome" 
 
 ###Table Names
-user/n
+user
 product
 cart
 cartitem
