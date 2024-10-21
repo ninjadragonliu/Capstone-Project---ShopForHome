@@ -15,7 +15,7 @@ import com.cogent.ShopForHome_Cart.service.WishlistService;
 
 //not a bean
 @RestController
-public class DemoController {
+public class CartController {
 	@Autowired
 	CartService cartService;
 	@Autowired
