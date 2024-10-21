@@ -78,3 +78,4 @@ build/
 .vscode/
 */application.properties
 ShopForHome_Users/ShopForHome_Users/src/main/resources/application.properties
+/.metadata/
