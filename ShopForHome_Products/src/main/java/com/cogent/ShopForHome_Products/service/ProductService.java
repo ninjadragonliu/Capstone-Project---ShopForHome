@@ -27,14 +27,14 @@ public class ProductService {
 	}
 
 	public Product updateProduct(int productId, Product product) {
-		Optional<Product> existingProduct = productRepository.findById(productId);
+		Optional<Product> existingProduct = productRepository.findById(product.getProductId());
 		if (existingProduct.isEmpty()) {
 			return null;
 		}
 
-		else {
-			return productRepository.saveAndFlush(product);
-		}
+		product.setProductId(productId);
+		return productRepository.saveAndFlush(product);
+		
 	}
 
 	public boolean deleteProduct(int productId) {
