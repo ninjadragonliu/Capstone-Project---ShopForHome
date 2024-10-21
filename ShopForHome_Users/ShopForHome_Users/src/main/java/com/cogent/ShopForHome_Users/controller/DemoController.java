@@ -19,7 +19,7 @@ public class DemoController {
 	
 	@GetMapping("/hi")
 	public String hi() {
-		return "hi";
+		return "hi.";
 	}
 	
 	
