@@ -3,7 +3,7 @@
 Shop for home is a demo application in which a user will be able to go through with an order with stored products on shop for home. 
 
 
-## SQL showcase: SQL Table Name Structure
+## SQL showcase: Table Structure
 
 - user
 - product
