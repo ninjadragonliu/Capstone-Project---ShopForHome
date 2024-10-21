@@ -59,8 +59,7 @@ public class UserController {
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		user.setUserId(userId);
-		userService.updateUser(user);
+		userService.updateUser(userId, user);
 		return ResponseEntity.ok(user);
 	}
 

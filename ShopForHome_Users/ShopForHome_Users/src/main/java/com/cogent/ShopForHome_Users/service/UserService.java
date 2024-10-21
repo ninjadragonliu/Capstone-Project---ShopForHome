@@ -34,7 +34,12 @@ public class UserService {
         userRepository.deleteById(userId);
     }
 
-    public User updateUser(User user) {
+    public User updateUser(int userId, User user) {
+       Optional<User> existingUser = userRepository.findById(user.getUserId());
+       if(existingUser.isEmpty()) {
+           return null;
+       }
+       user.setUserId(userId);
        return userRepository.saveAndFlush(user);
     }
 
