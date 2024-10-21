@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cogent.ShopForHome_Users.model.User;
 import com.cogent.ShopForHome_Users.service.UserService;
+import java.util.List;
 
 //not a bean
 @RestController
@@ -18,10 +19,6 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@GetMapping("/hi")
-	public String hi() {
-		return "hi.";
-	}
 
 	@PostMapping("/register")
 	public ResponseEntity<User> register(@RequestBody User user) {
@@ -32,6 +29,11 @@ public class UserController {
 		userService.saveUser(user);
 		return ResponseEntity.ok(user);
 
+	}
+
+	@GetMapping("/users")
+	public List<User> getUsers() {
+		return userService.getAllUsers();
 	}
 
 }

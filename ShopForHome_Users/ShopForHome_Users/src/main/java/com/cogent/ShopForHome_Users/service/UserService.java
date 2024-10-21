@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import com.cogent.ShopForHome_Users.model.User;
 import com.cogent.ShopForHome_Users.repository.UserRepository;
 
@@ -22,4 +23,9 @@ public class UserService {
 	public Optional<User> findUserById(int userId) {
 		return userRepository.findById(userId);
 	}
+
+    public List<User> getAllUsers() {
+        // TODO Auto-generated method stub
+        return userRepository.findAll();
+    }
 }
