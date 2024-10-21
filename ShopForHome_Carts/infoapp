@@ -1,0 +1,28 @@
+2024-10-21T17:13:31.020-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] c.c.S.ShopForHomeCartApplication         : Starting ShopForHomeCartApplication using Java 21.0.3 with PID 47461 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Carts/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Carts)
+2024-10-21T17:13:31.021-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] c.c.S.ShopForHomeCartApplication         : The following 1 profile is active: "isabell"
+2024-10-21T17:13:31.044-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-21T17:13:31.044-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-21T17:13:31.369-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-21T17:13:31.397-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces.
+2024-10-21T17:13:31.686-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9003 (http)
+2024-10-21T17:13:31.696-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-21T17:13:31.696-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-21T17:13:31.717-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-21T17:13:31.718-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 674 ms
+2024-10-21T17:13:31.739-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-21T17:13:31.986-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@669be94e
+2024-10-21T17:13:31.987-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-21T17:13:31.994-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/dhm74'
+2024-10-21T17:13:32.056-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-21T17:13:32.090-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-21T17:13:32.111-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-21T17:13:32.259-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-21T17:13:32.701-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-21T17:13:32.757-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-21T17:13:32.892-04:00  WARN 47461 --- [ShopForHome_Carts] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-21T17:13:33.073-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-21T17:13:33.089-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9003 (http) with context path '/'
+2024-10-21T17:13:33.095-04:00  INFO 47461 --- [ShopForHome_Carts] [restartedMain] c.c.S.ShopForHomeCartApplication         : Started ShopForHomeCartApplication in 2.289 seconds (process running for 2.581)
+2024-10-21T17:14:02.061-04:00  INFO 47461 --- [ShopForHome_Carts] [http-nio-9003-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-21T17:14:02.062-04:00  INFO 47461 --- [ShopForHome_Carts] [http-nio-9003-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-21T17:14:02.066-04:00  INFO 47461 --- [ShopForHome_Carts] [http-nio-9003-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms

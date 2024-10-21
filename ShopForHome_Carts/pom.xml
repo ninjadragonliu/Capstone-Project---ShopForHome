@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cogent</groupId>
-	<artifactId>ShopForHome_Cart</artifactId>
+	<artifactId>ShopForHome_Carts</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ShopForHome_Cart</name>
-	<description>ShopForHome Cart Microservice</description>
+	<name>ShopForHome_Carts</name>
+	<description>ShopForHome Carts Microservice</description>
 	<url/>
 	<licenses>
 		<license/>
