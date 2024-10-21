@@ -1,9 +1,11 @@
 package com.capstone.ShopForHome.models;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,33 +15,38 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cartitem")
-public class CartItem {
+@Table(name = "orderitem")
+public class OrderItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
 
 	@ManyToOne
-	@JoinColumn(name = "cartId", nullable = false)
-	private Cart cart;
+	@JoinColumn(name = "orderId", nullable = false)
+	private Order order;
 
 	@ManyToOne
 	@JoinColumn(name = "productId", nullable = false)
 	private Product product;
 
+	@Column(nullable = false)
 	private int quantity;
+
+	@Column(nullable = false)
+	private BigDecimal price;
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 
-	public CartItem() {
+	public OrderItem() {
 		// default
 	}
 
-	public CartItem(Cart cart, Product product, int quantity) {
-		this.cart = cart;
+	public OrderItem(Order order, Product product, int quantity, BigDecimal price) {
+		this.order = order;
 		this.product = product;
 		this.quantity = quantity;
+		this.price = price;
 	}
 
 	// getters&setters
@@ -51,12 +58,12 @@ public class CartItem {
 		this.itemId = itemId;
 	}
 
-	public Cart getCart() {
-		return cart;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	public Product getProduct() {
@@ -75,11 +82,19 @@ public class CartItem {
 		this.quantity = quantity;
 	}
 
-	public LocalDateTime createdAt() {
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreated_at(LocalDateTime createdAt) {
+	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
 
