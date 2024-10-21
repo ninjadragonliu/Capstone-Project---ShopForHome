@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.capstone.ShopForHome.enums.Role;
+import com.cogent.ShopForHome_Users.enums.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
