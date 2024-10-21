@@ -2,12 +2,17 @@ package com.cogent.ShopForHome_Users.controller;
 
 import java.util.Optional;
 
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.service.annotation.GetExchange;
 
 import com.cogent.ShopForHome_Users.model.User;
 import com.cogent.ShopForHome_Users.service.UserService;
@@ -32,8 +37,41 @@ public class UserController {
 	}
 
 	@GetMapping("/users")
-	public List<User> getUsers() {
-		return userService.getAllUsers();
+	public ResponseEntity<List<User>> getUsers() {
+		List <User> users = userService.getAllUsers();
+		if(users.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(users);
+	}
+
+	@GetExchange("/users/{id}")
+	public ResponseEntity<User> getUserById(@PathVariable int id) {
+		Optional<User> user = userService.findUserById(id);
+		if(user.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(user.get());
+	}
+
+	@PutMapping("/users/{id}")
+	public ResponseEntity<User> updateUser(@PathVariable int id, @RequestBody User user) {
+		Optional<User> existingUser = userService.findUserById(id);
+		if(existingUser.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		userService.updateUser(id, user);
+		return ResponseEntity.ok(user);
+	}
+
+	@DeleteMapping("/users/{id}")
+	public ResponseEntity<String> deleteUser(@PathVariable int id) {
+		Optional<User> existingUser = userService.findUserById(id);
+		if(existingUser.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		userService.deleteUser(id);
+		return ResponseEntity.ok("User deleted successfully");
 	}
 
 }
