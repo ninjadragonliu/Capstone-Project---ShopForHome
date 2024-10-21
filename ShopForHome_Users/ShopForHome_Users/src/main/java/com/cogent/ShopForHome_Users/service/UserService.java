@@ -30,10 +30,11 @@ public class UserService {
     }
 
     public User updateUser(int userId, User user) {
-       Optional<User> existingUser = userRepository.findById(userId);
+       Optional<User> existingUser = userRepository.findById(user.getUserId());
        if(existingUser.isEmpty()) {
            return null;
        }
+       user.setUserId(userId);
        return userRepository.saveAndFlush(user);
     }
 
