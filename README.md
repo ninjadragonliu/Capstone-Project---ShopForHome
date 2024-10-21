@@ -13,3 +13,5 @@ Shop for home is a demo application in which a user will be able to go through w
 - orderitem
 - wishlist
 - wishlistitem
+
+## Spring Boot Showcase: Spring Boot Microservice Structure
