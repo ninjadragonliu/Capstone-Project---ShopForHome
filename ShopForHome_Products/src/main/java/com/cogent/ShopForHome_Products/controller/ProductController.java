@@ -22,7 +22,7 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 
-	@PostMapping("/register")
+	@PostMapping("/products/register")
 	public ResponseEntity<Product> register(@RequestBody Product product) {
 		Optional<Product> existingProduct = productService.findProductById(product.getProductId());
 		if (!existingProduct.isEmpty()) {
