@@ -327,3 +327,6 @@
 2024-10-21T17:33:51.836-04:00  INFO 47769 --- [ShopForHome_Carts] [http-nio-9003-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-10-21T17:33:51.837-04:00  INFO 47769 --- [ShopForHome_Carts] [http-nio-9003-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-10-21T17:33:51.842-04:00  INFO 47769 --- [ShopForHome_Carts] [http-nio-9003-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-10-21T17:35:08.094-04:00  INFO 47769 --- [ShopForHome_Carts] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-21T17:35:08.098-04:00  INFO 47769 --- [ShopForHome_Carts] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-21T17:35:08.105-04:00  INFO 47769 --- [ShopForHome_Carts] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
