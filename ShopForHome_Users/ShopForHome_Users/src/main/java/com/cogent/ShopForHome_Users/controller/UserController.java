@@ -21,10 +21,10 @@ import com.cogent.ShopForHome_Users.service.UserService;
 @RestController
 public class UserController {
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 
-	@PostMapping("/register")
+	@PostMapping("/users/register")
 	public ResponseEntity<User> register(@RequestBody User user) {
 		Optional<User> op = userService.findUserById(user.getUserId());
 		if (!op.isEmpty()) {
