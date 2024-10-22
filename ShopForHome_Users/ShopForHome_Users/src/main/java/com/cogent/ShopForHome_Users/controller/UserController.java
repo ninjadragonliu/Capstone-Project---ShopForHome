@@ -1,6 +1,5 @@
 package com.cogent.ShopForHome_Users.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.service.annotation.GetExchange;
 
 import com.cogent.ShopForHome_Users.model.User;
 import com.cogent.ShopForHome_Users.service.UserService;
@@ -35,16 +33,7 @@ public class UserController {
 
 	}
 
-	@GetMapping("/users")
-	public ResponseEntity<List<User>> getUsers() {
-		List <User> users = userService.getAllUsers();
-		if(users.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.ok(users);
-	}
-
-	@GetExchange("/users/{userId}")
+	@GetMapping("/users/{userId}")
 	public ResponseEntity<User> getUserById(@PathVariable int userId) {
 		Optional<User> user = userService.findUserById(userId);
 		if(user.isEmpty()) {
