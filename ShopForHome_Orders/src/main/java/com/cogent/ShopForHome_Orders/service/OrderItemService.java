@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cogent.ShopForHome_Orders.feign.UsersFeignClient;
 import com.cogent.ShopForHome_Orders.model.OrderItem;
 import com.cogent.ShopForHome_Orders.respository.OrderItemRepository;
 
@@ -18,6 +19,16 @@ import com.cogent.ShopForHome_Orders.respository.OrderItemRepository;
 public class OrderItemService{
 	@Autowired
 	private OrderItemRepository orderItemRepository;
+	
+	
+	@Autowired
+	private UsersFeignClient usersFeignClient;
+	
+	
+	public String feignClientTest(){
+		return usersFeignClient.hi();
+	}
+	
 
 	public OrderItem saveOrderItem(OrderItem orderItem) {
 		return orderItemRepository.save(orderItem);
