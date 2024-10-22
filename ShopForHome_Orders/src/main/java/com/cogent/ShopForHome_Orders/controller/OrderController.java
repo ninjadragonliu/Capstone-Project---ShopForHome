@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cogent.ShopForHome_Orders.model.Order;
+import com.cogent.ShopForHome_Orders.model.OrderItem;
 import com.cogent.ShopForHome_Orders.service.OrderItemService;
 import com.cogent.ShopForHome_Orders.service.OrderService;
 
@@ -24,9 +25,10 @@ import com.cogent.ShopForHome_Orders.service.OrderService;
 public class OrderController {
 	@Autowired
 	OrderService orderService;
+	@Autowired
 	OrderItemService orderItemService;
 
-
+	// Orders
 	@PostMapping("/register")
 	public ResponseEntity<Order> register(@RequestBody Order order) {
 		Optional<Order> existingOrder = orderService.findOrderById(order.getOrderId());
@@ -76,4 +78,57 @@ public class OrderController {
 		return ResponseEntity.ok("Order deleted successfully");
 	}
 
+
+
+	// OrderItems
+	@PostMapping("/registerOrderItem")
+	public ResponseEntity<OrderItem> registerItem(@RequestBody OrderItem orderItem) {
+		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItem.getId());
+		if (!existingOrderItem.isEmpty()) {
+			return ResponseEntity.badRequest().build();
+		}
+		orderItemService.saveOrderItem(orderItem);
+		return ResponseEntity.ok(orderItem);
+	}
+
+	@GetMapping("/orderItems")
+	public ResponseEntity<List<OrderItem>> getOrderItems() {
+		List<OrderItem> orderItemList = orderItemService.getAllOrderItems();
+		if (orderItemList.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(orderItemList);
+	}
+
+
+	@GetMapping("/orderItems/{orderItemId}")
+	public ResponseEntity<OrderItem> getOrderItemById(@PathVariable int orderItemId) {
+		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItemId);
+		if (existingOrderItem.isPresent()) {
+			return ResponseEntity.ok(existingOrderItem.get());
+		}
+		return ResponseEntity.notFound().build();
+	}
+
+	@PutMapping("/orderItems/{orderItemId}")
+	public ResponseEntity<OrderItem> updateOrderItem(@PathVariable int orderItemId, @RequestBody OrderItem orderItem) {
+		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItemId);
+		if (existingOrderItem.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		orderItemService.updateOrderItem(orderItemId, orderItem);
+		return ResponseEntity.ok(orderItem);
+	}
+
+	@DeleteMapping("/orderItems/{orderItemId}")
+	public ResponseEntity<String> deleteOrderItem(@PathVariable int orderItemId) {
+		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItemId);
+		if (existingOrderItem.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		orderItemService.deleteOrderItem(orderItemId);
+		return ResponseEntity.ok("OrderItem deleted successfully");
+	}
+
 }
+
