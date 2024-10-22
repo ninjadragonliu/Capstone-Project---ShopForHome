@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.cogent.ShopForHome_Orders.objectreferences.Product;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,9 +27,11 @@ public class OrderItem {
 	@JoinColumn(name = "orderId", nullable = false)
 	private Order order;
 
-	@ManyToOne
-	@JoinColumn(name = "productId", nullable = false)
-	private Product product;
+//	@ManyToOne
+//	@JoinColumn(name = "productId", nullable = false)
+//	private Product product;
+	
+	private int productId;
 
 	@Column(nullable = false)
 	private int quantity;
@@ -42,9 +46,9 @@ public class OrderItem {
 		// default
 	}
 
-	public OrderItem(Order order, Product product, int quantity, BigDecimal price) {
+	public OrderItem(Order order, int quantity, BigDecimal price) {
 		this.order = order;
-		this.product = product;
+//		this.product = product;
 		this.quantity = quantity;
 		this.price = price;
 	}
@@ -65,13 +69,21 @@ public class OrderItem {
 	public void setOrder(Order order) {
 		this.order = order;
 	}
+	
+//	public Product getProduct() {
+//		return product;
+//	}
+//
+//	public void setProduct(Product product) {
+//		this.product = product;
+//	}
 
-	public Product getProduct() {
-		return product;
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
 	public int getQuantity() {
