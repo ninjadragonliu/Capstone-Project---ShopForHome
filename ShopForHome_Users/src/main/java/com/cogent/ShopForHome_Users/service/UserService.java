@@ -17,7 +17,10 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	public User saveUser(User user) {
-        return userRepository.save(user);
+//		new user saved to user table	
+        User createdUser = userRepository.save(user);
+//      initalize new cart
+        return createdUser;    
     }
     
 	public Optional<User> findUserById(int userId) {

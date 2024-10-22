@@ -10,7 +10,4 @@ public interface UsersFeignClient {
 
 	@GetMapping("/users/test")
 	public String hi();
-	
-	
-	
 }
