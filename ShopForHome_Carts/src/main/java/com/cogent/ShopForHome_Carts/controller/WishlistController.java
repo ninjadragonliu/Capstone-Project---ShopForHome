@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cogent.ShopForHome_Carts.model.Product;
-import com.cogent.ShopForHome_Carts.model.User;
 import com.cogent.ShopForHome_Carts.model.Wishlist;
 import com.cogent.ShopForHome_Carts.model.WishlistItem;
-import com.cogent.ShopForHome_Carts.service.ProductFeignClient;
-import com.cogent.ShopForHome_Carts.service.UserFeignClient;
+import com.cogent.ShopForHome_Carts.objectreference.Product;
+import com.cogent.ShopForHome_Carts.objectreference.User;
 import com.cogent.ShopForHome_Carts.service.WishlistService;
+import com.cogent.ShopForHome_Carts.service.feign.ProductFeignClient;
+import com.cogent.ShopForHome_Carts.service.feign.UserFeignClient;
 
 @RestController
 public class WishlistController{

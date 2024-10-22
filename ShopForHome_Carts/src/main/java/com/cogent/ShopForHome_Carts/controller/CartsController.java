@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cogent.ShopForHome_Carts.model.Cart;
 import com.cogent.ShopForHome_Carts.model.CartItem;
-import com.cogent.ShopForHome_Carts.model.Product;
-import com.cogent.ShopForHome_Carts.model.User;
+import com.cogent.ShopForHome_Carts.objectreference.Product;
+import com.cogent.ShopForHome_Carts.objectreference.User;
 import com.cogent.ShopForHome_Carts.service.CartService;
-import com.cogent.ShopForHome_Carts.service.ProductFeignClient;
-import com.cogent.ShopForHome_Carts.service.UserFeignClient;
+import com.cogent.ShopForHome_Carts.service.feign.ProductFeignClient;
+import com.cogent.ShopForHome_Carts.service.feign.UserFeignClient;
 
 
 //not a bean

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Service
-@FeignClient(name="${feign.client.config.airport.service.name}")
+@FeignClient(name="ShopForHomeUsers", url = "http://localhost:9001/")
 public interface UsersFeignClient {
 
 	@GetMapping("/users/test")

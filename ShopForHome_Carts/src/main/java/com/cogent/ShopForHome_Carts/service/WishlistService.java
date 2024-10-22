@@ -7,10 +7,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cogent.ShopForHome_Carts.model.Product;
-import com.cogent.ShopForHome_Carts.model.User;
 import com.cogent.ShopForHome_Carts.model.Wishlist;
 import com.cogent.ShopForHome_Carts.model.WishlistItem;
+import com.cogent.ShopForHome_Carts.objectreference.Product;
+import com.cogent.ShopForHome_Carts.objectreference.User;
 import com.cogent.ShopForHome_Carts.repository.WishlistItemRepository;
 import com.cogent.ShopForHome_Carts.repository.WishlistRepository;
 

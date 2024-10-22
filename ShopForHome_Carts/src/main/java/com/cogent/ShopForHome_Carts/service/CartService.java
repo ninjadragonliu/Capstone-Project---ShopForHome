@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.cogent.ShopForHome_Carts.model.Cart;
 import com.cogent.ShopForHome_Carts.model.CartItem;
-import com.cogent.ShopForHome_Carts.model.Product;
+import com.cogent.ShopForHome_Carts.objectreference.Product;
 import com.cogent.ShopForHome_Carts.repository.CartItemRepository;
 import com.cogent.ShopForHome_Carts.repository.CartRepository;
 

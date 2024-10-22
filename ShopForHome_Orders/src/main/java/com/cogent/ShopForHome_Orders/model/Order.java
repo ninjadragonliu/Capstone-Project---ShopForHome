@@ -28,14 +28,10 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 
-//	@ManyToOne
-//	@JoinColumn(name = "userId", nullable = false)
-//	private User user;
+
 	private int userId;
 
-//	@OneToOne
-//	@JoinColumn(name = "cartId", nullable = false)
-//	private Cart cart;
+
 	private int cartId;
 
 	@Column(nullable = false)
@@ -52,6 +48,8 @@ public class Order {
 	}
 
 	public Order(BigDecimal total) {
+//		this.user = user;
+//		this.cart = cart;
 		this.total = total;
 	}
 
@@ -64,7 +62,21 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public Cart getCart() {
+//		return cart;
+//	}
+//
+//	public void setCart(Cart cart) {
+//		this.cart = cart;
+//	}
 
 	public int getUserId() {
 		return userId;
