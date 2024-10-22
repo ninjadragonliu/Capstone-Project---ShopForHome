@@ -28,6 +28,14 @@ public class OrderController {
 	@Autowired
 	private OrderItemService orderItemService;
 
+	
+	@GetMapping("/orders/test")
+	public String hi(){
+		return orderItemService.feignClientTest();
+	}
+	
+	
+	
 	// Orders
 	@PostMapping("/orders/register")
 	public ResponseEntity<Order> register(@RequestBody Order order) {
