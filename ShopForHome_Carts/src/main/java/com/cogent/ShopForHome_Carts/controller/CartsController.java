@@ -43,7 +43,7 @@ public class CartsController {
 	
 	@PostMapping("/cart")
 	public ResponseEntity<Cart> saveCart(@RequestBody Cart cart) {
-		Optional<Cart> op = cartService.findCartById(cart.getId());
+		Optional<Cart> op = cartService.findCartById(cart.getCartId());
 		if (!op.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}

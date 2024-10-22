@@ -21,7 +21,7 @@ import com.cogent.ShopForHome_Orders.service.OrderService;
 
 //not a bean
 @RestController
-public class DemoController {
+public class OrderController {
 	@Autowired
 	OrderService orderService;
 	OrderItemService orderItemService;
