@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.capstone.ShopForHome.enums.OrderStatus;
+//import com.cogent.ShopForHome_Orders.objectreferences.Cart;
+//import com.cogent.ShopForHome_Orders.objectreferences.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,9 +16,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+//import jakarta.persistence.JoinColumn;
+//import jakarta.persistence.ManyToOne;
+//import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,13 +28,15 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 
-	@ManyToOne
-	@JoinColumn(name = "userId", nullable = false)
-	private User user;
+//	@ManyToOne
+//	@JoinColumn(name = "userId", nullable = false)
+//	private User user;
+	private int userId;
 
-	@OneToOne
-	@JoinColumn(name = "cartId", nullable = false)
-	private Cart cart;
+//	@OneToOne
+//	@JoinColumn(name = "cartId", nullable = false)
+//	private Cart cart;
+	private int cartId;
 
 	@Column(nullable = false)
 	private BigDecimal total;
@@ -47,9 +51,9 @@ public class Order {
 		// default
 	}
 
-	public Order(User user, Cart cart, BigDecimal total) {
-		this.user = user;
-		this.cart = cart;
+	public Order(BigDecimal total) {
+//		this.user = user;
+//		this.cart = cart;
 		this.total = total;
 	}
 
@@ -62,20 +66,36 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-	public User getUser() {
-		return user;
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
+//
+//	public Cart getCart() {
+//		return cart;
+//	}
+//
+//	public void setCart(Cart cart) {
+//		this.cart = cart;
+//	}
+
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public Cart getCart() {
-		return cart;
+	public int getCartId() {
+		return cartId;
 	}
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 
 	public BigDecimal getTotal() {
