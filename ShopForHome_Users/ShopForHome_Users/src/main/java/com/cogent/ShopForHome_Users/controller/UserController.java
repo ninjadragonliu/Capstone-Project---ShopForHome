@@ -1,5 +1,6 @@
 package com.cogent.ShopForHome_Users.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.web.service.annotation.GetExchange;
 
 import com.cogent.ShopForHome_Users.model.User;
 import com.cogent.ShopForHome_Users.service.UserService;
-import java.util.List;
 
 //not a bean
 @RestController

@@ -1,9 +1,17 @@
 package com.cogent.ShopForHome_Orders.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -11,15 +19,83 @@ import jakarta.persistence.Table;
 public class OrderItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int itemId;
 
-	public int getId() {
-		return id;
+	@ManyToOne
+	@JoinColumn(name = "orderId", nullable = false)
+	private Order order;
+
+	@ManyToOne
+	@JoinColumn(name = "productId", nullable = false)
+	private Product product;
+
+	@Column(nullable = false)
+	private int quantity;
+
+	@Column(nullable = false)
+	private BigDecimal price;
+
+	@CreationTimestamp
+	private LocalDateTime createdAt;
+
+	public OrderItem() {
+		// default
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public OrderItem(Order order, Product product, int quantity, BigDecimal price) {
+		this.order = order;
+		this.product = product;
+		this.quantity = quantity;
+		this.price = price;
 	}
 
+	// getters&setters
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
 
 }
