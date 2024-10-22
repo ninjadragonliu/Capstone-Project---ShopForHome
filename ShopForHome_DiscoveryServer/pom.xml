@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>ShopForHome_DiscoveryClient</artifactId>
+	<artifactId>ShopForHome_DiscoveryServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>ShopForHome_DiscoveryClient</name>
-	<description>Shop For Home Discovery Client</description>
+	<name>ShopForHome_DiscoveryServer</name>
+	<description>Shop For Home Discovery Server</description>
 	<url/>
 	<licenses>
 		<license/>
