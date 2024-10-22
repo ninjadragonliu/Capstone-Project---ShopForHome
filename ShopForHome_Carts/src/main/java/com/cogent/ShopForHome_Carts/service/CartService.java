@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.cogent.ShopForHome_Carts.model.Cart;
 import com.cogent.ShopForHome_Carts.model.CartItem;
 import com.cogent.ShopForHome_Carts.model.Product;
-import com.cogent.ShopForHome_Carts.model.User;
 import com.cogent.ShopForHome_Carts.repository.CartItemRepository;
 import com.cogent.ShopForHome_Carts.repository.CartRepository;
 
@@ -21,19 +20,19 @@ public class CartService {
 	@Autowired
 	private CartItemRepository cartItemRepository;
 
-	public Cart getCartByUser(User user) {
-		return cartRepository.findByUser(user.getUserId()).orElseGet(() -> {
-			Cart newCart = new Cart(user);
+	public Cart getCartByUser(int userId) {
+		return cartRepository.findByUserId(userId).orElseGet(() -> {
+			Cart newCart = new Cart(userId);
 			return cartRepository.save(newCart);
 		});
 	}
 
-	public CartItem addProductToCart(User user, Product product, int quantity) {
-		Cart cart = getCartByUser(user);
-		Optional<CartItem> existingCartItem = cartItemRepository.findByCartAndProduct(cart, product);
+	public CartItem addProductToCart(int userId, Product product, int quantity) {
+		Cart cart = getCartByUser(userId);
+		Optional<CartItem> existingCartItem = cartItemRepository.findByCartAndProductId(cart, product.getProductId());
 		CartItem cartItem = new CartItem();
 		if (existingCartItem.isEmpty()) {
-			cartItem = new CartItem(cart, product, quantity);
+			cartItem = new CartItem(cart, product.getProductId(), quantity);
 		} else {
 			cartItem = existingCartItem.get();
 			cartItem.setQuantity(cartItem.getQuantity() + quantity);
@@ -42,9 +41,9 @@ public class CartService {
 		return cartItemRepository.save(cartItem);
 	}
 
-	public boolean removeProductFromCart(User user, Product product) {
-		Cart cart = getCartByUser(user);
-		Optional<CartItem> existingCartItem = cartItemRepository.findByCartAndProduct(cart, product);
+	public boolean removeProductFromCart(int userId, Product product) {
+		Cart cart = getCartByUser(userId);
+		Optional<CartItem> existingCartItem = cartItemRepository.findByCartAndProductId(cart, product.getProductId());
 		if(existingCartItem.isEmpty()) {
 			return false;
 		} 

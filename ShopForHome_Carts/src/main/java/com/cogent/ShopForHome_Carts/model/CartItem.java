@@ -24,10 +24,7 @@ public class CartItem {
 	@JoinColumn(name = "cartId", nullable = false)
 	private Cart cart;
 
-	@ManyToOne
-	@JoinColumn(name = "productId", nullable = false)
-	private Product product;
-
+	private int productId;
 	private int quantity;
 
 	@CreationTimestamp
@@ -37,9 +34,9 @@ public class CartItem {
 		// default
 	}
 
-	public CartItem(Cart cart, Product product, int quantity) {
+	public CartItem(Cart cart, int productId, int quantity) {
 		this.cart = cart;
-		this.product = product;
+		this.productId = productId;
 		this.quantity = quantity;
 	}
 
@@ -59,13 +56,21 @@ public class CartItem {
 	public void setCart(Cart cart) {
 		this.cart = cart;
 	}
-
-	public Product getProduct() {
-		return product;
+	
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public int getQuantity() {
@@ -75,13 +80,4 @@ public class CartItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
-	public LocalDateTime createdAt() {
-		return createdAt;
-	}
-
-	public void setCreated_at(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-
 }

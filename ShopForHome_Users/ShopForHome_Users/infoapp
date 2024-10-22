@@ -1,3 +1,55 @@
+<<<<<<< HEAD
+2024-10-22T13:51:18.374-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] c.c.S.ShopForHomeUsersApplication        : Starting ShopForHomeUsersApplication using Java 21.0.2 with PID 27636 (C:\Users\twoo5\Documents\work\COGENT\Capstone\ShopForHome\Capstone-Project---ShopForHome\ShopForHome_Users\ShopForHome_Users\target\classes started by twoo5 in C:\Users\twoo5\Documents\work\COGENT\Capstone\ShopForHome\Capstone-Project---ShopForHome\ShopForHome_Users\ShopForHome_Users)
+2024-10-22T13:51:18.381-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] c.c.S.ShopForHomeUsersApplication        : The following 1 profile is active: "tim"
+2024-10-22T13:51:18.419-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-22T13:51:18.419-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-22T13:51:18.893-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-22T13:51:18.948-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interface.
+2024-10-22T13:51:19.497-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-10-22T13:51:19.511-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-22T13:51:19.511-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-22T13:51:19.554-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-22T13:51:19.554-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1134 ms
+2024-10-22T13:51:19.767-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22T13:51:19.865-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-22T13:51:19.889-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-22T13:51:20.129-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-22T13:51:20.155-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-22T13:51:20.432-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c6ccec
+2024-10-22T13:51:20.434-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-22T13:51:21.050-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22T13:51:21.091-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T13:51:21.458-05:00  WARN 27636 --- [ShopForHome_Users] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22T13:51:21.897-05:00  WARN 27636 --- [ShopForHome_Users] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-22T13:51:21.930-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-10-22T13:51:21.939-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] c.c.S.ShopForHomeUsersApplication        : Started ShopForHomeUsersApplication in 3.885 seconds (process running for 4.218)
+2024-10-22T13:52:48.706-05:00  INFO 27636 --- [ShopForHome_Users] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-22T13:52:48.716-05:00  INFO 27636 --- [ShopForHome_Users] [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T13:52:48.718-05:00  INFO 27636 --- [ShopForHome_Users] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-22T13:52:48.723-05:00  INFO 27636 --- [ShopForHome_Users] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-22T13:52:48.804-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] c.c.S.ShopForHomeUsersApplication        : Starting ShopForHomeUsersApplication using Java 21.0.2 with PID 27636 (C:\Users\twoo5\Documents\work\COGENT\Capstone\ShopForHome\Capstone-Project---ShopForHome\ShopForHome_Users\ShopForHome_Users\target\classes started by twoo5 in C:\Users\twoo5\Documents\work\COGENT\Capstone\ShopForHome\Capstone-Project---ShopForHome\ShopForHome_Users\ShopForHome_Users)
+2024-10-22T13:52:48.805-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] c.c.S.ShopForHomeUsersApplication        : The following 1 profile is active: "tim"
+2024-10-22T13:52:48.914-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-22T13:52:48.921-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 1 JPA repository interface.
+2024-10-22T13:52:48.971-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-10-22T13:52:48.972-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-22T13:52:48.973-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-22T13:52:48.986-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-22T13:52:48.986-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 180 ms
+2024-10-22T13:52:49.004-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-22T13:52:49.006-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-22T13:52:49.012-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-22T13:52:49.012-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-10-22T13:52:49.022-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@357c029b
+2024-10-22T13:52:49.022-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-10-22T13:52:49.053-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-22T13:52:49.084-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-22T13:52:49.125-05:00  WARN 27636 --- [ShopForHome_Users] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-22T13:52:49.171-05:00  WARN 27636 --- [ShopForHome_Users] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-22T13:52:49.176-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-10-22T13:52:49.179-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] c.c.S.ShopForHomeUsersApplication        : Started ShopForHomeUsersApplication in 0.394 seconds (process running for 91.458)
+2024-10-22T13:52:49.181-05:00  INFO 27636 --- [ShopForHome_Users] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+=======
 2024-10-22T13:05:11.713-04:00  INFO 56527 --- [ShopForHome_Users] [restartedMain] c.c.S.ShopForHomeUsersApplication        : Starting ShopForHomeUsersApplication using Java 21.0.3 with PID 56527 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Users/ShopForHome_Users/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Users/ShopForHome_Users)
 2024-10-22T13:05:11.720-04:00  INFO 56527 --- [ShopForHome_Users] [restartedMain] c.c.S.ShopForHomeUsersApplication        : The following 1 profile is active: "isabell"
 2024-10-22T13:05:11.743-04:00  INFO 56527 --- [ShopForHome_Users] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
@@ -342,3 +394,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
 2024-10-22T13:10:28.838-04:00  INFO 56527 --- [ShopForHome_Users] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+>>>>>>> db35349d1adf895dae7cf5050b99100859696382

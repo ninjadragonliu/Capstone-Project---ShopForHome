@@ -9,6 +9,6 @@ import com.cogent.ShopForHome_Carts.model.Cart;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart,Integer>{
-	public Optional<Cart> findByUser(int userId);
+	public Optional<Cart> findByUserId(int userId);
 
 }
