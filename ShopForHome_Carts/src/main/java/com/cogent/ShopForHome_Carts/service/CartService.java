@@ -20,6 +20,16 @@ public class CartService {
 	@Autowired
 	private CartItemRepository cartItemRepository;
 
+	public Optional<CartItem> findByCartItemId(int cartItemId) {
+		return cartItemRepository.findById(cartItemId);
+	}
+	
+	public CartItem updateCartItemQuantity(int userId, int cartItemId, int quantity) {
+		CartItem cartItem = cartItemRepository.findById(cartItemId).get();
+		cartItem.setQuantity(cartItem.getQuantity() + quantity);
+		return cartItem;
+	}
+	
 	public Cart getCartByUser(int userId) {
 		return cartRepository.findByUserId(userId).orElseGet(() -> {
 			Cart newCart = new Cart(userId);

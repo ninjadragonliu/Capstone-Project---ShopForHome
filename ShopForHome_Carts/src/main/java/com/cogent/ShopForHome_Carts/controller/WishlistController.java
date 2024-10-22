@@ -31,7 +31,7 @@ public class WishlistController{
 	@Autowired
 	private ProductFeignClient productFeignClient;
 	
-	@PostMapping("/wishlist/{userId}/register")
+	@PostMapping("/wishlist/{userId}/items")
 	public ResponseEntity<List<WishlistItem>> addProductToWishlist(@PathVariable int userId, @RequestParam("productId") int productId) {
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
@@ -61,7 +61,7 @@ public class WishlistController{
 		return ResponseEntity.ok(wishlistItems);
 	}
 
-	@DeleteMapping("wishlist/{userId}/{productId}")
+	@DeleteMapping("wishlist/{userId}/items/{productId}")
 	public ResponseEntity<List<WishlistItem>> removeProductFromWishlist(@PathVariable int userId, @PathVariable int productId){
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
