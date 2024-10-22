@@ -12,9 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,10 +21,7 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartId;
-
-	@OneToOne
-	@JoinColumn(name = "userId", nullable = false)
-	private User user;
+	private int userId;
 	
 	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
 	private List<CartItem> cartItems = new ArrayList<>();
@@ -38,8 +33,8 @@ public class Cart {
 		// default
 	}
 
-	public Cart(User user) {
-		this.user = user;
+	public Cart(int userId) {
+		this.userId = userId;
 	}
 
 	public void clearCart() {
@@ -67,14 +62,14 @@ public class Cart {
 		this.cartId = cartId;
 	}
 
-	public User getUser() {
-		return user;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-
+	
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}

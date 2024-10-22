@@ -9,6 +9,6 @@ import com.cogent.ShopForHome_Carts.model.Wishlist;
 
 @Repository
 public interface WishlistRepository extends JpaRepository<Wishlist,Integer>{
-	public Optional<Wishlist> findByUser(int userId);
+	public Optional<Wishlist> findByUserId(int userId);
 
 }

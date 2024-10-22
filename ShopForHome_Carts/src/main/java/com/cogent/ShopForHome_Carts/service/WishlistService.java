@@ -25,19 +25,19 @@ public class WishlistService {
 	@Autowired
 	private WishlistItemRepository wishlistItemRepository;
 
-	public Wishlist getWishlistByUser(User user) {
-		return wishlistRepository.findByUser(user.getUserId()).orElseGet(() -> {
-			Wishlist newWishlist = new Wishlist(user);
+	public Wishlist getWishlistByUser(int userId) {
+		return wishlistRepository.findByUserId(userId).orElseGet(() -> {
+			Wishlist newWishlist = new Wishlist(userId);
 			return wishlistRepository.save(newWishlist);
 		});
 	}
 
 	public WishlistItem addProductToWishlist(User user, Product product) {
-		Wishlist wishlist = getWishlistByUser(user);
-		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistAndProduct(wishlist, product);
+		Wishlist wishlist = getWishlistByUser(user.getUserId());
+		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistAndProductId(wishlist, product.getProductId());
 		WishlistItem wishlistItem = new WishlistItem();
 		if (existingWishlistItem.isEmpty()) {
-			wishlistItem = new WishlistItem(wishlist, product);
+			wishlistItem = new WishlistItem(wishlist, product.getProductId());
 		} else {
 			wishlistItem = existingWishlistItem.get();
 		}
@@ -46,8 +46,8 @@ public class WishlistService {
 	}
 
 	public boolean removeProductFromWishlist(User user, Product product) {
-		Wishlist wishlist = getWishlistByUser(user);
-		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistAndProduct(wishlist, product);
+		Wishlist wishlist = getWishlistByUser(user.getUserId());
+		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistAndProductId(wishlist, product.getProductId());
 		if(existingWishlistItem.isEmpty()) {
 			return false;
 		} 

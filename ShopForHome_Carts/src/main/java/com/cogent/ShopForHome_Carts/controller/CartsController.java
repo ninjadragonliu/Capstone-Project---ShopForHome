@@ -44,8 +44,9 @@ public class CartsController {
 		if(existingProduct.isEmpty()) {
 			return ResponseEntity.notFound().build(); 
 		}
-		cartService.addProductToCart(existingUser.get(), existingProduct.get(), quantity);
-		Cart cart = cartService.getCartByUser(existingUser.get());
+		User user = existingUser.get();
+		cartService.addProductToCart(user.getUserId(), existingProduct.get(), quantity);
+		Cart cart = cartService.getCartByUser(user.getUserId());
 		List<CartItem> cartItems = cart.getCartItems();
 		return ResponseEntity.ok(cartItems);
 	}
@@ -56,7 +57,8 @@ public class CartsController {
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		Cart cart = cartService.getCartByUser(existingUser.get());
+		User user = existingUser.get();
+		Cart cart = cartService.getCartByUser(user.getUserId());
 		List<CartItem> cartItems = cart.getCartItems();
 		return ResponseEntity.ok(cartItems);
 	}
@@ -71,11 +73,12 @@ public class CartsController {
 		if(existingProduct.isEmpty()) {
 			return ResponseEntity.notFound().build(); 
 		}
-		boolean removed = cartService.removeProductFromCart(existingUser.get(), existingProduct.get());
+		User user = existingUser.get();
+		boolean removed = cartService.removeProductFromCart(user.getUserId(), existingProduct.get());
 		if(!removed) {
 			return ResponseEntity.notFound().build(); 
 		}
-		Cart cart = cartService.getCartByUser(existingUser.get());
+		Cart cart = cartService.getCartByUser(user.getUserId());
 		List<CartItem> cartItems = cart.getCartItems();
 		return ResponseEntity.ok(cartItems);
 	}

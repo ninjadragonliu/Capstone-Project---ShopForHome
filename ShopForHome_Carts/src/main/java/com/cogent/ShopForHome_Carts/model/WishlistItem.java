@@ -18,14 +18,11 @@ public class WishlistItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
-
+	private int productId;
+	
 	@ManyToOne
 	@JoinColumn(name = "wishlistId", nullable = false)
 	private Wishlist wishlist;
-
-	@ManyToOne
-	@JoinColumn(name = "productId", nullable = false)
-	private Product product;
 	
 	@CreationTimestamp
 	private LocalDateTime createdAt;
@@ -34,9 +31,9 @@ public class WishlistItem {
 		// default
 	}
 
-	public WishlistItem(Wishlist wishlist, Product product) {
+	public WishlistItem(Wishlist wishlist, int productId) {
 		this.wishlist = wishlist;
-		this.product = product;
+		this.productId = productId;
 	}
 
 	// getters&setters
@@ -56,12 +53,12 @@ public class WishlistItem {
 		this.wishlist = wishlist;
 	}
 
-	public Product getProduct() {
-		return product;
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
 	public LocalDateTime getCreatedAt() {

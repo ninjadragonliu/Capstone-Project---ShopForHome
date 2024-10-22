@@ -11,9 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,10 +20,7 @@ public class Wishlist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int wishlistId;
-
-	@OneToOne
-	@JoinColumn(name = "userId", nullable = false)
-	private User user;
+	private int userId;
 
 	@OneToMany(mappedBy = "wishlist", cascade = CascadeType.ALL)
 	private List<WishlistItem> wishlistItems = new ArrayList<>();
@@ -37,8 +32,8 @@ public class Wishlist {
 		// default
 	}
 
-	public Wishlist(User user) {
-		this.user = user;
+	public Wishlist(int userId) {
+		this.userId = userId;
 	}
 	
 	public void clearWishlist() {
@@ -62,12 +57,12 @@ public class Wishlist {
 		this.wishlistId = wishlistId;
 	}
 
-	public User getUser() {
-		return user;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public LocalDateTime getCreatedAt() {

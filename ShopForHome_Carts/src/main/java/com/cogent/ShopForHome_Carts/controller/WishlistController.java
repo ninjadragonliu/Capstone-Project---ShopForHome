@@ -41,8 +41,10 @@ public class WishlistController{
 		if(existingProduct.isEmpty()) {
 			return ResponseEntity.notFound().build(); 
 		}
-		wishlistService.addProductToWishlist(existingUser.get(), existingProduct.get());
-		Wishlist wishlist = wishlistService.getWishlistByUser(existingUser.get());
+		User user = existingUser.get();
+		Product product = existingProduct.get();
+		wishlistService.addProductToWishlist(user, product);
+		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
 		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
 		return ResponseEntity.ok(wishlistItems);
 	}
@@ -53,7 +55,8 @@ public class WishlistController{
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		Wishlist wishlist = wishlistService.getWishlistByUser(existingUser.get());
+		User user = existingUser.get();
+		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
 		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
 		return ResponseEntity.ok(wishlistItems);
 	}
@@ -68,11 +71,13 @@ public class WishlistController{
 		if(existingProduct.isEmpty()) {
 			return ResponseEntity.notFound().build(); 
 		}
-		boolean removed = wishlistService.removeProductFromWishlist(existingUser.get(), existingProduct.get());
+		User user = existingUser.get();
+		Product product = existingProduct.get();
+		boolean removed = wishlistService.removeProductFromWishlist(user, product);
 		if(!removed) {
 			return ResponseEntity.notFound().build(); 
 		}
-		Wishlist wishlist = wishlistService.getWishlistByUser(existingUser.get());
+		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
 		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
 		return ResponseEntity.ok(wishlistItems);
 	}
@@ -83,7 +88,8 @@ public class WishlistController{
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		Wishlist wishlist = wishlistService.getWishlistByUser(existingUser.get());
+		User user = existingUser.get();
+		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
 		wishlistService.clearWishlist(wishlist);
 		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
 		return ResponseEntity.ok(wishlistItems);
