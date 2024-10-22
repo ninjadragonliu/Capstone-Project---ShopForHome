@@ -12,7 +12,7 @@ import com.cogent.ShopForHome_Products.repository.ProductRepository;
 @Service
 public class ProductService {
 	@Autowired
-	ProductRepository productRepository;
+	private ProductRepository productRepository;
 
 	public Product saveProduct(Product product) {
 		return productRepository.save(product);

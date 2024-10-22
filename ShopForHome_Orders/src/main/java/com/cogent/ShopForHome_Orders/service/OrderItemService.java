@@ -17,7 +17,7 @@ import com.cogent.ShopForHome_Orders.respository.OrderItemRepository;
 @Service
 public class OrderItemService{
 	@Autowired
-	OrderItemRepository orderItemRepository;
+	private OrderItemRepository orderItemRepository;
 
 	public OrderItem saveOrderItem(OrderItem orderItem) {
 		return orderItemRepository.save(orderItem);
@@ -45,7 +45,7 @@ public class OrderItemService{
 		if (existingOrderItem.isEmpty()) {
 			return null;
 		}
-		orderItem.setId(id);
+		orderItem.setItemId(id);
 		return orderItemRepository.saveAndFlush(orderItem);
 	}
 

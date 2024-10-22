@@ -2,14 +2,18 @@ package com.cogent.ShopForHome_Carts.model;
 
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -23,6 +27,9 @@ public class Cart {
 	@OneToOne
 	@JoinColumn(name = "userId", nullable = false)
 	private User user;
+	
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+	private List<CartItem> cartItems = new ArrayList<>();
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
@@ -35,9 +42,25 @@ public class Cart {
 		this.user = user;
 	}
 
+	public void clearCart() {
+		this.cartItems.clear();
+	}
+	
 	// getters&setters
 	public int getCartId() {
 		return cartId;
+	}
+
+	public List<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public void setCartId(int cartId) {
