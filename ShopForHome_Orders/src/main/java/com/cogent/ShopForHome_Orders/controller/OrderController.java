@@ -83,7 +83,7 @@ public class OrderController {
 	// OrderItems
 	@PostMapping("/registerOrderItem")
 	public ResponseEntity<OrderItem> registerItem(@RequestBody OrderItem orderItem) {
-		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItem.getId());
+		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItem.getItemId());
 		if (!existingOrderItem.isEmpty()) {
 			return ResponseEntity.badRequest().build();
 		}

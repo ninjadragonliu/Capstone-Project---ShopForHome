@@ -45,7 +45,7 @@ public class OrderItemService{
 		if (existingOrderItem.isEmpty()) {
 			return null;
 		}
-		orderItem.setId(id);
+		orderItem.setItemId(id);
 		return orderItemRepository.saveAndFlush(orderItem);
 	}
 
