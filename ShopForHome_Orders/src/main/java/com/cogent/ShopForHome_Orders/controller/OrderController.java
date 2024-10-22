@@ -24,12 +24,12 @@ import com.cogent.ShopForHome_Orders.service.OrderService;
 @RestController
 public class OrderController {
 	@Autowired
-	OrderService orderService;
+	private OrderService orderService;
 	@Autowired
-	OrderItemService orderItemService;
+	private OrderItemService orderItemService;
 
 	// Orders
-	@PostMapping("/register")
+	@PostMapping("/orders/register")
 	public ResponseEntity<Order> register(@RequestBody Order order) {
 		Optional<Order> existingOrder = orderService.findOrderById(order.getOrderId());
 		if (!existingOrder.isEmpty()) {

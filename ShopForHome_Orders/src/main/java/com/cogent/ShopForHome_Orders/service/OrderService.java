@@ -12,7 +12,7 @@ import com.cogent.ShopForHome_Orders.respository.OrderRepository;
 @Service
 public class OrderService {
 	@Autowired
-	OrderRepository orderRepository;
+	private OrderRepository orderRepository;
 
 	public Order saveOrder(Order order) {
 		return orderRepository.save(order);
