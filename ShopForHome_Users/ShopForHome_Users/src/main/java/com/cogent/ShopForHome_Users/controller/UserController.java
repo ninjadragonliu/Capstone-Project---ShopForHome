@@ -2,7 +2,6 @@ package com.cogent.ShopForHome_Users.controller;
 
 import java.util.Optional;
 
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
