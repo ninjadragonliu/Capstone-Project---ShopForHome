@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,14 @@ public class WishlistController{
 	
 	@Autowired
 	private ProductFeignClient productFeignClient;
+	
+	
+	@PostMapping("/wishlist/register")
+	public ResponseEntity<Wishlist> wishlistRegister(@RequestBody Integer userId) {
+		Wishlist existingWishlist = wishlistService.getWishlistByUser(userId);
+		return ResponseEntity.ok().body(existingWishlist);
+	}
+	
 	
 	@PostMapping("/wishlist/{userId}/items")
 	public ResponseEntity<List<WishlistItem>> addProductToWishlist(@PathVariable int userId, @RequestParam("productId") int productId) {
