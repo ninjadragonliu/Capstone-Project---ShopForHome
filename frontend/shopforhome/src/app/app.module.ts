@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AdministratorInterfaceComponent } from './administrator-interface/administrator-interface.component';
 import { UserInterfaceHeaderComponent } from './user-interface-header/user-interface-header.component';
 import { LoginComponent } from './login/login.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -34,7 +34,7 @@ export class CartService {
   }
 
   // clear cart
-  clearCart(userId:number): Observable<CartItem[]>{
+  clearCart(userId: number): Observable<CartItem[]> {
     return this.http.delete<CartItem[]>('${this.apiUrl}/carts/${userId}/clear');
   }
 }
