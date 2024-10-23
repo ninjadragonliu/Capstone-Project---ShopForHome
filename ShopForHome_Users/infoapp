@@ -8132,3 +8132,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2024-10-23T18:39:57.046-04:00  INFO 76293 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2024-10-23T18:44:57.054-04:00  INFO 76293 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2024-10-23T18:49:57.056-04:00  INFO 76293 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:54:57.064-04:00  INFO 76293 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
