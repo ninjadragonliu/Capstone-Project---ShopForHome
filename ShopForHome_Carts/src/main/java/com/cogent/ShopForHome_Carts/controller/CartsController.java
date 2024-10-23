@@ -43,13 +43,14 @@ public class CartsController {
 	}
 	
 	
-	@PostMapping("/cart/{userId}/items")
-	public ResponseEntity<List<CartItem>> addProductToCart(@PathVariable int userId, @RequestBody int productId, @RequestBody int quantity) {
+//	possible change to token with authentication if time permits
+	@PostMapping("/cart/{userId}/{productId}/items")
+	public ResponseEntity<List<CartItem>> addProductToCart(@PathVariable Integer userId, @PathVariable String productId, @RequestBody String quantity) {
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
+		Optional<Product> existingProduct = productFeignClient.getProductById(Integer.parseInt(productId));
 		if(existingProduct.isEmpty()) {
 			return ResponseEntity.notFound().build(); 
 		}
@@ -59,6 +60,9 @@ public class CartsController {
 		List<CartItem> cartItems = cart.getCartItems();
 		return ResponseEntity.ok(cartItems);
 	}
+	
+	
+	
  
 	@GetMapping("/cart/{userId}")
 	public ResponseEntity<List<CartItem>> getCartByUser(@PathVariable int userId) {
