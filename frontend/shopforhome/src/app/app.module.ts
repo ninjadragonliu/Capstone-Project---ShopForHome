@@ -9,11 +9,13 @@ import { OutdoorsComponent } from './outdoors/outdoors.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { AdministratorInterfaceComponent } from './administrator-interface/administrator-interface.component';
+import { UserInterfaceComponent } from './user-interface/user-interface.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, OutdoorsComponent, HomeComponent, SignupComponent
+    AppComponent, OutdoorsComponent, HomeComponent, SignupComponent, AdministratorInterfaceComponent, UserInterfaceComponent
   ],
   imports: [
     BrowserModule,
