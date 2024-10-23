@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.cogent.ShopForHome_Users.feign.CartsFeignClient;
 import com.cogent.ShopForHome_Users.model.User;
-import com.cogent.ShopForHome_Users.objectreference.Cart;
 import com.cogent.ShopForHome_Users.repository.UserRepository;
 
 
@@ -23,10 +22,9 @@ public class UserService {
 	public User saveUser(User user) {
 //		New user added to table	
         User createdUser = userRepository.save(user);
-//      Initialize new cart
-        Cart newCart = new Cart();
-        newCart.setUserId(createdUser.getUserId());  
-        cartsFeignClient.register(newCart);
+//      Initialize new cart  
+        cartsFeignClient.cartRegister(createdUser.getUserId());
+        cartsFeignClient.wishlistRegister(createdUser.getUserId());    
         return createdUser;    
     }
     

@@ -37,8 +37,8 @@ public class CartsController {
 	
 
 	@PostMapping("/cart/register")
-	public ResponseEntity<Cart> register(@RequestBody Cart cart) {
-		Cart existingCart = cartService.getCartByUser(cart.getUserId());
+	public ResponseEntity<Cart> cartRegister(@RequestBody Integer userId) {
+		Cart existingCart = cartService.getCartByUser(userId);
 		return ResponseEntity.ok().body(existingCart);
 	}
 	
