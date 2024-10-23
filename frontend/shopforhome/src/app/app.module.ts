@@ -10,12 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdministratorInterfaceComponent } from './administrator-interface/administrator-interface.component';
-import { UserInterfaceComponent } from './user-interface/user-interface.component';
+import {UserInterfaceHeaderComponent } from './user-interface-header/user-interface-header.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, OutdoorsComponent, HomeComponent, SignupComponent, AdministratorInterfaceComponent, UserInterfaceComponent
+    AppComponent, OutdoorsComponent, HomeComponent, SignupComponent, AdministratorInterfaceComponent, UserInterfaceHeaderComponent
   ],
   imports: [
     BrowserModule,

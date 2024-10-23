@@ -5,7 +5,7 @@ import { OutdoorsComponent } from './outdoors/outdoors.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
-import { UserInterfaceComponent } from './user-interface/user-interface.component';
+import { UserInterfaceHeaderComponent } from './user-interface-header/user-interface-header.component';
 import { AdministratorInterfaceComponent } from './administrator-interface/administrator-interface.component';
 
 
