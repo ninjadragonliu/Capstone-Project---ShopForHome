@@ -683,6 +683,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114) ~[spring-boot-3.3.4.jar:3.3.4]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
+<<<<<<< HEAD
 2024-10-23T17:48:54.204-04:00  INFO 73711 --- [ShopForHomeOrders] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
 2024-10-23T17:50:34.532-04:00  INFO 76302 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Starting ShopForHomeOrdersApplication using Java 21.0.3 with PID 76302 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders)
 2024-10-23T17:50:34.534-04:00  INFO 76302 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : The following 1 profile is active: "isabell"
@@ -745,3 +746,5 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2024-10-23T18:45:38.935-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2024-10-23T18:50:38.942-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2024-10-23T18:55:38.945-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+=======
+>>>>>>> 210f7093f734cb0d7d617cd69fa94772b01301b7

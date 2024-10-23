@@ -40,14 +40,15 @@ public class CartService {
 	public CartItem addProductToCart(Integer userId, Product product, Integer quantity) {
 		Cart cart = getCartByUser(userId);
 		Optional<CartItem> existingCartItem = cartItemRepository.findByCartIdAndProductId(cart.getCartId(), product.getProductId());
-		CartItem cartItem = new CartItem();
+		CartItem cartItem;
 		if (existingCartItem.isEmpty()) {
-			cartItem = new CartItem(cart.getCartId(), product.getProductId(), quantity);
+			
+			cartItem = new CartItem(cart.getCartId(),product.getProductId(), quantity, product.getPrice());
 		} else {
 			cartItem = existingCartItem.get();
 			cartItem.setQuantity(cartItem.getQuantity() + quantity);
 		}
-
+		System.out.println(cartItemRepository.findAll());
 		return cartItemRepository.save(cartItem);
 	}
 

@@ -44,9 +44,9 @@ public class OrderItem {
 		// default
 	}
 
-	public OrderItem(Order order, int quantity, BigDecimal price) {
+	public OrderItem(Order order, int productId, int quantity, BigDecimal price) {
 		this.order = order;
-//		this.product = product;
+		this.productId = productId;
 		this.quantity = quantity;
 		this.price = price;
 	}

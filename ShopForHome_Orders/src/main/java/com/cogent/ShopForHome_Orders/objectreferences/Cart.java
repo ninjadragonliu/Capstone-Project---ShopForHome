@@ -1,38 +1,58 @@
 package com.cogent.ShopForHome_Orders.objectreferences;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 //reference object
 public class Cart {
+	
 	private int cartId;
-	private User user;
+	private int userId;
+	private List<CartItem> cartItems = new ArrayList<>();
 	private LocalDateTime createdAt;
 
 	public Cart() {
 		// default
 	}
 
-	public Cart(User user) {
-		this.user = user;
+	public Cart(int userId) {
+		this.userId = userId;
 	}
 
+	public void clearCart() {
+		this.cartItems.clear();
+	}
+	
 	// getters&setters
 	public int getCartId() {
 		return cartId;
+	}
+
+	public List<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}
 
-	public User getUser() {
-		return user;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-
+	
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}

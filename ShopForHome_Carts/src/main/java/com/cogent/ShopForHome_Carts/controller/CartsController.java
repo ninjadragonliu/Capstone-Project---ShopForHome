@@ -40,7 +40,7 @@ public class CartsController {
 	
 
 	@PostMapping("/cart/register")
-	public ResponseEntity<Cart> cartRegister(@RequestBody Integer userId) {
+	public ResponseEntity<Cart> cartRegister(@RequestBody int userId) {
 		Cart existingCart = cartService.getCartByUser(userId);
 		return ResponseEntity.ok().body(existingCart);
 	}
@@ -63,17 +63,30 @@ public class CartsController {
 		List<CartItem> cartItems = cart.getCartItems();
 		return ResponseEntity.ok(cartItems);
 	}
- 
+
+	@DeleteMapping("cart/{userId}/clear")
+	public ResponseEntity<List<CartItem>> clearCart(@PathVariable int userId){
+		ResponseEntity<User> existingUser = userFeignClient.getUserById(userId);
+		if(!existingUser.hasBody()) {
+			return ResponseEntity.notFound().build();
+		}
+		User user = existingUser.getBody();
+
+		Cart cart = cartService.getCartByUser(user.getUserId());
+		cartService.clearCart(cart);
+		List<CartItem> cartItems = cart.getCartItems();
+		return ResponseEntity.ok(cartItems);
+	}
+
 //	@GetMapping("/cart/{userId}")
-//	public ResponseEntity<List<CartItem>> getCartByUser(@PathVariable int userId) {
+//	public ResponseEntity<Cart> getCartByUser(@PathVariable int userId) {
 //		Optional<User> existingUser = userFeignClient.getUserById(userId);
 //		if(existingUser.isEmpty()) {
 //			return ResponseEntity.notFound().build();
 //		}
 //		User user = existingUser.get();
 //		Cart cart = cartService.getCartByUser(user.getUserId());
-//		List<CartItem> cartItems = cart.getCartItems();
-//		return ResponseEntity.ok(cartItems);
+//		return ResponseEntity.ok(cart);
 //	}
 //
 //	@DeleteMapping("/cart/{userId}/items/{cartItemId}")
@@ -88,25 +101,23 @@ public class CartsController {
 //			return ResponseEntity.notFound().build();
 //		}
 //		CartItem cartItem = existingCartItem.get();
-//		cartService.addProductToCart(user.getUserId(), existingProduct.get(), productData.getQuantity());
+//		
+//		Optional<Product> existingProduct = productFeignClient.getProductById(cartItem.getProductId());
+//		if(existingProduct.isEmpty()) {
+//			return ResponseEntity.notFound().build(); 
+//		}
+//		User user = existingUser.get();
+//		boolean removed = cartService.removeProductFromCart(user.getUserId(), existingProduct.get());
+//		if(!removed) {
+//			return ResponseEntity.notFound().build(); 
+//		}
 //		Cart cart = cartService.getCartByUser(user.getUserId());
 //		List<CartItem> cartItems = cart.getCartItems();
-//		return ResponseEntity.ok().body(cartItems);
+//		return ResponseEntity.ok(cartItems);
 //	}
 //	
 //
-	@DeleteMapping("cart/{userId}/clear")
-	public ResponseEntity<List<CartItem>> clearCart(@PathVariable int userId){
-		ResponseEntity<User> existingUser = userFeignClient.getUserById(userId);
-		if(!existingUser.hasBody()) {
-			return ResponseEntity.notFound().build();
-		}
-		User user = existingUser.getBody();
-		Cart cart = cartService.getCartByUser(user.getUserId());
-		cartService.clearCart(cart);
-		List<CartItem> cartItems = cart.getCartItems();
-		return ResponseEntity.ok(cartItems);
-	}
+//
 //	
 //	@PatchMapping("/cart/{userId}/items/{cartItemId}")
 //	public ResponseEntity<CartItem> updateCartItemQuantity(@PathVariable int userId, @PathVariable int cartItemId, @RequestBody int quantity){
@@ -130,3 +141,4 @@ public class CartsController {
 //		return ResponseEntity.ok(updatedCartItem);
 //	}
 }
+

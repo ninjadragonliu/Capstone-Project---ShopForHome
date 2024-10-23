@@ -1,6 +1,7 @@
 package com.cogent.ShopForHome_Carts.model;
 
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,16 +23,9 @@ public class CartItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
 	private int productId;
-	private Integer quantity;
 	private int cartId;
-
-	public int getCartId() {
-		return cartId;
-	}
-
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
-	}
+	private int quantity;
+	private BigDecimal price;
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
@@ -40,15 +34,24 @@ public class CartItem {
 		// default
 	}
 
-	public CartItem(int cartId, int productId, Integer quantity) {
+	public CartItem(int cartId, int productId, int quantity, BigDecimal price) {
 		this.productId = productId;
 		this.quantity = quantity;
+		this.price = price;
 		this.cartId = cartId;
 	}
 
 	// getters&setters
 	public int getItemId() {
 		return itemId;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 
 	public void setItemId(int itemId) {

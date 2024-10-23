@@ -7,12 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.cogent.ShopForHome_Orders.objectreferences.User;
+import com.cogent.ShopForHome_Orders.objectreferences.Cart;
 
 @Service
-@FeignClient(name="ShopForHomeUsers", url = "http://localhost:9001/")
-public interface UsersFeignClient {
-
-	@GetMapping("/users/{userId}")
-	public Optional<User> getUserById(@PathVariable int userId);
+@FeignClient(name="ShopForHomeCarts", url = "http://localhost:9003/")
+public interface CartsFeignClient {
+	@GetMapping("/cart/{userId}")
+	public Optional<Cart> getCartByUser(@PathVariable int userId);
 }

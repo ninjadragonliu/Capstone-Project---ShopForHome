@@ -1,10 +1,13 @@
 package com.cogent.ShopForHome_Users.repository;
 
-import com.cogent.ShopForHome_Users.model.*;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.cogent.ShopForHome_Users.model.User;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-	public User findByUsername(String username);
+	public Optional<User> findByUsername(String username);
 }

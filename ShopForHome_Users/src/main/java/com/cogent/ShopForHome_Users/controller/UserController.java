@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.cogent.ShopForHome_Users.model.User;
+import com.cogent.ShopForHome_Users.objectreference.LoginRequest;
 import com.cogent.ShopForHome_Users.service.UserService;
 
 //not a bean
@@ -30,7 +32,17 @@ public class UserController {
 //		return "";
 //	}
 	
-
+	@PostMapping("/users/login")
+	public ResponseEntity<User> loginUser(@RequestBody LoginRequest loginRequest){
+		Optional<User> op = userService.loginUser(loginRequest.getUsername(), loginRequest.getPassword());
+		if (!op.isEmpty()) {
+			return ResponseEntity.ok(op.get());
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+		
+	}
+	
 	@PostMapping("/users/register")
 	public ResponseEntity<User> register(@RequestBody User user) {
 		Optional<User> op = userService.findUserById(user.getUserId());
