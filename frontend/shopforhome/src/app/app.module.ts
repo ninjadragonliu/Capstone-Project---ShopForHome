@@ -4,17 +4,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { ProductDropdownComponent } from './product-dropdown/product-dropdown.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OutdoorsComponent } from './outdoors/outdoors.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, ProductDropdownComponent
+    AppComponent, OutdoorsComponent, HomeComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
