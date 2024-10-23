@@ -1,11 +1,11 @@
-<body>
+
 <div>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar" style="background-color: #E69930;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" routerLink="/">ShopForHome</a>
             </div>
-            <ul class="nav navbar-nav navbar-center">
+            <!--<ul class="navbar-nav">
                 <li ><a routerLink="/">Home</a></li>
                 <li class="dropdown" ngbDropdown>
                   <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" ngbDropdownToggle aria-expanded="false">
@@ -17,8 +17,24 @@
                       <li><a class="dropdown-item" href="#">Living Room</a></li>
                   </ul>
               </li>                            
-                <li><a >Contact</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>-->
+            <a routerLink="/">Home</a>
+            <div class="dropdown">
+
+            <ul class="dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" ngbDropdownToggle aria-expanded="false">
+                    Categories
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" routerLink="/outdoors">Outdoors</a></li>
+                    <li><a class="dropdown-item" href="#">Kitchen</a></li>
+                    <li><a class="dropdown-item" href="#">Living Room</a></li>
+                </ul>
             </ul>
+            </div> 
+            <a href = "#">Contact</a>
+            
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-heart"></span> WishList</a></li>
               <li><a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
@@ -28,4 +44,3 @@
         </div>
     </nav>
 </div>
-</body>
