@@ -40,9 +40,10 @@ public class CartItem {
 		// default
 	}
 
-	public CartItem(int productId, Integer quantity) {
+	public CartItem(int cartId, int productId, Integer quantity) {
 		this.productId = productId;
 		this.quantity = quantity;
+		this.cartId = cartId;
 	}
 
 	// getters&setters
