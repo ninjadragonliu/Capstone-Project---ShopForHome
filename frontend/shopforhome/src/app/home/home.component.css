@@ -1,0 +1,7 @@
+.carousel-slide {
+    text-align: center; /* Center the content inside the slide */
+}
+
+.carousel-slide img {
+    display: inline-block; /* Ensure the image is treated as an inline element */
+}

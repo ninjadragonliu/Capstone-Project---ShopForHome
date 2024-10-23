@@ -38,8 +38,6 @@ public class WishlistController{
 		Wishlist existingWishlist = wishlistService.getWishlistByUser(userId);
 		return ResponseEntity.ok().body(existingWishlist);
 	}
-	
-	
 //	@PostMapping("/wishlist/{userId}/items")
 //	public ResponseEntity<List<WishlistItem>> addProductToWishlist(@PathVariable int userId, @RequestParam("productId") int productId) {
 //		Optional<User> existingUser = userFeignClient.getUserById(userId);
@@ -70,13 +68,19 @@ public class WishlistController{
 //		return ResponseEntity.ok(wishlistItems);
 //	}
 //
-//	@DeleteMapping("wishlist/{userId}/items/{productId}")
-//	public ResponseEntity<List<WishlistItem>> removeProductFromWishlist(@PathVariable int userId, @PathVariable int productId){
+//	@DeleteMapping("wishlist/{userId}/items/{wishlistItemId}")
+//	public ResponseEntity<List<WishlistItem>> removeProductFromWishlist(@PathVariable int userId, @PathVariable int wishlistItemId){
 //		Optional<User> existingUser = userFeignClient.getUserById(userId);
 //		if(existingUser.isEmpty()) {
 //			return ResponseEntity.notFound().build();
 //		}
-//		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
+//		Optional<WishlistItem> existingWishlistItem = wishlistService.findByWishlistItemId(wishlistItemId);
+//		if(existingWishlistItem.isEmpty()) {
+//			return ResponseEntity.notFound().build();
+//		}
+//		WishlistItem wishlistItem = existingWishlistItem.get();
+//		
+//		Optional<Product> existingProduct = productFeignClient.getProductById(wishlistItem.getProductId());
 //		if(existingProduct.isEmpty()) {
 //			return ResponseEntity.notFound().build(); 
 //		}
@@ -102,8 +106,6 @@ public class WishlistController{
 //		wishlistService.clearWishlist(wishlist);
 //		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
 //		return ResponseEntity.ok(wishlistItems);
-//		
-//		
 //	}
 }
 

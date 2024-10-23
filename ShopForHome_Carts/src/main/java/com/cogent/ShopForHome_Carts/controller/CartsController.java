@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cogent.ShopForHome_Carts.model.Cart;
 import com.cogent.ShopForHome_Carts.model.CartItem;
+import com.cogent.ShopForHome_Carts.objectreference.ItemRequest;
 import com.cogent.ShopForHome_Carts.objectreference.Product;
 import com.cogent.ShopForHome_Carts.objectreference.ProductData;
 import com.cogent.ShopForHome_Carts.objectreference.User;
@@ -57,15 +58,11 @@ public class CartsController {
 			return ResponseEntity.notFound().build(); 
 		}
 		User user = existingUser.getBody();
-		
 		cartService.addProductToCart(user.getUserId(), existingProduct.get(), productData.getQuantity());
 		Cart cart = cartService.getCartByUser(user.getUserId());
 		List<CartItem> cartItems = cart.getCartItems();
-		return ResponseEntity.ok().body(cartItems);
+		return ResponseEntity.ok(cartItems);
 	}
-	
-	
-	
  
 //	@GetMapping("/cart/{userId}")
 //	public ResponseEntity<List<CartItem>> getCartByUser(@PathVariable int userId) {
@@ -91,17 +88,22 @@ public class CartsController {
 //			return ResponseEntity.notFound().build();
 //		}
 //		CartItem cartItem = existingCartItem.get();
-//		
-//		Optional<Product> existingProduct = productFeignClient.getProductById(cartItem.getProductId());
-//		if(existingProduct.isEmpty()) {
-//			return ResponseEntity.notFound().build(); 
+//		cartService.addProductToCart(user.getUserId(), existingProduct.get(), productData.getQuantity());
+//		Cart cart = cartService.getCartByUser(user.getUserId());
+//		List<CartItem> cartItems = cart.getCartItems();
+//		return ResponseEntity.ok().body(cartItems);
+//	}
+//	
+//
+//	@DeleteMapping("cart/{userId}/clear")
+//	public ResponseEntity<List<CartItem>> clearCart(@PathVariable int userId){
+//		Optional<User> existingUser = userFeignClient.getUserById(userId);
+//		if(existingUser.isEmpty()) {
+//			return ResponseEntity.notFound().build();
 //		}
 //		User user = existingUser.get();
-//		boolean removed = cartService.removeProductFromCart(user.getUserId(), existingProduct.get());
-//		if(!removed) {
-//			return ResponseEntity.notFound().build(); 
-//		}
 //		Cart cart = cartService.getCartByUser(user.getUserId());
+//		cartService.clearCart(cart);
 //		List<CartItem> cartItems = cart.getCartItems();
 //		return ResponseEntity.ok(cartItems);
 //	}

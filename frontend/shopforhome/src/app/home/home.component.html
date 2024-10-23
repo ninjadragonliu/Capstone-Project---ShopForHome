@@ -1,6 +1,24 @@
 <app-user-interface-header></app-user-interface-header>
+<head>
+  <link rel="stylesheet" href="home.component.css">
+  </head>
 <body>
-    <h1>Welcome to ShopForHome. A place where you can shop for your home.</h1>
-    <img src="assets/images/couch.jpg" alt="Couch" height="300" width="300"/>
-    <img src="assets/images/simpleTable.jpg" alt="Simple Table" height="300" width="300"/>
+    <h1 class ="text-center">Welcome to ShopForHome. A place where you can shop for your home.</h1>
+    <carousel>
+      <slide>
+          <div class="carousel-slide">
+              <img src="assets/images/couch.jpg" alt="Couch" style="width: 50%;">
+          </div>
+      </slide>
+      <slide>
+          <div class="carousel-slide">
+              <img src="assets/images/simpleTable.jpg" alt="Simple Table" style="width: 55%;">
+          </div>
+      </slide>
+      <slide>
+          <div class="carousel-slide">
+              <img src="assets/images/simpleChair.jpg" alt="Simple Chair" style="width: 65%;">
+          </div>
+      </slide>
+  </carousel>
 </body>
