@@ -2,18 +2,20 @@ import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { OutdoorsComponent } from './outdoors/outdoors.component';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
-import { UserInterfaceHeaderComponent } from './user-interface-header/user-interface-header.component';
 import { AdministratorInterfaceComponent } from './administrator-interface/administrator-interface.component';
+import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes = [
-  { path: 'admin', component: AdministratorInterfaceComponent},
+  { path: 'admin', component: AdministratorInterfaceComponent },
   { path: '', component: HomeComponent },
   { path: 'outdoors', component: OutdoorsComponent },
-  { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cart', component: CartComponent }
 ]
 @NgModule({
   declarations: [],
