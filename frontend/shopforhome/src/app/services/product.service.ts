@@ -15,10 +15,23 @@ export class ProductService {
     return this.http.post<Product>('${this.apiUrl}/products/register', product);
   }
 
-  // get all
+  // get all products
   getProducts(): Observable<Product[]>{
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.http.get<Product[]>('${this.apiUrl}/products');
   }
 
-  // need to implement add/update/delete
+  // get product by product id
+  getProductById(productId: number): Observable<Product>{
+    return this.http.get<Product>('${this.apiUrl}/products/${productId}');
+  }
+
+  // update product
+  updateProduct(productId: number, product: Product): Observable<Product>{
+    return this.http.put<Product>('${this.apiUrl}/products/${productId}', product);
+  }
+
+  // delete product
+  deleteProduct(productId: number): Observable<String>{
+    return this.http.delete<String>('${this.apiUrl}/products/${productId}');
+  }
 }

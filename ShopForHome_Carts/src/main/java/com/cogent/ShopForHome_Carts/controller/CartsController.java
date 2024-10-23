@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cogent.ShopForHome_Carts.model.Cart;
 import com.cogent.ShopForHome_Carts.model.CartItem;
+import com.cogent.ShopForHome_Carts.objectreference.ItemRequest;
 import com.cogent.ShopForHome_Carts.objectreference.Product;
 import com.cogent.ShopForHome_Carts.objectreference.User;
 import com.cogent.ShopForHome_Carts.service.CartService;
@@ -44,17 +45,17 @@ public class CartsController {
 	
 	
 	@PostMapping("/cart/{userId}/items")
-	public ResponseEntity<List<CartItem>> addProductToCart(@PathVariable int userId, @RequestBody int productId, @RequestBody int quantity) {
+	public ResponseEntity<List<CartItem>> addProductToCart(@PathVariable int userId, @RequestBody ItemRequest itemRequest) {
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
+		Optional<Product> existingProduct = productFeignClient.getProductById(itemRequest.getProductId());
 		if(existingProduct.isEmpty()) {
 			return ResponseEntity.notFound().build(); 
 		}
 		User user = existingUser.get();
-		cartService.addProductToCart(user.getUserId(), existingProduct.get(), quantity);
+		cartService.addProductToCart(user.getUserId(), existingProduct.get(), itemRequest.getQuantity());
 		Cart cart = cartService.getCartByUser(user.getUserId());
 		List<CartItem> cartItems = cart.getCartItems();
 		return ResponseEntity.ok(cartItems);
@@ -100,7 +101,7 @@ public class CartsController {
 	}
 	
 	@PatchMapping("/cart/{userId}/items/{cartItemId}")
-	public ResponseEntity<CartItem> updateCartItemQuantity(@PathVariable int userId, @PathVariable int cartItemId, @RequestBody int quantity){
+	public ResponseEntity<CartItem> updateCartItemQuantity(@PathVariable int userId, @PathVariable int cartItemId, @RequestBody ItemRequest itemRequest){
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
@@ -117,7 +118,7 @@ public class CartsController {
 			return ResponseEntity.notFound().build(); 
 		}
 			
-		CartItem updatedCartItem = cartService.updateCartItemQuantity(userId, cartItemId, quantity);
+		CartItem updatedCartItem = cartService.updateCartItemQuantity(userId, cartItemId, itemRequest.getQuantity());
 		return ResponseEntity.ok(updatedCartItem);
 	}
 }
