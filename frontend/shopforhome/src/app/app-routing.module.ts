@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdministratorInterfaceComponent } from './administrator-interface/administrator-interface.component';
 import { LoginComponent } from './login/login.component';
-import { CartComponent } from './cart/cart.component';
 
 
 const routes = [
@@ -15,7 +14,6 @@ const routes = [
   { path: 'outdoors', component: OutdoorsComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cart', component: CartComponent }
 ]
 @NgModule({
   declarations: [],
