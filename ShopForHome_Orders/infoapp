@@ -732,3 +732,15 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2024-10-23T17:50:39.155-04:00  INFO 76302 --- [ShopForHomeOrders] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9020
 2024-10-23T17:50:39.166-04:00  INFO 76302 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Started ShopForHomeOrdersApplication in 5.078 seconds (process running for 5.691)
 2024-10-23T17:50:39.170-04:00  INFO 76302 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T17:55:38.857-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:00:38.870-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:05:38.876-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:10:38.882-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:15:38.892-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:20:38.902-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:25:38.906-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:30:38.914-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:35:38.918-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:40:38.924-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:45:38.935-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T18:50:38.942-04:00  INFO 76302 --- [ShopForHomeOrders] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

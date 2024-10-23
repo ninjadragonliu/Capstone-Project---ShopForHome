@@ -95,18 +95,18 @@ public class CartsController {
 //	}
 //	
 //
-//	@DeleteMapping("cart/{userId}/clear")
-//	public ResponseEntity<List<CartItem>> clearCart(@PathVariable int userId){
-//		Optional<User> existingUser = userFeignClient.getUserById(userId);
-//		if(existingUser.isEmpty()) {
-//			return ResponseEntity.notFound().build();
-//		}
-//		User user = existingUser.get();
-//		Cart cart = cartService.getCartByUser(user.getUserId());
-//		cartService.clearCart(cart);
-//		List<CartItem> cartItems = cart.getCartItems();
-//		return ResponseEntity.ok(cartItems);
-//	}
+	@DeleteMapping("cart/{userId}/clear")
+	public ResponseEntity<List<CartItem>> clearCart(@PathVariable int userId){
+		ResponseEntity<User> existingUser = userFeignClient.getUserById(userId);
+		if(!existingUser.hasBody()) {
+			return ResponseEntity.notFound().build();
+		}
+		User user = existingUser.getBody();
+		Cart cart = cartService.getCartByUser(user.getUserId());
+		cartService.clearCart(cart);
+		List<CartItem> cartItems = cart.getCartItems();
+		return ResponseEntity.ok(cartItems);
+	}
 //	
 //	@PatchMapping("/cart/{userId}/items/{cartItemId}")
 //	public ResponseEntity<CartItem> updateCartItemQuantity(@PathVariable int userId, @PathVariable int cartItemId, @RequestBody int quantity){

@@ -24,7 +24,7 @@ public class Cart {
 	private int cartId;
 	private int userId;
 	
-	@OneToMany(mappedBy = "cartId", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cartId", cascade = CascadeType.REMOVE)
 	private List<CartItem> cartItems = new ArrayList<>();
 
 	@CreationTimestamp

@@ -68,7 +68,10 @@ public class CartService {
 
 	public void clearCart(Cart cart) {
 		List<CartItem> cartItems = cart.getCartItems();
-		cartItemRepository.deleteAll(cartItems);
+		for(CartItem item: cartItems) {
+			cartItemRepository.deleteById(item.getItemId());
+			System.out.println(item.getItemId() + item.getQuantity());
+		}
 		cart.clearCart();
 		cartRepository.save(cart);
 	}
