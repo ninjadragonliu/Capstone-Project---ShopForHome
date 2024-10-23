@@ -42,7 +42,7 @@ public class CartService {
 		Optional<CartItem> existingCartItem = cartItemRepository.findByCartAndProductId(cart, product.getProductId());
 		CartItem cartItem = new CartItem();
 		if (existingCartItem.isEmpty()) {
-			cartItem = new CartItem(cart, product.getProductId(), quantity);
+			cartItem = new CartItem(cart, product.getProductId(), quantity, product.getPrice());
 		} else {
 			cartItem = existingCartItem.get();
 			cartItem.setQuantity(cartItem.getQuantity() + quantity);

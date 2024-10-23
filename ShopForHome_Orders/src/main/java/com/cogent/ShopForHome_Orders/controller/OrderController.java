@@ -1,6 +1,5 @@
 package com.cogent.ShopForHome_Orders.controller;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -14,37 +13,45 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capstone.ShopForHome.enums.OrderStatus;
+import com.cogent.ShopForHome_Orders.feign.CartsFeignClient;
 import com.cogent.ShopForHome_Orders.model.Order;
 import com.cogent.ShopForHome_Orders.model.OrderItem;
-import com.cogent.ShopForHome_Orders.service.OrderItemService;
+import com.cogent.ShopForHome_Orders.objectreferences.Cart;
 import com.cogent.ShopForHome_Orders.service.OrderService;
-
 
 //not a bean
 @RestController
 public class OrderController {
 	@Autowired
 	private OrderService orderService;
-	@Autowired
-	private OrderItemService orderItemService;
 
-	
-	@GetMapping("/orders/test")
-	public String hi(){
-		return orderItemService.feignClientTest();
-	}
-	
-	
-	
+	@Autowired
+	private CartsFeignClient cartsFeignClient;
+
 	// Orders
 	@PostMapping("/orders/register")
-	public ResponseEntity<Order> register(@RequestBody Order order) {
-		Optional<Order> existingOrder = orderService.findOrderById(order.getOrderId());
-		if (!existingOrder.isEmpty()) {
-			return ResponseEntity.badRequest().build();
+	public ResponseEntity<Order> register(@RequestBody int userId) {
+		Optional<Cart> existingCart = cartsFeignClient.getCartByUser(userId);
+		if (existingCart.isEmpty()) {
+			return ResponseEntity.notFound().build();
 		}
-		orderService.saveOrder(order);
+		Cart cart = existingCart.get();
+		Order order = orderService.saveOrder(cart);
 		return ResponseEntity.ok(order);
+	}
+
+	@PostMapping("/orders/{orderId}/complete")
+	public ResponseEntity<Order> completeOrder(@PathVariable int orderId) {
+		Optional<Order> existingOrder = orderService.findOrderById(orderId);
+		if (existingOrder.isPresent()) {
+			Order order = orderService.completeOrder(existingOrder.get());
+			if (order.getStatus().equals(OrderStatus.COMPLETED)) {
+				return ResponseEntity.ok(order);
+			}
+		}
+		return ResponseEntity.notFound().build();
+
 	}
 
 	@GetMapping("/orders")
@@ -56,7 +63,6 @@ public class OrderController {
 		return ResponseEntity.ok(orderList);
 	}
 
-
 	@GetMapping("/orders/{orderId}")
 	public ResponseEntity<Order> getOrderById(@PathVariable int orderId) {
 		Optional<Order> existingOrder = orderService.findOrderById(orderId);
@@ -67,76 +73,32 @@ public class OrderController {
 	}
 
 	@PutMapping("/orders/{orderId}")
-	public ResponseEntity<Order> updateOrder(@PathVariable int orderId, @RequestBody Order order) {
+	public ResponseEntity<Order> updateOrder(@PathVariable int orderId, @RequestBody OrderItem orderItem) {
 		Optional<Order> existingOrder = orderService.findOrderById(orderId);
 		if (existingOrder.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		orderService.updateOrder(orderId, order);
+		Order order = orderService.updateOrder(existingOrder.get(), orderItem);
 		return ResponseEntity.ok(order);
 	}
 
 	@DeleteMapping("/orders/{orderId}")
+	public ResponseEntity<String> cancelOrder(@PathVariable int orderId) {
+		Optional<Order> existingOrder = orderService.findOrderById(orderId);
+		if (existingOrder.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		orderService.cancelOrder(existingOrder.get());
+		return ResponseEntity.ok("Order cancelled successfully");
+	}
+
+	@DeleteMapping("/orders/{orderId}/delete")
 	public ResponseEntity<String> deleteOrder(@PathVariable int orderId) {
 		Optional<Order> existingOrder = orderService.findOrderById(orderId);
 		if (existingOrder.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		orderService.deleteOrder(orderId);
+		orderService.deleteOrder(existingOrder.get());
 		return ResponseEntity.ok("Order deleted successfully");
 	}
-
-
-
-	// OrderItems
-	@PostMapping("/registerOrderItem")
-	public ResponseEntity<OrderItem> registerItem(@RequestBody OrderItem orderItem) {
-		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItem.getItemId());
-		if (!existingOrderItem.isEmpty()) {
-			return ResponseEntity.badRequest().build();
-		}
-		orderItemService.saveOrderItem(orderItem);
-		return ResponseEntity.ok(orderItem);
-	}
-
-	@GetMapping("/orderItems")
-	public ResponseEntity<List<OrderItem>> getOrderItems() {
-		List<OrderItem> orderItemList = orderItemService.getAllOrderItems();
-		if (orderItemList.isEmpty()) {
-			return ResponseEntity.noContent().build();
-		}
-		return ResponseEntity.ok(orderItemList);
-	}
-
-
-	@GetMapping("/orderItems/{orderItemId}")
-	public ResponseEntity<OrderItem> getOrderItemById(@PathVariable int orderItemId) {
-		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItemId);
-		if (existingOrderItem.isPresent()) {
-			return ResponseEntity.ok(existingOrderItem.get());
-		}
-		return ResponseEntity.notFound().build();
-	}
-
-	@PutMapping("/orderItems/{orderItemId}")
-	public ResponseEntity<OrderItem> updateOrderItem(@PathVariable int orderItemId, @RequestBody OrderItem orderItem) {
-		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItemId);
-		if (existingOrderItem.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-		orderItemService.updateOrderItem(orderItemId, orderItem);
-		return ResponseEntity.ok(orderItem);
-	}
-
-	@DeleteMapping("/orderItems/{orderItemId}")
-	public ResponseEntity<String> deleteOrderItem(@PathVariable int orderItemId) {
-		Optional<OrderItem> existingOrderItem = orderItemService.findOrderItemById(orderItemId);
-		if (existingOrderItem.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-		orderItemService.deleteOrderItem(orderItemId);
-		return ResponseEntity.ok("OrderItem deleted successfully");
-	}
-
 }
-

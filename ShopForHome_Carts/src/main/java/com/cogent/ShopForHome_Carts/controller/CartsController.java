@@ -38,7 +38,7 @@ public class CartsController {
 	
 
 	@PostMapping("/cart/register")
-	public ResponseEntity<Cart> cartRegister(@RequestBody Integer userId) {
+	public ResponseEntity<Cart> cartRegister(@RequestBody int userId) {
 		Cart existingCart = cartService.getCartByUser(userId);
 		return ResponseEntity.ok().body(existingCart);
 	}
@@ -62,15 +62,14 @@ public class CartsController {
 	}
  
 	@GetMapping("/cart/{userId}")
-	public ResponseEntity<List<CartItem>> getCartByUser(@PathVariable int userId) {
+	public ResponseEntity<Cart> getCartByUser(@PathVariable int userId) {
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
 		User user = existingUser.get();
 		Cart cart = cartService.getCartByUser(user.getUserId());
-		List<CartItem> cartItems = cart.getCartItems();
-		return ResponseEntity.ok(cartItems);
+		return ResponseEntity.ok(cart);
 	}
 
 	@DeleteMapping("/cart/{userId}/items/{cartItemId}")

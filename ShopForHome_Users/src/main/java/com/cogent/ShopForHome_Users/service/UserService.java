@@ -19,6 +19,18 @@ public class UserService {
 	@Autowired
 	private CartsFeignClient cartsFeignClient;
 	
+	public Optional<User> loginUser(String username, String password) {
+		Optional<User> existingUser = userRepository.findByUsername(username);
+		if(existingUser.isEmpty()) {
+			return null;
+		}
+		if(existingUser.get().getPassword().equals(password)) {
+			return existingUser;
+		} else {
+			return null; 
+		}
+	}
+	
 	public User saveUser(User user) {
 //		New user added to table	
         User createdUser = userRepository.save(user);

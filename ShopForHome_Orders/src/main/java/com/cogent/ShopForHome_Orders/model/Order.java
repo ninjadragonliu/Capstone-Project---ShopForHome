@@ -2,13 +2,14 @@ package com.cogent.ShopForHome_Orders.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.capstone.ShopForHome.enums.OrderStatus;
-//import com.cogent.ShopForHome_Orders.objectreferences.Cart;
-//import com.cogent.ShopForHome_Orders.objectreferences.User;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,6 +17,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 //import jakarta.persistence.JoinColumn;
 //import jakarta.persistence.ManyToOne;
 //import jakarta.persistence.OneToOne;
@@ -27,13 +29,12 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-
-
 	private int userId;
-
-
 	private int cartId;
 
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+	private List<OrderItem> orderItems = new ArrayList<>();
+	
 	@Column(nullable = false)
 	private BigDecimal total;
 
@@ -47,10 +48,9 @@ public class Order {
 		// default
 	}
 
-	public Order(BigDecimal total) {
-//		this.user = user;
-//		this.cart = cart;
-		this.total = total;
+	public Order(int userId, int cartId) {
+		this.userId = userId;
+		this.cartId = cartId;
 	}
 
 	// getters&setters
@@ -78,8 +78,17 @@ public class Order {
 //		this.cart = cart;
 //	}
 
+	
 	public int getUserId() {
 		return userId;
+	}
+
+	public List<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(List<OrderItem> orderItems) {
+		this.orderItems = orderItems;
 	}
 
 	public void setUserId(int userId) {
