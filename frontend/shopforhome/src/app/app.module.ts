@@ -23,7 +23,7 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    CarouselModule
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
