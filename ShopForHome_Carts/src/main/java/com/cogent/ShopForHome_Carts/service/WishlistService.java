@@ -25,6 +25,10 @@ public class WishlistService {
 	@Autowired
 	private WishlistItemRepository wishlistItemRepository;
 
+	public Optional<WishlistItem> findByWishlistItemId(int wishlistItemId) {
+		return wishlistItemRepository.findById(wishlistItemId);
+	}
+	
 	public Wishlist getWishlistByUser(int userId) {
 		return wishlistRepository.findByUserId(userId).orElseGet(() -> {
 			Wishlist newWishlist = new Wishlist(userId);
