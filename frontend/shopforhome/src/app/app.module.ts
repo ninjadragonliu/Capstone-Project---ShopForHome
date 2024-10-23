@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { NgbCarousel, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OutdoorsComponent } from './outdoors/outdoors.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -10,12 +10,14 @@ import { AdministratorInterfaceComponent } from './administrator-interface/admin
 import { UserInterfaceHeaderComponent } from './user-interface-header/user-interface-header.component';
 import { LoginComponent } from './login/login.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CartComponent } from './components/cart/cart.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, OutdoorsComponent, HomeComponent, SignupComponent, AdministratorInterfaceComponent, UserInterfaceHeaderComponent,
-    LoginComponent
+    LoginComponent, CartComponent, WishlistComponent
   ],
   imports: [
     BrowserModule,

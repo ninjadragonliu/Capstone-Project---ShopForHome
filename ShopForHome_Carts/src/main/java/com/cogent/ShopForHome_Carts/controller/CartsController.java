@@ -18,10 +18,12 @@ import com.cogent.ShopForHome_Carts.model.Cart;
 import com.cogent.ShopForHome_Carts.model.CartItem;
 import com.cogent.ShopForHome_Carts.objectreference.ItemRequest;
 import com.cogent.ShopForHome_Carts.objectreference.Product;
+import com.cogent.ShopForHome_Carts.objectreference.ProductData;
 import com.cogent.ShopForHome_Carts.objectreference.User;
 import com.cogent.ShopForHome_Carts.service.CartService;
 import com.cogent.ShopForHome_Carts.service.feign.ProductFeignClient;
 import com.cogent.ShopForHome_Carts.service.feign.UserFeignClient;
+import com.cogent.ShopForHome_Carts.objectreference.ProductData;
 
 
 //not a bean
@@ -44,18 +46,19 @@ public class CartsController {
 	}
 	
 	
+//	possible change to token with authentication if time permits
 	@PostMapping("/cart/{userId}/items")
-	public ResponseEntity<List<CartItem>> addProductToCart(@PathVariable int userId, @RequestBody ItemRequest itemRequest) {
-		Optional<User> existingUser = userFeignClient.getUserById(userId);
-		if(existingUser.isEmpty()) {
+	public ResponseEntity<List<CartItem>> addProductToCart(@PathVariable int userId, @RequestBody ProductData productData) {
+		ResponseEntity<User> existingUser = userFeignClient.getUserById(userId);
+		if(!existingUser.hasBody()) {
 			return ResponseEntity.notFound().build();
 		}
-		Optional<Product> existingProduct = productFeignClient.getProductById(itemRequest.getProductId());
+		Optional<Product> existingProduct = productFeignClient.getProductById(productData.getProductId());
 		if(existingProduct.isEmpty()) {
 			return ResponseEntity.notFound().build(); 
 		}
-		User user = existingUser.get();
-		cartService.addProductToCart(user.getUserId(), existingProduct.get(), itemRequest.getQuantity());
+		User user = existingUser.getBody();
+		cartService.addProductToCart(user.getUserId(), existingProduct.get(), productData.getQuantity());
 		Cart cart = cartService.getCartByUser(user.getUserId());
 		List<CartItem> cartItems = cart.getCartItems();
 		return ResponseEntity.ok(cartItems);
