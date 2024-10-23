@@ -30,7 +30,7 @@ public class CartService {
 		return cartItem;
 	}
 	
-	public Cart getCartByUser(int userId) {
+	public Cart getCartByUser(Integer userId) {
 		return cartRepository.findByUserId(userId).orElseGet(() -> {
 			Cart newCart = new Cart(userId);
 			return cartRepository.save(newCart);

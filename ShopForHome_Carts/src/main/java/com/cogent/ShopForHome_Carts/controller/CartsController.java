@@ -35,6 +35,14 @@ public class CartsController {
 	@Autowired
 	private ProductFeignClient productFeignClient;
 	
+
+	@PostMapping("/cart/register")
+	public ResponseEntity<Cart> register(@RequestBody Cart cart) {
+		Cart existingCart = cartService.getCartByUser(cart.getUserId());
+		return ResponseEntity.ok().body(existingCart);
+	}
+	
+	
 	@PostMapping("/cart/{userId}/items")
 	public ResponseEntity<List<CartItem>> addProductToCart(@PathVariable int userId, @RequestBody int productId, @RequestBody int quantity) {
 		Optional<User> existingUser = userFeignClient.getUserById(userId);

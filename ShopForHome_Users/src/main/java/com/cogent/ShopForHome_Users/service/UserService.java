@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cogent.ShopForHome_Users.feign.CartsFeignClient;
 import com.cogent.ShopForHome_Users.model.User;
+import com.cogent.ShopForHome_Users.objectreference.Cart;
 import com.cogent.ShopForHome_Users.repository.UserRepository;
 
 
@@ -15,10 +17,16 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private CartsFeignClient cartsFeignClient;
+	
 	public User saveUser(User user) {
-//		new user saved to user table	
+//		New user added to table	
         User createdUser = userRepository.save(user);
-//      initalize new cart
+//      Initialize new cart
+        Cart newCart = new Cart();
+        newCart.setUserId(createdUser.getUserId());  
+        cartsFeignClient.register(newCart);
         return createdUser;    
     }
     

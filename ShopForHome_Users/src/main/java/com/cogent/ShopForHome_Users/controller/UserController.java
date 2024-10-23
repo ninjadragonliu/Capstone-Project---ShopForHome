@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cogent.ShopForHome_Users.feign.CartsFeignClient;
 import com.cogent.ShopForHome_Users.model.User;
 import com.cogent.ShopForHome_Users.service.UserService;
 
@@ -21,13 +22,15 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+//	@Autowired
+//	private CartsFeignClient cartsFeignClient;
 	
 	
-	
-	@GetMapping(value="/users/test")
-	public String hi(){
-		return "hi.";
-	}
+//	@GetMapping(value="/users/test")
+//	public String hi(){
+//		
+//		return "";
+//	}
 	
 
 	@PostMapping("/users/register")
