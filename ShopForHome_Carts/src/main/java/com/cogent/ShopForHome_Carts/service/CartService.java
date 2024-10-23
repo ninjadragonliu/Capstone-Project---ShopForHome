@@ -37,12 +37,12 @@ public class CartService {
 		});
 	}
 
-	public CartItem addProductToCart(int userId, Product product, int quantity) {
+	public CartItem addProductToCart(Integer userId, Product product, Integer quantity) {
 		Cart cart = getCartByUser(userId);
-		Optional<CartItem> existingCartItem = cartItemRepository.findByCartAndProductId(cart, product.getProductId());
+		Optional<CartItem> existingCartItem = cartItemRepository.findByCartIdAndProductId(cart.getCartId(), product.getProductId());
 		CartItem cartItem = new CartItem();
 		if (existingCartItem.isEmpty()) {
-			cartItem = new CartItem(cart, product.getProductId(), quantity);
+			cartItem = new CartItem(product.getProductId(), quantity);
 		} else {
 			cartItem = existingCartItem.get();
 			cartItem.setQuantity(cartItem.getQuantity() + quantity);
@@ -53,7 +53,7 @@ public class CartService {
 
 	public boolean removeProductFromCart(int userId, Product product) {
 		Cart cart = getCartByUser(userId);
-		Optional<CartItem> existingCartItem = cartItemRepository.findByCartAndProductId(cart, product.getProductId());
+		Optional<CartItem> existingCartItem = cartItemRepository.findByCartIdAndProductId(cart.getCartId(), product.getProductId());
 		if(existingCartItem.isEmpty()) {
 			return false;
 		} 

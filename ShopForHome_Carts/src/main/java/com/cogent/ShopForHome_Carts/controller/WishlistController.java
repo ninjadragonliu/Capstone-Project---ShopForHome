@@ -40,70 +40,70 @@ public class WishlistController{
 	}
 	
 	
-	@PostMapping("/wishlist/{userId}/items")
-	public ResponseEntity<List<WishlistItem>> addProductToWishlist(@PathVariable int userId, @RequestParam("productId") int productId) {
-		Optional<User> existingUser = userFeignClient.getUserById(userId);
-		if(existingUser.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
-		if(existingProduct.isEmpty()) {
-			return ResponseEntity.notFound().build(); 
-		}
-		User user = existingUser.get();
-		Product product = existingProduct.get();
-		wishlistService.addProductToWishlist(user, product);
-		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
-		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-		return ResponseEntity.ok(wishlistItems);
-	}
- 
-	@GetMapping("/wishlist/{userId}")
-	public ResponseEntity<List<WishlistItem>> getWishlistByUser(@PathVariable int userId) {
-		Optional<User> existingUser = userFeignClient.getUserById(userId);
-		if(existingUser.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-		User user = existingUser.get();
-		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
-		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-		return ResponseEntity.ok(wishlistItems);
-	}
-
-	@DeleteMapping("wishlist/{userId}/items/{productId}")
-	public ResponseEntity<List<WishlistItem>> removeProductFromWishlist(@PathVariable int userId, @PathVariable int productId){
-		Optional<User> existingUser = userFeignClient.getUserById(userId);
-		if(existingUser.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
-		if(existingProduct.isEmpty()) {
-			return ResponseEntity.notFound().build(); 
-		}
-		User user = existingUser.get();
-		Product product = existingProduct.get();
-		boolean removed = wishlistService.removeProductFromWishlist(user, product);
-		if(!removed) {
-			return ResponseEntity.notFound().build(); 
-		}
-		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
-		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-		return ResponseEntity.ok(wishlistItems);
-	}
-	
-	@DeleteMapping("wishlist/{userId}/clear")
-	public ResponseEntity<List<WishlistItem>> clearWishlist(@PathVariable int userId){
-		Optional<User> existingUser = userFeignClient.getUserById(userId);
-		if(existingUser.isEmpty()) {
-			return ResponseEntity.notFound().build();
-		}
-		User user = existingUser.get();
-		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
-		wishlistService.clearWishlist(wishlist);
-		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-		return ResponseEntity.ok(wishlistItems);
-		
-		
-	}
+//	@PostMapping("/wishlist/{userId}/items")
+//	public ResponseEntity<List<WishlistItem>> addProductToWishlist(@PathVariable int userId, @RequestParam("productId") int productId) {
+//		Optional<User> existingUser = userFeignClient.getUserById(userId);
+//		if(existingUser.isEmpty()) {
+//			return ResponseEntity.notFound().build();
+//		}
+//		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
+//		if(existingProduct.isEmpty()) {
+//			return ResponseEntity.notFound().build(); 
+//		}
+//		User user = existingUser.get();
+//		Product product = existingProduct.get();
+//		wishlistService.addProductToWishlist(user, product);
+//		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
+//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+//		return ResponseEntity.ok(wishlistItems);
+//	}
+// 
+//	@GetMapping("/wishlist/{userId}")
+//	public ResponseEntity<List<WishlistItem>> getWishlistByUser(@PathVariable int userId) {
+//		Optional<User> existingUser = userFeignClient.getUserById(userId);
+//		if(existingUser.isEmpty()) {
+//			return ResponseEntity.notFound().build();
+//		}
+//		User user = existingUser.get();
+//		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
+//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+//		return ResponseEntity.ok(wishlistItems);
+//	}
+//
+//	@DeleteMapping("wishlist/{userId}/items/{productId}")
+//	public ResponseEntity<List<WishlistItem>> removeProductFromWishlist(@PathVariable int userId, @PathVariable int productId){
+//		Optional<User> existingUser = userFeignClient.getUserById(userId);
+//		if(existingUser.isEmpty()) {
+//			return ResponseEntity.notFound().build();
+//		}
+//		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
+//		if(existingProduct.isEmpty()) {
+//			return ResponseEntity.notFound().build(); 
+//		}
+//		User user = existingUser.get();
+//		Product product = existingProduct.get();
+//		boolean removed = wishlistService.removeProductFromWishlist(user, product);
+//		if(!removed) {
+//			return ResponseEntity.notFound().build(); 
+//		}
+//		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
+//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+//		return ResponseEntity.ok(wishlistItems);
+//	}
+//	
+//	@DeleteMapping("wishlist/{userId}/clear")
+//	public ResponseEntity<List<WishlistItem>> clearWishlist(@PathVariable int userId){
+//		Optional<User> existingUser = userFeignClient.getUserById(userId);
+//		if(existingUser.isEmpty()) {
+//			return ResponseEntity.notFound().build();
+//		}
+//		User user = existingUser.get();
+//		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
+//		wishlistService.clearWishlist(wishlist);
+//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+//		return ResponseEntity.ok(wishlistItems);
+//		
+//		
+//	}
 }
 

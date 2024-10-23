@@ -5,12 +5,14 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,13 +21,17 @@ public class CartItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
-
-	@ManyToOne
-	@JoinColumn(name = "cartId", nullable = false)
-	private Cart cart;
-
 	private int productId;
-	private int quantity;
+	private Integer quantity;
+	private int cartId;
+
+	public int getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
@@ -34,8 +40,7 @@ public class CartItem {
 		// default
 	}
 
-	public CartItem(Cart cart, int productId, int quantity) {
-		this.cart = cart;
+	public CartItem(int productId, Integer quantity) {
 		this.productId = productId;
 		this.quantity = quantity;
 	}
@@ -47,14 +52,6 @@ public class CartItem {
 
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
-	}
-
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
 	}
 	
 	public int getProductId() {
@@ -77,7 +74,7 @@ public class CartItem {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 }
