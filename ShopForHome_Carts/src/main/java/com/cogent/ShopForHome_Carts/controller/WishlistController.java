@@ -58,6 +58,22 @@ public ResponseEntity<List<WishlistItem>> addProductToCart(@PathVariable int use
 	List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
 	return ResponseEntity.ok().body(wishlistItems);
 }
+
+
+@DeleteMapping("wishlist/{userId}/clear")
+public ResponseEntity<List<WishlistItem>> clearWishlist(@PathVariable int userId){
+	ResponseEntity<User> existingUser = userFeignClient.getUserById(userId);
+	if(!existingUser.hasBody()) {
+		return ResponseEntity.notFound().build();
+	}
+	User user = existingUser.getBody();
+	Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
+	wishlistService.clearWishlist(wishlist);
+	List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+	return ResponseEntity.ok(wishlistItems);
+}
+
+
 // 
 //	@GetMapping("/wishlist/{userId}")
 //	public ResponseEntity<List<WishlistItem>> getWishlistByUser(@PathVariable int userId) {
@@ -98,17 +114,6 @@ public ResponseEntity<List<WishlistItem>> addProductToCart(@PathVariable int use
 //		return ResponseEntity.ok(wishlistItems);
 //	}
 //	
-//	@DeleteMapping("wishlist/{userId}/clear")
-//	public ResponseEntity<List<WishlistItem>> clearWishlist(@PathVariable int userId){
-//		Optional<User> existingUser = userFeignClient.getUserById(userId);
-//		if(existingUser.isEmpty()) {
-//			return ResponseEntity.notFound().build();
-//		}
-//		User user = existingUser.get();
-//		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
-//		wishlistService.clearWishlist(wishlist);
-//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-//		return ResponseEntity.ok(wishlistItems);
-//	}
+
 }
 

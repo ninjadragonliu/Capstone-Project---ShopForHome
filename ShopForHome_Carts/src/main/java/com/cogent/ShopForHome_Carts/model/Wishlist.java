@@ -22,7 +22,7 @@ public class Wishlist {
 	private int wishlistId;
 	private int userId;
 
-	@OneToMany(mappedBy = "wishlistId", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "wishlistId", cascade = CascadeType.REMOVE)
 	private List<WishlistItem> wishlistItems = new ArrayList<>();
 	
 	@CreationTimestamp

@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cogent.ShopForHome_Carts.model.CartItem;
 import com.cogent.ShopForHome_Carts.model.Wishlist;
 import com.cogent.ShopForHome_Carts.model.WishlistItem;
 import com.cogent.ShopForHome_Carts.objectreference.Product;
@@ -48,6 +49,15 @@ public class WishlistService {
 //
 		return wishlistItemRepository.save(wishlistItem);
 	}
+	public void clearWishlist(Wishlist wishlist) {
+		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+		for(WishlistItem item: wishlistItems) {
+			System.out.println(item.getItemId());
+			wishlistItemRepository.deleteById(item.getItemId());
+		}
+		wishlist.clearWishlist();
+		wishlistRepository.save(wishlist);
+	}
 //
 //	public boolean removeProductFromWishlist(User user, Product product) {
 //		Wishlist wishlist = getWishlistByUser(user.getUserId());
@@ -64,10 +74,5 @@ public class WishlistService {
 //		return true;
 //	}
 //
-//	public void clearWishlist(Wishlist wishlist) {
-//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-//		wishlistItemRepository.deleteAll(wishlistItems);
-//		wishlist.clearWishlist();
-//		wishlistRepository.save(wishlist);
-//	}
+
 }
