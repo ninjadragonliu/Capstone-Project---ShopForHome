@@ -8,6 +8,7 @@ import { LoginRequest } from '../models/loginrequest.model';
   providedIn: 'root'
 })
 export class UserService {
+  
   apiUrl = 'http://localhost:9001';
   loggedIn: boolean = false;
   userRole: string | null = null;
