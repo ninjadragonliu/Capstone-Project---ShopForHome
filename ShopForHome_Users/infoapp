@@ -10519,3 +10519,14 @@ java.lang.NullPointerException: Cannot invoke "java.util.Optional.isEmpty()" bec
 2024-10-24T15:16:42.612-05:00  INFO 25336 --- [ShopForHomeUsers] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEUSERS/192.168.100.11:ShopForHomeUsers:9001 - registration status: 204
 2024-10-24T15:16:42.618-05:00  INFO 25336 --- [ShopForHomeUsers] [restartedMain] c.c.S.ShopForHomeUsersApplication        : Started ShopForHomeUsersApplication in 0.782 seconds (process running for 15373.819)
 2024-10-24T15:16:42.620-05:00  INFO 25336 --- [ShopForHomeUsers] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-24T15:21:42.587-05:00  INFO 25336 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-24T15:22:12.049-05:00  INFO 25336 --- [ShopForHomeUsers] [http-nio-9001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T15:22:12.050-05:00  INFO 25336 --- [ShopForHomeUsers] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T15:22:12.050-05:00  INFO 25336 --- [ShopForHomeUsers] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-10-24T15:26:42.589-05:00  INFO 25336 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-24T15:31:42.591-05:00  INFO 25336 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-24T15:36:42.593-05:00  INFO 25336 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-24T15:41:42.595-05:00  INFO 25336 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-24T15:46:42.596-05:00  INFO 25336 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-24T15:51:42.597-05:00  INFO 25336 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-24T15:56:43.716-05:00  INFO 25336 --- [ShopForHomeUsers] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
