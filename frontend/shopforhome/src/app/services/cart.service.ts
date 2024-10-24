@@ -39,6 +39,11 @@ export class CartService {
     return this.http.delete<CartItem[]>(`${this.apiUrl}/carts/${userId}/clear`);
   }
 
+  // get local cart
+  getLocalCart(): Cart {
+    return JSON.parse(localStorage.getItem('cart') || '[]');
+  }
+
   // sync cart to backend
   syncCartToBackend(userId: number, cartId: number, cartItems: CartItem[]): Observable<CartResponse> {
     const cart: CartResponse = { userId, cartId, cartItems };

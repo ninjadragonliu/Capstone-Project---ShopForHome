@@ -4,6 +4,7 @@ import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { Cart } from '../../models/cart.model';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,42 +12,32 @@ import { Cart } from '../../models/cart.model';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
-  cart: Cart | null = null;
-  totalPrice: number = 0;
-  errorMessage: string | null = null;
-  userId?: number | null = null;
+  cart!: Cart;
+  cartItemsWithDetails: any[] = []; 
 
-  constructor(
-    private cartService: CartService, 
-    private userService: UserService, 
-    // might need router to move to order page later
-    private router: Router
-  ){}
-  
-  // needs change
-  ngOnInit(): void{
-    if(this.userService.isLoggedIn()){
-      this.userId = this.userService.getUserId();
-      if(this.userId){
-        this.fetchCart();
-      } else{
-        this.errorMessage = 'You must be logged in to view your cart';
-      }
-    }
+  constructor(private cartService: CartService, private productService: ProductService, ) {
   }
 
-  fetchCart(): void{
-    if(this.userId){
-      this.cartService.getCartByUser(this.userId).subscribe({
-        next:(response: Cart) => {
-          this.cart = response;
-        },
-        error: (err) => {
-          this.errorMessage = 'Error fetching cart data';
-        }
+  ngOnInit(): void {
+    
+    this.cartService.getCartByUser(1).subscribe((data) => {
+      this.cart = data;
+
+      
+      this.cart.cartItems.forEach((item: CartItem) => {
+        this.productService.getProductById(item.productId).subscribe(
+          (productDetails) => {
+            // Combine cart item with its product details and store in cartItemsWithDetails
+            this.cartItemsWithDetails.push({
+              ...item,
+              name: productDetails.name,  // Assuming productDetails has 'name' property
+              price: productDetails.price       // Assuming productDetails has 'price' property
+            });
+          }
+        );
       });
-    }
+      
+    });
+
   }
-
-
 }
