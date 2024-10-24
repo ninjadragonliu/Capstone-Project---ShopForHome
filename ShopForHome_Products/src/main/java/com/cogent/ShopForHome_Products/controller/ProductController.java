@@ -33,7 +33,7 @@ public class ProductController {
 
 	}
 
-	@GetMapping("/products/{category}")
+	@GetMapping("/products/{category}/items")
 	public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category){
 		List<Product> productList = productService.getAllProductsByCategory(category);
 		if (productList.isEmpty()) {
