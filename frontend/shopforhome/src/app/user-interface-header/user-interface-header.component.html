@@ -5,22 +5,9 @@
             <div class="navbar-header">
                 <a class="navbar-brand" routerLink="/">ShopForHome</a>
             </div>
-            <!--<ul class="navbar-nav">
-                <li ><a routerLink="/">Home</a></li>
-                <li class="dropdown" ngbDropdown>
-                  <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" ngbDropdownToggle aria-expanded="false">
-                      Categories
-                  <span class="caret"></span></a>
-                  <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="navbarDarkDropdownMenuLink">
-                      <li><a class="dropdown-item" routerLink="/outdoors">Outdoors</a></li>
-                      <li><a class="dropdown-item" href="#">Kitchen</a></li>
-                      <li><a class="dropdown-item" href="#">Living Room</a></li>
-                  </ul>
-              </li>                            
-                <li><a href="#">Contact</a></li>
-            </ul>-->
-            <a routerLink="/">Home</a>
-            <div class="dropdown">
+            <ul class="nav nav-pills">
+            <li class="nav-item"><a class ="nav-link" routerLink="/">Home</a></li>
+            <li class="nav-item dropdown">
 
             <ul class="dropdown" ngbDropdown>
                 <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" ngbDropdownToggle aria-expanded="false">
@@ -32,15 +19,20 @@
                     <li><a class="dropdown-item" href="#">Living Room</a></li>
                 </ul>
             </ul>
-            </div> 
-            <a href = "#">Contact</a>
-            
-            <div class="nav navbar-nav navbar-right">
-                <a routerLink="/wishlist"><span class="glyphicon glyphicon-heart"></span> WishList</a>
-              <a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
-                <a routerLink="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-                <a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-            </div>
+        </li> 
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Contact</a>
+              </li>
+        </ul>
+            <ul class="nav justify-content-end">
+                <ul class ="nav nav-pills">
+                    <li class="nav-item"><a class ="nav-link" routerLink="/wishlist"> WishList</a></li>
+                    <li class="nav-item"><a class ="nav-link"routerLink="/cart">Cart</a></li>
+                    <li class="nav-item"><a class ="nav-link"routerLink="/signup"> Sign Up</a></li>
+                    <li class="nav-item"><a class ="nav-link"routerLink="/login">Login</a></li>
+                </ul>
+                
+            </ul>
         </div>
     </nav>
 </div>
