@@ -1,4 +1,4 @@
 export interface WishlistItem {
-    itemId: number;
+    itemId?: number;
     productId: number;
 }

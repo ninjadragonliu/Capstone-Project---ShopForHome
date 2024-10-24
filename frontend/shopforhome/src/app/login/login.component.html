@@ -1,18 +1,22 @@
 <app-user-interface-header></app-user-interface-header>
-<form #f="ngForm" style ="text-align: center; justify-content: center;max-width: 400px; margin: 0 auto;">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)"
+    style="text-align: center; justify-content: center;max-width: 400px; margin: 0 auto;">
     <h1 class="text-center">Login</h1>
     <div class="form-group">
         <div class="mb-3">
-        <label for="username">Username:</label>
-        <input type="text" name= "username" class="form-control" id="username" ngModel required>
+            <label for="username">Username:</label>
+            <input type="text" name="username" class="form-control" id="username" ngModel required>
         </div>
-        
     </div>
     <div class="form-group">
         <div class="mb-3">
-        <label for="pwd">Password:</label>
-        <input type="password" name="password" class="form-control" id="password" ngModel required>
+            <label for="pwd">Password:</label>
+            <input type="password" name="password" class="form-control" id="password" ngModel required>
         </div>
     </div>
-    <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Login</button>
+    <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Login</button><br>
+    <div>
+        <p *ngIf="successMessage" class="text-success">{{successMessage}}</p>
+        <p *ngIf="errorMessage">{{errorMessage}}</p>
+    </div>
 </form>

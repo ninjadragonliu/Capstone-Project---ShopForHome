@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -8,35 +9,29 @@ import { UserService } from '../services/user.service';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
-  @ViewChild('f') signupForm!: NgForm;
-  userName: string ='';
-  password!: string;
-  email: string = '';
-  
-  submitted: boolean = false;
-  status: string = 'Registration Successful';
+  loginSuccess: boolean | null = null;
+  errorMessage: string | null = null;
+  successMessage: string | null = null;
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService) { }
 
-  }
-
-  onSubmit(): void {
-    this.submitted = true;
-      this.userName = this.signupForm.value.username;
-      this.password = this.signupForm.value.password;
-      this.email = this.signupForm.value.email;
-
-      this.userService.register({
-        username: this.userName,
-        password: this.password,
-        email: this.email
-      })
-      .subscribe((data) => {
-        console.log(data);
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      const { username, email, password } = form.value;
+      const user: User = {username, email, password};
+      this.userService.register(user).subscribe({
+        next: response => {
+          this.loginSuccess = true;
+          this.successMessage = 'Registration Success!';
+          this.errorMessage = null;
+          form.reset();
+        },
+        error: err => {
+          this.loginSuccess = false;
+          this.errorMessage = 'Registration failed.';
+          this.successMessage = null;
+        }
       });
-  
-      this.signupForm?.reset();
-    // Handle form submission logic here
+    }
   }
 }
-
