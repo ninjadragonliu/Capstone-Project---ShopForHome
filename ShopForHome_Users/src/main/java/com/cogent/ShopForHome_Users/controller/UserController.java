@@ -22,16 +22,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-//	@Autowired
-//	private CartsFeignClient cartsFeignClient;
-	
-	
-//	@GetMapping(value="/users/test")
-//	public String hi(){
-//		
-//		return "";
-//	}
-	
 	@PostMapping("/users/login")
 	public ResponseEntity<User> loginUser(@RequestBody LoginRequest loginRequest){
 		Optional<User> op = userService.loginUser(loginRequest.getUsername(), loginRequest.getPassword());

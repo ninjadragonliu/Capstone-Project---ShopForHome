@@ -17,7 +17,6 @@ import com.capstone.ShopForHome.enums.OrderStatus;
 import com.cogent.ShopForHome_Orders.feign.CartsFeignClient;
 import com.cogent.ShopForHome_Orders.model.Order;
 import com.cogent.ShopForHome_Orders.model.OrderItem;
-import com.cogent.ShopForHome_Orders.objectreference.UserData;
 import com.cogent.ShopForHome_Orders.objectreferences.Cart;
 import com.cogent.ShopForHome_Orders.service.OrderService;
 
@@ -31,15 +30,15 @@ public class OrderController {
 	private CartsFeignClient cartsFeignClient;
 
 	// Orders
-	@PostMapping("/orders/register")
-	public ResponseEntity<Order> register(@RequestBody UserData userData) {
-		Optional<Cart> existingCart = cartsFeignClient.getCartByUser(userData.getUserId());
+	@PostMapping("/orders/{userId}/register")
+	public ResponseEntity<Order> register(@PathVariable int userId) {
+		Optional<Cart> existingCart = cartsFeignClient.getCartByUser(userId);
 		if (existingCart.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
 		Cart cart = existingCart.get();
 		Order order = orderService.saveOrder(cart);
-		return ResponseEntity.ok().body(order);
+		return ResponseEntity.ok(order);
 	}
 
 	@PostMapping("/orders/{orderId}/complete")

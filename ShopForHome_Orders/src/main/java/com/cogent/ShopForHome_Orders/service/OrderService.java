@@ -1,7 +1,6 @@
 package com.cogent.ShopForHome_Orders.service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +12,7 @@ import com.cogent.ShopForHome_Orders.model.Order;
 import com.cogent.ShopForHome_Orders.model.OrderItem;
 import com.cogent.ShopForHome_Orders.objectreferences.Cart;
 import com.cogent.ShopForHome_Orders.objectreferences.CartItem;
+import com.cogent.ShopForHome_Orders.respository.OrderItemRepository;
 import com.cogent.ShopForHome_Orders.respository.OrderRepository;
 
 @Service
@@ -20,50 +20,22 @@ public class OrderService {
 	@Autowired
 	private OrderRepository orderRepository;
 	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
+	
 	public Order saveOrder(Cart cart) {
-		List<Order> currentOrder = orderRepository.findAll();
-		Order order = null;
-		
-		
-//		possible feign call in future
-		for(Order item: currentOrder) {
-			if(item.getUserId() == cart.getUserId()){
-				order = item;
-				break;
-			}
-		}
-		if(order == null) {
-			order = new Order(cart.getUserId(), cart.getCartId());
-			orderRepository.save(order);
-		}
+		Order order = new Order(cart.getUserId(), cart.getCartId());
 		BigDecimal total = BigDecimal.ZERO;
-		List<OrderItem> orderItems = new ArrayList<OrderItem>();
-
-		
-		List<OrderItem> currentOrderItems = order.getOrderItems();
 		for(CartItem cartItem: cart.getCartItems()) {
-			OrderItem orderItem = null;
-			boolean itemCurrent = false;
-//			performance issue
-			for(OrderItem item: currentOrderItems) {
-				if(item.getProductId() == cartItem.getProductId()){
-					orderItem = item;
-					orderItem.setQuantity(orderItem.getQuantity()+ item.getQuantity());
-					itemCurrent = true;
-					break;
-				}
-				
-			}
-			if(!itemCurrent){
-				orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());
-			}
-			orderItems.add(orderItem);
+			OrderItem orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());
+			order.getOrderItems().add(orderItem);
+			orderItemRepository.save(orderItem);
 			total = total.add(cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
-		}		
+		}
+		order.setTotal(total);
+		order.setStatus(OrderStatus.PENDING);
 		cart.clearCart();
-		order.setTotal(order.getTotal().add(total));
-		order.setOrderItems(orderItems);
-		return orderRepository.saveAndFlush(order);
+		return orderRepository.save(order);
 	}
 
 	public List<Order> getAllOrders() {

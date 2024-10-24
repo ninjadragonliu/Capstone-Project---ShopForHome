@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cogent.ShopForHome_Carts.model.CartItem;
 import com.cogent.ShopForHome_Carts.model.Wishlist;
 import com.cogent.ShopForHome_Carts.model.WishlistItem;
 import com.cogent.ShopForHome_Carts.objectreference.Product;
@@ -36,8 +35,8 @@ public class WishlistService {
 			return wishlistRepository.save(newWishlist);
 		});
 	}
-//
-	public WishlistItem addProductToWishlist(Integer userId, Product product, Integer quantity) {
+
+	public WishlistItem addProductToWishlist(int userId, Product product) {
 		Wishlist wishlist = getWishlistByUser(userId);
 		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistIdAndProductId(wishlist.getWishlistId(), product.getProductId());
 		WishlistItem wishlistItem = new WishlistItem();
@@ -46,7 +45,7 @@ public class WishlistService {
 		} else {
 			wishlistItem = existingWishlistItem.get();
 		}
-//
+
 		return wishlistItemRepository.save(wishlistItem);
 	}
 	public void clearWishlist(Wishlist wishlist) {
@@ -58,21 +57,21 @@ public class WishlistService {
 		wishlist.clearWishlist();
 		wishlistRepository.save(wishlist);
 	}
-//
-//	public boolean removeProductFromWishlist(User user, Product product) {
-//		Wishlist wishlist = getWishlistByUser(user.getUserId());
-//		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistAndProductId(wishlist, product.getProductId());
-//		if(existingWishlistItem.isEmpty()) {
-//			return false;
-//		} 
-//		WishlistItem found = existingWishlistItem.get();
-//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-//		if(wishlistItems.contains(found)) {
-//			wishlistItems.remove(found);
-//		}
-//		wishlistItemRepository.delete(found);
-//		return true;
-//	}
-//
+
+	public boolean removeProductFromWishlist(User user, Product product) {
+		Wishlist wishlist = getWishlistByUser(user.getUserId());
+		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistIdAndProductId(wishlist.getWishlistId(), product.getProductId());
+		if(existingWishlistItem.isEmpty()) {
+			return false;
+		} 
+		WishlistItem found = existingWishlistItem.get();
+		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+		if(wishlistItems.contains(found)) {
+			wishlistItems.remove(found);
+		}
+		wishlistItemRepository.delete(found);
+		return true;
+	}
+
 
 }
