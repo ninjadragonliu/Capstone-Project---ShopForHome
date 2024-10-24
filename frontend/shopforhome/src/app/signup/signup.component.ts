@@ -14,12 +14,13 @@ export class SignupComponent {
   email: string = '';
   
   submitted: boolean = false;
+  status: string = 'Registration Successful';
 
   constructor(private userService: UserService) { 
 
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
       this.userName = this.signupForm.value.username;
       this.password = this.signupForm.value.password;
