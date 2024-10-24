@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../services/user.service';
+import { currentUser, UserService } from '../services/user.service';
 import { User } from '../models/user.model';
 
 @Component({
@@ -25,6 +25,11 @@ export class SignupComponent {
           this.loginSuccess = true;
           this.successMessage = 'Registration Success!';
           this.errorMessage = null;
+          currentUser.userId = response.userId;
+          currentUser.username = response.username;
+          currentUser.role = response.role;
+
+
           form.reset();
         },
         error: err => {

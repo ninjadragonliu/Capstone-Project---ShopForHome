@@ -17,8 +17,11 @@ export class ProductService {
   }
 
   // get products by category
-  getProductsByCategory(category: string): Observable<ProductResponse[]>{
-    return this.http.get<ProductResponse[]>(`${this.apiUrl}/products/${category}/items`);
+  async getProductsByCategory(category: string): Promise<Observable<ProductResponse[]>>{
+    return new Promise(
+      (resolve, reject) =>{
+        resolve(this.http.get<ProductResponse[]>(`${this.apiUrl}/products/${category}/items`));
+      });
   }
 
   // get all products

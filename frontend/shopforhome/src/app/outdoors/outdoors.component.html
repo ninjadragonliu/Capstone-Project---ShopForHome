@@ -12,26 +12,22 @@
               <li><a class="dropdown-item" >Price (High to Low)</a></li>
             </ul>
           </div>
-      <div class="card-group">
-      <div class="card" style="width: 18rem;">
-            <img src="assets/images/outdoorSofa.jpg" class="card-img-top" alt="Outdoor Sofa">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button type="button" class="btn">Add to WishList</button>
-              <button type="button" class="btn">Add to Cart</button>
-            </div>
-          </div>
+    
 
-          <div class="card" style="width: 18rem;">
-            <img src="assets/images/outdoorTableSet.jpg" class="card-img-top" alt="Outdoor Table Set">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button type="button" class="btn">Add to WishList</button>
-              <button type="button" class="btn">Add to Cart</button>
-            </div>
+      <div *ngFor="let product of products;" div class="card-group">
+        <div class="card" style="width: 18rem;">
+          <img src="assets/images/{{product.name}}.jpg" class="card-img-top" alt="Outdoor Table Set">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}} | {{product.price}}</p>
+
+            <button type="button" class="btn">Add to WishList</button>
+            <button type="button" (click)="onClick()" class="btn">Add to Cart</button>
           </div>
+        </div>
       </div>
-      <p>Sourced from https://unsplash.com and https://www.pexels.com/</p>
+      <footer style="text-align: center;">
+        <p>Sourced from https://unsplash.com and https://www.pexels.com/</p>
+      </footer>
+
 </body> 
