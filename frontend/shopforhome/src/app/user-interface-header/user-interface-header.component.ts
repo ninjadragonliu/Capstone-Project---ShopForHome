@@ -8,17 +8,17 @@ import { UserService } from '../services/user.service';
 })
 export class UserInterfaceHeaderComponent {
   isLoggedIn: boolean = false;
-  userRole: string | null = null;
+  userRole?: string | null = null;
 
   constructor(private userService: UserService){
     this.isLoggedIn = this.userService.isLoggedIn();
-    this.userRole = this.userService.getUserRole();
+    this.userRole = this.userService.currentUser?.role;
   }
 
   logout(){
     this.userService.logout();
     this.isLoggedIn = false;
     this.userRole = null;
-    
+
   }
 }

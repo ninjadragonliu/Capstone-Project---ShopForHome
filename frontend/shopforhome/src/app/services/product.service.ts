@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
+import { ProductResponse } from '../models/productresponse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,28 +12,28 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   // register product
-  register(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${this.apiUrl}/products/register`, product);
+  register(product: Product): Observable<ProductResponse> {
+    return this.http.post<ProductResponse>(`${this.apiUrl}/products/register`, product);
   }
 
   // get products by category
-  getProductsByCategory(category: string): Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.apiUrl}/products/${category}/items`);
+  getProductsByCategory(category: string): Observable<ProductResponse[]>{
+    return this.http.get<ProductResponse[]>(`${this.apiUrl}/products/${category}/items`);
   }
 
   // get all products
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrl}/products`);
+  getProducts(): Observable<ProductResponse[]> {
+    return this.http.get<ProductResponse[]>(`${this.apiUrl}/products`);
   }
 
   // get product by product id
-  getProductById(productId: number): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/products/${productId}`);
+  getProductById(productId: number): Observable<ProductResponse> {
+    return this.http.get<ProductResponse>(`${this.apiUrl}/products/${productId}`);
   }
 
   // update product
-  updateProduct(productId: number, product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrl}/products/${productId}`, product);
+  updateProduct(productId: number, product: Product): Observable<ProductResponse> {
+    return this.http.put<ProductResponse>(`${this.apiUrl}/products/${productId}`, product);
   }
 
   // delete product

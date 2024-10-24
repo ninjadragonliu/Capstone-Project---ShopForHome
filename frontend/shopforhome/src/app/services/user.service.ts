@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { User } from '../models/user.model';
 import { LoginRequest } from '../models/loginrequest.model';
+import { UserResponse } from '../models/userresponse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,15 @@ import { LoginRequest } from '../models/loginrequest.model';
 export class UserService {
   apiUrl = 'http://localhost:9001';
   loggedIn: boolean = false;
-  userRole: string | null = null;
+  currentUser: UserResponse | null = null;
   constructor(private http: HttpClient) { }
 
   // login user
-  login(username: string, password: string): Observable<User> {
+  login(username: string, password: string): Observable<UserResponse> {
     const requestBody: LoginRequest = { username, password };
-    return this.http.post<User>(`${this.apiUrl}/users/login`, requestBody).pipe(
+    return this.http.post<UserResponse>(`${this.apiUrl}/users/login`, requestBody).pipe(
       tap( response =>{
-        this.userRole = response.role;
+        this.currentUser = response;
         this.setLoginStatus(true);
       })
     );
@@ -31,13 +32,17 @@ export class UserService {
 
   // get role
   getUserRole(){
-    return this.userRole;
+    return this.currentUser?.role;
+  }
+
+  // get user id
+  getUserId(){
+    return this.currentUser?.userId;
   }
 
   // logout
   logout(){
     this.setLoginStatus(false);
-    this.userRole = null;
   }
 
   // check login status
@@ -46,19 +51,18 @@ export class UserService {
   }
 
   // register user
-  register(user: User): Observable<User> {
-    this.userRole = user.role;
-    return this.http.post<User>(`${this.apiUrl}/users/register`, user);
+  register(user: User): Observable<UserResponse> {
+    return this.http.post<UserResponse>(`${this.apiUrl}/users/register`, user);
   }
 
   // get user by id
-  getUserById(userId: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
+  getUserById(userId: number): Observable<UserResponse> {
+    return this.http.get<UserResponse>(`${this.apiUrl}/users/${userId}`);
   }
 
   // update user
-  updateUser(userId: number, user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/users/${userId}`, user);
+  updateUser(userId: number, user: User): Observable<UserResponse> {
+    return this.http.put<UserResponse>(`${this.apiUrl}/users/${userId}`, user);
   }
 
   // delete user
