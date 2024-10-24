@@ -46,6 +46,20 @@ public class ProductService {
 		return productsByCategory;
 	}
 	
+	public List<Product> getAllProductsByName(String name){
+		List<Product> productList = getAllProducts();
+		if(productList.isEmpty()) {
+			return null;
+		}
+		List<Product> productsByName = new ArrayList<>();
+		for(Product product: productList) {
+			if(product.getName().contains(name)) {
+				productsByName.add(product);
+			}
+		}
+		return productsByName;
+	}
+	
 	public Product updateProduct(int productId, Product product) {
 		Optional<Product> existingProduct = productRepository.findById(product.getProductId());
 		if (existingProduct.isEmpty()) {

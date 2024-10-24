@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CartItem } from '../../models/cartitem.model';
 import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { currentUser, UserService } from '../../services/user.service';
 import { Cart } from '../../models/cart.model';
 import { ProductService } from '../../services/product.service';
 
@@ -20,7 +20,7 @@ export class CartComponent {
 
   ngOnInit(): void {
     
-    this.cartService.getCartByUser(1).subscribe((data) => {
+    this.cartService.getCartByUser(currentUser.userId).subscribe((data) => {
       this.cart = data;
 
       
