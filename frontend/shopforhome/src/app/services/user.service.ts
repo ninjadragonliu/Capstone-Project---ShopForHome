@@ -5,6 +5,9 @@ import { User } from '../models/user.model';
 import { LoginRequest } from '../models/loginrequest.model';
 import { UserResponse } from '../models/userresponse.model';
 
+
+export const currentUser:UserResponse = new UserResponse();
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +15,7 @@ export class UserService {
   
   apiUrl = 'http://localhost:9001';
   loggedIn: boolean = false;
-  currentUser: UserResponse | null = null;
+  
   constructor(private http: HttpClient) { }
 
   // login user
@@ -20,7 +23,9 @@ export class UserService {
     const requestBody: LoginRequest = { username, password };
     return this.http.post<UserResponse>(`${this.apiUrl}/users/login`, requestBody).pipe(
       tap( response =>{
-        this.currentUser = response;
+        currentUser.userId = response.userId;
+        currentUser.username = response.username;
+        currentUser.role = response.role;
         this.setLoginStatus(true);
       })
     );
@@ -33,12 +38,12 @@ export class UserService {
 
   // get role
   getUserRole(){
-    return this.currentUser?.role;
+    return currentUser?.role;
   }
 
   // get user id
   getUserId(){
-    return this.currentUser?.userId;
+    return currentUser?.userId;
   }
 
   // logout
