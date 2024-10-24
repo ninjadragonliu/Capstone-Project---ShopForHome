@@ -34,10 +34,10 @@ export class LoginComponent {
           this.userService.setLoginStatus(true);
 
           // merge cart on successful login
-          const localCart = this.getLocalCart();
+          const localCart = this.cartService.getLocalCart();
           this.cartService.getCartByUser(response.userId).subscribe(
             backendCart => {
-              const mergedCart = this.mergeCarts(localCart, backendCart.cartItems);
+              const mergedCart = this.mergeCarts(localCart.cartItems, backendCart.cartItems);
               this.cartService.syncCartToBackend(response.userId, backendCart.cartId, mergedCart).subscribe(
                 () => {
                   this.clearLocalCart();
@@ -56,11 +56,6 @@ export class LoginComponent {
         }
       });
     }
-  }
-
-  getLocalCart(){
-    // local storage cart if no one logged in
-    return JSON.parse(localStorage.getItem('cart') || '[]');
   }
 
   mergeCarts(localCart: CartItem[], backendCart: CartItem[]): CartItem[]{
