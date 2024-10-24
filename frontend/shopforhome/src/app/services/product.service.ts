@@ -17,10 +17,15 @@ export class ProductService {
   }
 
   // get products by category
+  // needs to be looked at, it works, it doesn't mean anything it just needs to ensure the call returns data
   async getProductsByCategory(category: string): Promise<Observable<ProductResponse[]>>{
     return new Promise(
       (resolve, reject) =>{
-        resolve(this.http.get<ProductResponse[]>(`${this.apiUrl}/products/${category}/items`));
+        const data = this.http.get<ProductResponse[]>(`${this.apiUrl}/products/${category}/items`);
+        if(data === undefined){
+          reject("data error");
+        }
+        resolve(data);
       });
   }
 

@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cogent.ShopForHome_Carts.model.Wishlist;
 import com.cogent.ShopForHome_Carts.model.WishlistItem;
+import com.cogent.ShopForHome_Carts.objectreference.ItemRequestWishlist;
 import com.cogent.ShopForHome_Carts.objectreference.Product;
 import com.cogent.ShopForHome_Carts.objectreference.User;
 import com.cogent.ShopForHome_Carts.service.WishlistService;
@@ -36,18 +36,18 @@ public class WishlistController{
 	
 	
 	@PostMapping("/wishlist/register")
-	public ResponseEntity<Wishlist> wishlistRegister(@RequestBody Integer userId) {
+	public ResponseEntity<Wishlist> wishlistRegister(@RequestBody int userId) {
 		Wishlist existingWishlist = wishlistService.getWishlistByUser(userId);
 		return ResponseEntity.ok().body(existingWishlist);
 	}
 
 	@PostMapping("/wishlist/{userId}/items")
-	public ResponseEntity<List<WishlistItem>> addProductToWishlist(@PathVariable int userId, @RequestParam("productId") int productId) {
+	public ResponseEntity<List<WishlistItem>> addProductToWishlist(@PathVariable int userId, @RequestBody ItemRequestWishlist itemRequestWishlist) {
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
-		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
+		Optional<Product> existingProduct = productFeignClient.getProductById(itemRequestWishlist.getProductId());
 		if(existingProduct.isEmpty()) {
 			return ResponseEntity.notFound().build(); 
 		}
