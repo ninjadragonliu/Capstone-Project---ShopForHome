@@ -12,6 +12,6 @@ export class OrderService {
 
   // register product
   register(order: Order): Observable<Order> {
-    return this.http.post<Order>('${this.apiUrl}/orders/register', order);
+    return this.http.post<Order>(`${this.apiUrl}/orders/register`, order);
   }
 }
