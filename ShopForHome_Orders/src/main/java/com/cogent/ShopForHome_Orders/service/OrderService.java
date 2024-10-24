@@ -21,20 +21,31 @@ public class OrderService {
 	private OrderRepository orderRepository;
 	
 	public Order saveOrder(Cart cart) {
-		Order order = new Order(cart.getUserId(), cart.getCartId());
+		List<Order> currentOrder = orderRepository.findAll();
+		Order order = null;
+		for(Order item: currentOrder) {
+			if(item.getUserId() == cart.getUserId()){
+				order = item;
+				break;
+			}
+		}
+		if(order == null) {
+			order = new Order(cart.getUserId(), cart.getCartId());
+			orderRepository.save(order);
+		}
 		BigDecimal total = BigDecimal.ZERO;
 		List<OrderItem> orderItems = new ArrayList<OrderItem>();
-		
-		orderRepository.save(order);
+
 		for(CartItem cartItem: cart.getCartItems()) {
 			
 			OrderItem orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());	
-			System.out.println(orderItem.getOrderId());
+			
+			
 			orderItems.add(orderItem);
 			total = total.add(cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
 		}		
 		cart.clearCart();
-		order.setTotal(total);
+		order.setTotal(order.getTotal().add(total));
 		order.setOrderItems(orderItems);
 		return orderRepository.saveAndFlush(order);
 	}
