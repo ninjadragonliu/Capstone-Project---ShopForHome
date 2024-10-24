@@ -23,6 +23,9 @@ public class OrderService {
 	public Order saveOrder(Cart cart) {
 		List<Order> currentOrder = orderRepository.findAll();
 		Order order = null;
+		
+		
+//		possible feign call in future
 		for(Order item: currentOrder) {
 			if(item.getUserId() == cart.getUserId()){
 				order = item;
@@ -36,11 +39,24 @@ public class OrderService {
 		BigDecimal total = BigDecimal.ZERO;
 		List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
+		
+		List<OrderItem> currentOrderItems = order.getOrderItems();
 		for(CartItem cartItem: cart.getCartItems()) {
-			
-			OrderItem orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());	
-			
-			
+			OrderItem orderItem = null;
+			boolean itemCurrent = false;
+//			performance issue
+			for(OrderItem item: currentOrderItems) {
+				if(item.getProductId() == cartItem.getProductId()){
+					orderItem = item;
+					orderItem.setQuantity(orderItem.getQuantity()+ item.getQuantity());
+					itemCurrent = true;
+					break;
+				}
+				
+			}
+			if(!itemCurrent){
+				orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());
+			}
 			orderItems.add(orderItem);
 			total = total.add(cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
 		}		
