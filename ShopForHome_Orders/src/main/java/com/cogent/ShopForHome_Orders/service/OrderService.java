@@ -23,7 +23,8 @@ public class OrderService {
 		Order order = new Order(cart.getUserId(), cart.getCartId());
 		BigDecimal total = BigDecimal.ZERO;
 		for(CartItem cartItem: cart.getCartItems()) {
-			OrderItem orderItem = new OrderItem(order, cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());
+			
+			OrderItem orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());
 			order.getOrderItems().add(orderItem);
 			total = total.add(cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
 		}

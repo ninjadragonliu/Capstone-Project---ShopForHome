@@ -78,16 +78,16 @@ public class CartsController {
 		return ResponseEntity.ok(cartItems);
 	}
 
-//	@GetMapping("/cart/{userId}")
-//	public ResponseEntity<Cart> getCartByUser(@PathVariable int userId) {
-//		Optional<User> existingUser = userFeignClient.getUserById(userId);
-//		if(existingUser.isEmpty()) {
-//			return ResponseEntity.notFound().build();
-//		}
-//		User user = existingUser.get();
-//		Cart cart = cartService.getCartByUser(user.getUserId());
-//		return ResponseEntity.ok(cart);
-//	}
+	@GetMapping("/cart/{userId}")
+	public ResponseEntity<Cart> getCartByUser(@PathVariable int userId) {
+		ResponseEntity<User> existingUser = userFeignClient.getUserById(userId);
+		if(!existingUser.hasBody()) {
+			return ResponseEntity.notFound().build();
+		}
+		User user = existingUser.getBody();
+		Cart cart = cartService.getCartByUser(user.getUserId());
+		return ResponseEntity.ok(cart);
+	}
 //
 //	@DeleteMapping("/cart/{userId}/items/{cartItemId}")
 //	public ResponseEntity<List<CartItem>> removeProductFromCart(@PathVariable int userId, @PathVariable int cartItemId){

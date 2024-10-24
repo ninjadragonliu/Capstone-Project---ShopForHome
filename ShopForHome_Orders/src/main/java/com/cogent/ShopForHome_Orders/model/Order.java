@@ -32,7 +32,7 @@ public class Order {
 	private int userId;
 	private int cartId;
 
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
 	private List<OrderItem> orderItems = new ArrayList<>();
 	
 	@Column(nullable = false)
@@ -62,21 +62,6 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-//
-//	public Cart getCart() {
-//		return cart;
-//	}
-//
-//	public void setCart(Cart cart) {
-//		this.cart = cart;
-//	}
 
 	
 	public int getUserId() {

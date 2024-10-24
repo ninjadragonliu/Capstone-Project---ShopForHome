@@ -20,14 +20,11 @@ public class OrderItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
-
-	@ManyToOne
-	@JoinColumn(name = "orderId", nullable = false)
-	private Order order;
+	private int orderId;
 
 //	@ManyToOne
-//	@JoinColumn(name = "productId", nullable = false)
-//	private Product product;
+//	@JoinColumn(name = "orderId", nullable = false)
+//	private List<Order order;
 	
 	private int productId;
 
@@ -44,11 +41,12 @@ public class OrderItem {
 		// default
 	}
 
-	public OrderItem(Order order, int productId, int quantity, BigDecimal price) {
-		this.order = order;
+	public OrderItem(int orderId, int productId, int quantity, BigDecimal price) {
+//		this.order = order;
 		this.productId = productId;
 		this.quantity = quantity;
 		this.price = price;
+		this.orderId = orderId;
 	}
 
 	// getters&setters
@@ -60,13 +58,13 @@ public class OrderItem {
 		this.itemId = itemId;
 	}
 
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
+//	public Order getOrder() {
+//		return order;
+//	}
+//
+//	public void setOrder(Order order) {
+//		this.order = order;
+//	}
 	
 //	public Product getProduct() {
 //		return product;
