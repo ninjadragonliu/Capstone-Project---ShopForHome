@@ -9,7 +9,7 @@ import { ItemRequest } from '../models/itemrequest.model';
   providedIn: 'root'
 })
 export class CartService {
-  private apiUrl = 'http://localhost:9003/';
+  private apiUrl = 'http://localhost:9003';
   constructor(private http: HttpClient) { }
 
   // get cart by user
