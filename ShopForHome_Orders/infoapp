@@ -3511,3 +3511,532 @@ Identify and stop the process that's listening on port 9020 or configure this ap
 2024-10-23T20:53:40.533-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-10-23T20:53:40.534-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-10-23T20:53:40.538-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-10-23T20:55:48.446-04:00  INFO 78207 --- [ShopForHomeOrders] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-23T20:55:48.453-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SHOPFORHOMEORDERS with eureka with status DOWN
+2024-10-23T20:55:48.453-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731348453, current=DOWN, previous=UP]
+2024-10-23T20:55:48.454-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:55:48.475-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:55:48.482-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-23T20:55:48.485-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:55:48.492-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-23T20:55:48.494-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-10-23T20:55:51.498-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-10-23T20:55:51.508-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - deregister  status: 200
+2024-10-23T20:55:51.509-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-10-23T20:55:51.632-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Starting ShopForHomeOrdersApplication using Java 21.0.3 with PID 78207 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders)
+2024-10-23T20:55:51.633-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : The following 1 profile is active: "isabell"
+2024-10-23T20:55:51.782-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23T20:55:51.789-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2024-10-23T20:55:51.856-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4219ac16-4eaa-3ff1-9b6c-5efe8d5e7f24
+2024-10-23T20:55:51.873-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-23T20:55:51.874-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-23T20:55:51.912-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9020 (http)
+2024-10-23T20:55:51.913-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-23T20:55:51.913-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-23T20:55:51.927-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-23T20:55:51.927-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 293 ms
+2024-10-23T20:55:51.952-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23T20:55:51.953-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-23T20:55:51.960-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-23T20:55:51.961-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-10-23T20:55:51.976-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@449e7b1c
+2024-10-23T20:55:51.976-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-10-23T20:55:52.024-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-23T20:55:52.045-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:55:52.099-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23T20:55:52.105-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-23T20:55:52.241-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-10-23T20:55:52.248-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-10-23T20:55:52.256-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-10-23T20:55:52.258-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-10-23T20:55:52.258-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T20:55:52.258-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-23T20:55:52.258-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-23T20:55:52.258-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-23T20:55:52.258-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-23T20:55:52.258-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-23T20:55:52.258-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-10-23T20:55:52.259-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-23T20:55:52.287-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-23T20:55:52.288-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-10-23T20:55:52.288-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-10-23T20:55:52.288-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1729731352288 with initial instances count: 5
+2024-10-23T20:55:52.290-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SHOPFORHOMEORDERS with eureka with status UP
+2024-10-23T20:55:52.290-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731352290, current=UP, previous=STARTING]
+2024-10-23T20:55:52.290-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:55:52.292-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9020 (http) with context path '/'
+2024-10-23T20:55:52.292-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9020
+2024-10-23T20:55:52.300-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Started ShopForHomeOrdersApplication in 0.723 seconds (process running for 145.946)
+2024-10-23T20:55:52.301-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:55:52.302-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-23T20:55:52.748-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-23T20:55:52.748-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-23T20:55:52.749-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-23T20:56:39.097-04:00  INFO 78207 --- [ShopForHomeOrders] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-23T20:56:39.101-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SHOPFORHOMEORDERS with eureka with status DOWN
+2024-10-23T20:56:39.102-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731399102, current=DOWN, previous=UP]
+2024-10-23T20:56:39.107-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:56:39.131-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:56:39.133-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-10-23T20:56:39.142-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-10-23T20:56:39.142-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-10-23T20:56:39.148-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:56:39.149-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-10-23T20:56:39.152-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - deregister  status: 200
+2024-10-23T20:56:39.152-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-7] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-10-23T20:56:39.278-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Starting ShopForHomeOrdersApplication using Java 21.0.3 with PID 78207 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders)
+2024-10-23T20:56:39.278-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : The following 1 profile is active: "isabell"
+2024-10-23T20:56:39.422-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23T20:56:39.429-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2024-10-23T20:56:39.520-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4219ac16-4eaa-3ff1-9b6c-5efe8d5e7f24
+2024-10-23T20:56:39.563-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-23T20:56:39.564-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-23T20:56:39.610-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9020 (http)
+2024-10-23T20:56:39.611-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-23T20:56:39.611-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-23T20:56:39.631-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-23T20:56:39.631-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 351 ms
+2024-10-23T20:56:39.663-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23T20:56:39.665-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-23T20:56:39.674-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-23T20:56:39.674-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-10-23T20:56:39.691-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7931a685
+2024-10-23T20:56:39.692-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-10-23T20:56:39.750-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-23T20:56:39.772-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:56:39.830-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23T20:56:39.837-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-23T20:56:39.960-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-10-23T20:56:39.966-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-10-23T20:56:39.973-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-10-23T20:56:39.974-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-10-23T20:56:39.974-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T20:56:39.975-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-23T20:56:39.975-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-23T20:56:39.975-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-23T20:56:39.975-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-23T20:56:39.975-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-23T20:56:39.975-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-10-23T20:56:39.975-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-23T20:56:39.996-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-23T20:56:39.997-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-10-23T20:56:39.997-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-10-23T20:56:39.997-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1729731399997 with initial instances count: 5
+2024-10-23T20:56:39.999-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SHOPFORHOMEORDERS with eureka with status UP
+2024-10-23T20:56:39.999-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731399999, current=UP, previous=STARTING]
+2024-10-23T20:56:39.999-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:56:40.000-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9020 (http) with context path '/'
+2024-10-23T20:56:40.000-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9020
+2024-10-23T20:56:40.005-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Started ShopForHomeOrdersApplication in 0.762 seconds (process running for 193.652)
+2024-10-23T20:56:40.007-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-23T20:56:40.008-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:56:42.627-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-23T20:56:42.629-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-23T20:56:42.635-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2024-10-23T20:57:37.954-04:00  INFO 78207 --- [ShopForHomeOrders] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-23T20:57:37.959-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SHOPFORHOMEORDERS with eureka with status DOWN
+2024-10-23T20:57:37.959-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731457959, current=DOWN, previous=UP]
+2024-10-23T20:57:37.960-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:57:37.982-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:57:37.989-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-10-23T20:57:38.001-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-10-23T20:57:38.002-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-10-23T20:57:38.010-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:57:38.011-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-10-23T20:57:38.014-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - deregister  status: 200
+2024-10-23T20:57:38.014-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-13] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-10-23T20:57:38.246-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Starting ShopForHomeOrdersApplication using Java 21.0.3 with PID 78207 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders)
+2024-10-23T20:57:38.247-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : The following 1 profile is active: "isabell"
+2024-10-23T20:57:38.351-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23T20:57:38.356-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
+2024-10-23T20:57:38.398-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4219ac16-4eaa-3ff1-9b6c-5efe8d5e7f24
+2024-10-23T20:57:38.415-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-23T20:57:38.416-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-23T20:57:38.443-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9020 (http)
+2024-10-23T20:57:38.444-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-23T20:57:38.444-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-23T20:57:38.456-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-23T20:57:38.456-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 208 ms
+2024-10-23T20:57:38.472-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23T20:57:38.474-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-23T20:57:38.478-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-23T20:57:38.479-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-10-23T20:57:38.492-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@74dade6d
+2024-10-23T20:57:38.492-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-10-23T20:57:38.532-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-23T20:57:38.555-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:57:38.594-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23T20:57:38.598-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-23T20:57:38.683-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-10-23T20:57:38.687-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-10-23T20:57:38.693-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-10-23T20:57:38.694-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-23T20:57:38.712-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-23T20:57:38.713-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-10-23T20:57:38.713-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-10-23T20:57:38.713-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1729731458713 with initial instances count: 5
+2024-10-23T20:57:38.714-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SHOPFORHOMEORDERS with eureka with status UP
+2024-10-23T20:57:38.714-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731458714, current=UP, previous=STARTING]
+2024-10-23T20:57:38.714-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:57:38.716-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9020 (http) with context path '/'
+2024-10-23T20:57:38.716-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9020
+2024-10-23T20:57:38.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Started ShopForHomeOrdersApplication in 0.622 seconds (process running for 252.367)
+2024-10-23T20:57:38.721-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-23T20:57:38.722-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:58:44.789-04:00  INFO 78207 --- [ShopForHomeOrders] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-23T20:58:44.792-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SHOPFORHOMEORDERS with eureka with status DOWN
+2024-10-23T20:58:44.793-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731524793, current=DOWN, previous=UP]
+2024-10-23T20:58:44.793-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:58:44.802-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:58:44.804-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-10-23T20:58:44.812-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-10-23T20:58:44.812-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-10-23T20:58:44.812-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:58:44.813-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-10-23T20:58:44.816-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - deregister  status: 200
+2024-10-23T20:58:44.817-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-19] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-10-23T20:58:44.922-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Starting ShopForHomeOrdersApplication using Java 21.0.3 with PID 78207 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders)
+2024-10-23T20:58:44.922-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : The following 1 profile is active: "isabell"
+2024-10-23T20:58:45.132-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23T20:58:45.142-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 2 JPA repository interfaces.
+2024-10-23T20:58:45.281-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4219ac16-4eaa-3ff1-9b6c-5efe8d5e7f24
+2024-10-23T20:58:45.310-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-23T20:58:45.311-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-23T20:58:45.369-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9020 (http)
+2024-10-23T20:58:45.371-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-23T20:58:45.371-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-23T20:58:45.398-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-23T20:58:45.398-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 472 ms
+2024-10-23T20:58:45.433-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23T20:58:45.434-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-23T20:58:45.443-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-23T20:58:45.444-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-10-23T20:58:45.460-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@74c2dcd4
+2024-10-23T20:58:45.460-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-10-23T20:58:45.518-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-23T20:58:45.536-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:58:45.584-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23T20:58:45.587-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-23T20:58:45.710-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-10-23T20:58:45.714-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-10-23T20:58:45.719-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-10-23T20:58:45.720-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-23T20:58:45.745-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-23T20:58:45.746-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-10-23T20:58:45.746-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-10-23T20:58:45.746-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1729731525746 with initial instances count: 5
+2024-10-23T20:58:45.746-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SHOPFORHOMEORDERS with eureka with status UP
+2024-10-23T20:58:45.747-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731525747, current=UP, previous=STARTING]
+2024-10-23T20:58:45.747-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:58:45.748-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9020 (http) with context path '/'
+2024-10-23T20:58:45.749-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9020
+2024-10-23T20:58:45.753-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Started ShopForHomeOrdersApplication in 0.858 seconds (process running for 319.401)
+2024-10-23T20:58:45.755-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-23T20:58:45.759-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:58:46.207-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-23T20:58:46.207-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-23T20:58:46.209-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-10-23T20:58:46.317-04:00 ERROR 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: not-null property references a null or transient value : com.cogent.ShopForHome_Orders.model.Order.total] with root cause
+
+org.hibernate.PropertyValueException: not-null property references a null or transient value : com.cogent.ShopForHome_Orders.model.Order.total
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:109) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:54) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:124) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:73) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:671) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:292) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:273) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:323) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:391) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:305) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:224) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:137) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:757) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:741) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.1.13.jar:6.1.13]
+	at jdk.proxy8/jdk.proxy8.$Proxy193.persist(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.13.jar:6.1.13]
+	at jdk.proxy8/jdk.proxy8.$Proxy193.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:626) ~[spring-data-jpa-3.3.4.jar:3.3.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:173) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.13.jar:6.1.13]
+	at jdk.proxy8/jdk.proxy8.$Proxy195.save(Unknown Source) ~[na:na]
+	at com.cogent.ShopForHome_Orders.service.OrderService.saveOrder(OrderService.java:25) ~[classes/:na]
+	at com.cogent.ShopForHome_Orders.controller.OrderController.register(OrderController.java:41) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-10-23T20:59:12.390-04:00  INFO 78207 --- [ShopForHomeOrders] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-23T20:59:12.395-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SHOPFORHOMEORDERS with eureka with status DOWN
+2024-10-23T20:59:12.395-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731552395, current=DOWN, previous=UP]
+2024-10-23T20:59:12.395-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:59:12.406-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:59:12.409-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-10-23T20:59:12.415-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-10-23T20:59:12.415-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:59:12.416-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-10-23T20:59:15.419-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-10-23T20:59:15.427-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - deregister  status: 200
+2024-10-23T20:59:15.427-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-25] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-10-23T20:59:15.540-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Starting ShopForHomeOrdersApplication using Java 21.0.3 with PID 78207 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders)
+2024-10-23T20:59:15.540-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : The following 1 profile is active: "isabell"
+2024-10-23T20:59:15.646-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23T20:59:15.651-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 2 JPA repository interfaces.
+2024-10-23T20:59:15.685-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4219ac16-4eaa-3ff1-9b6c-5efe8d5e7f24
+2024-10-23T20:59:15.696-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-23T20:59:15.696-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-23T20:59:15.733-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9020 (http)
+2024-10-23T20:59:15.733-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-23T20:59:15.734-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-23T20:59:15.755-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-23T20:59:15.755-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 214 ms
+2024-10-23T20:59:15.779-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23T20:59:15.780-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-23T20:59:15.786-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-23T20:59:15.786-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-10-23T20:59:15.799-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@143c547d
+2024-10-23T20:59:15.800-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-10-23T20:59:15.838-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-23T20:59:15.853-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:59:15.895-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23T20:59:15.898-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-23T20:59:15.988-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-10-23T20:59:15.994-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-10-23T20:59:16.000-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-10-23T20:59:16.002-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-23T20:59:16.025-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-23T20:59:16.026-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-10-23T20:59:16.026-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-10-23T20:59:16.026-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1729731556026 with initial instances count: 5
+2024-10-23T20:59:16.027-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SHOPFORHOMEORDERS with eureka with status UP
+2024-10-23T20:59:16.027-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731556027, current=UP, previous=STARTING]
+2024-10-23T20:59:16.027-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:59:16.029-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9020 (http) with context path '/'
+2024-10-23T20:59:16.030-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9020
+2024-10-23T20:59:16.034-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Started ShopForHomeOrdersApplication in 0.539 seconds (process running for 349.682)
+2024-10-23T20:59:16.036-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-23T20:59:16.036-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:59:29.524-04:00  INFO 78207 --- [ShopForHomeOrders] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-23T20:59:29.527-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SHOPFORHOMEORDERS with eureka with status DOWN
+2024-10-23T20:59:29.528-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731569528, current=DOWN, previous=UP]
+2024-10-23T20:59:29.529-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:59:29.552-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:59:29.555-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-10-23T20:59:29.561-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:59:29.562-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2024-10-23T20:59:29.563-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-10-23T20:59:32.570-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-10-23T20:59:32.635-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - deregister  status: 200
+2024-10-23T20:59:32.637-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-31] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-10-23T20:59:32.759-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Starting ShopForHomeOrdersApplication using Java 21.0.3 with PID 78207 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders)
+2024-10-23T20:59:32.759-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : The following 1 profile is active: "isabell"
+2024-10-23T20:59:32.860-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23T20:59:32.866-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2024-10-23T20:59:32.912-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4219ac16-4eaa-3ff1-9b6c-5efe8d5e7f24
+2024-10-23T20:59:32.922-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-23T20:59:32.923-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-23T20:59:32.963-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9020 (http)
+2024-10-23T20:59:32.964-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-23T20:59:32.964-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-23T20:59:32.981-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-23T20:59:32.981-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 220 ms
+2024-10-23T20:59:33.005-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23T20:59:33.006-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-23T20:59:33.011-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-23T20:59:33.011-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2024-10-23T20:59:33.025-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21ef827a
+2024-10-23T20:59:33.025-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2024-10-23T20:59:33.057-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-23T20:59:33.071-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:59:33.111-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23T20:59:33.115-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-23T20:59:33.189-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-10-23T20:59:33.193-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-10-23T20:59:33.197-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-10-23T20:59:33.198-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-10-23T20:59:33.198-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T20:59:33.198-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-23T20:59:33.198-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-23T20:59:33.198-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-23T20:59:33.199-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-23T20:59:33.199-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-23T20:59:33.199-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-10-23T20:59:33.199-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-23T20:59:33.216-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-23T20:59:33.216-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-10-23T20:59:33.216-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-10-23T20:59:33.217-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1729731573216 with initial instances count: 5
+2024-10-23T20:59:33.217-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SHOPFORHOMEORDERS with eureka with status UP
+2024-10-23T20:59:33.217-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731573217, current=UP, previous=STARTING]
+2024-10-23T20:59:33.217-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:59:33.219-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9020 (http) with context path '/'
+2024-10-23T20:59:33.219-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9020
+2024-10-23T20:59:33.223-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Started ShopForHomeOrdersApplication in 0.493 seconds (process running for 366.871)
+2024-10-23T20:59:33.224-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-23T20:59:33.226-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:59:33.981-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-23T20:59:33.981-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-23T20:59:33.982-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-23T20:59:34.601-04:00  INFO 78207 --- [ShopForHomeOrders] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-10-23T20:59:34.603-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SHOPFORHOMEORDERS with eureka with status DOWN
+2024-10-23T20:59:34.604-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731574604, current=DOWN, previous=UP]
+2024-10-23T20:59:34.608-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:59:34.616-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:59:34.617-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2024-10-23T20:59:34.620-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T20:59:34.621-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2024-10-23T20:59:34.622-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-10-23T20:59:37.627-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-10-23T20:59:37.652-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - deregister  status: 200
+2024-10-23T20:59:37.652-04:00  INFO 78207 --- [ShopForHomeOrders] [Thread-37] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-10-23T20:59:37.713-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Starting ShopForHomeOrdersApplication using Java 21.0.3 with PID 78207 (/Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders/target/classes started by zat in /Users/zat/Desktop/CogentTraining2024/Capstone-Project---ShopForHome/ShopForHome_Orders)
+2024-10-23T20:59:37.714-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : The following 1 profile is active: "isabell"
+2024-10-23T20:59:37.795-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-23T20:59:37.801-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
+2024-10-23T20:59:37.831-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=4219ac16-4eaa-3ff1-9b6c-5efe8d5e7f24
+2024-10-23T20:59:37.840-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-23T20:59:37.840-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-23T20:59:37.869-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9020 (http)
+2024-10-23T20:59:37.870-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-23T20:59:37.870-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-23T20:59:37.885-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-23T20:59:37.885-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 171 ms
+2024-10-23T20:59:37.911-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-23T20:59:37.912-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-23T20:59:37.916-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-23T20:59:37.917-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2024-10-23T20:59:37.929-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@583b0573
+2024-10-23T20:59:37.929-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2024-10-23T20:59:37.964-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-23T20:59:37.981-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-23T20:59:38.025-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-23T20:59:38.029-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-10-23T20:59:38.119-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-10-23T20:59:38.124-04:00  WARN 78207 --- [ShopForHomeOrders] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-10-23T20:59:38.130-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-10-23T20:59:38.131-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-23T20:59:38.149-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-23T20:59:38.149-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-10-23T20:59:38.149-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-10-23T20:59:38.150-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1729731578150 with initial instances count: 5
+2024-10-23T20:59:38.150-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SHOPFORHOMEORDERS with eureka with status UP
+2024-10-23T20:59:38.150-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729731578150, current=UP, previous=STARTING]
+2024-10-23T20:59:38.151-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020: registering service...
+2024-10-23T20:59:38.152-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9020 (http) with context path '/'
+2024-10-23T20:59:38.152-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9020
+2024-10-23T20:59:38.157-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] c.c.S.ShopForHomeOrdersApplication       : Started ShopForHomeOrdersApplication in 0.459 seconds (process running for 371.805)
+2024-10-23T20:59:38.158-04:00  INFO 78207 --- [ShopForHomeOrders] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-10-23T20:59:38.159-04:00  INFO 78207 --- [ShopForHomeOrders] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEORDERS/10.11.3.143:ShopForHomeOrders:9020 - registration status: 204
+2024-10-23T21:00:06.654-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-23T21:00:06.656-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-23T21:00:06.663-04:00  INFO 78207 --- [ShopForHomeOrders] [http-nio-9020-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms

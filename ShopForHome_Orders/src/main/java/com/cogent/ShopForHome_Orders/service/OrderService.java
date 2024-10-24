@@ -24,21 +24,23 @@ public class OrderService {
 		Order order = new Order(cart.getUserId(), cart.getCartId());
 		BigDecimal total = BigDecimal.ZERO;
 		List<OrderItem> orderItems = new ArrayList<OrderItem>();
+		order.setTotal(total);
+		order.setStatus(OrderStatus.PENDING);
+		order.setOrderItems(orderItems);
+		orderRepository.save(order);
 		for(CartItem cartItem: cart.getCartItems()) {
 			
 			OrderItem orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());	
-			System.out.println(orderItem.getProductId());
+			System.out.println(orderItem.getOrderId());
 			orderItems.add(orderItem);
 			total = total.add(cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
 		}
 		for(OrderItem item: orderItems) {
 			item.getQuantity();
 		}
-		order.setTotal(total);
-		order.setStatus(OrderStatus.PENDING);
-		order.setOrderItems(orderItems);
+		
 		cart.clearCart();
-		return orderRepository.save(order);
+		return orderRepository.saveAndFlush(order);
 	}
 
 	public List<Order> getAllOrders() {
