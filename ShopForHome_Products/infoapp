@@ -3191,3 +3191,15 @@ java.lang.Error: Unresolved compilation problem:
 2024-10-24T15:56:36.699-04:00  INFO 90418 --- [ShopForHomeProducts] [http-nio-9005-exec-2] o.a.c.c.C.[Tomcat-8].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-10-24T15:56:36.699-04:00  INFO 90418 --- [ShopForHomeProducts] [http-nio-9005-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-10-24T15:56:36.700-04:00  INFO 90418 --- [ShopForHomeProducts] [http-nio-9005-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-10-24T15:58:41.912-04:00  INFO 90418 --- [ShopForHomeProducts] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2024-10-24T15:58:41.925-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SHOPFORHOMEPRODUCTS with eureka with status DOWN
+2024-10-24T15:58:41.925-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1729799921925, current=DOWN, previous=UP]
+2024-10-24T15:58:41.926-04:00  INFO 90418 --- [ShopForHomeProducts] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEPRODUCTS/10.11.3.143:ShopForHomeProducts:9005: registering service...
+2024-10-24T15:58:41.935-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T15:58:41.937-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] com.zaxxer.hikari.HikariDataSource       : HikariPool-44 - Shutdown initiated...
+2024-10-24T15:58:41.944-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] com.zaxxer.hikari.HikariDataSource       : HikariPool-44 - Shutdown completed.
+2024-10-24T15:58:41.946-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-10-24T15:58:41.950-04:00  INFO 90418 --- [ShopForHomeProducts] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEPRODUCTS/10.11.3.143:ShopForHomeProducts:9005 - registration status: 204
+2024-10-24T15:58:41.951-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-10-24T15:58:41.955-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SHOPFORHOMEPRODUCTS/10.11.3.143:ShopForHomeProducts:9005 - deregister  status: 200
+2024-10-24T15:58:41.956-04:00  INFO 90418 --- [ShopForHomeProducts] [Thread-243] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

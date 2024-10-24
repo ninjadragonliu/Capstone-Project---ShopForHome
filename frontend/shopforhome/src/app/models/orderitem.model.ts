@@ -1,7 +1,7 @@
 import Decimal from "decimal.js";
 
 export interface OrderItem {
-    itemId: number;
+    itemId?: number;
     productId: number;
     quantity: number;
     price: Decimal;

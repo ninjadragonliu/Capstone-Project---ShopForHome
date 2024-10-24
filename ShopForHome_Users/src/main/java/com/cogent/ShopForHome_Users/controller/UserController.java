@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,20 +19,11 @@ import com.cogent.ShopForHome_Users.service.UserService;
 
 //not a bean
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	@Autowired
 	private UserService userService;
 
-//	@Autowired
-//	private CartsFeignClient cartsFeignClient;
-	
-	
-//	@GetMapping(value="/users/test")
-//	public String hi(){
-//		
-//		return "";
-//	}
-	
 	@PostMapping("/users/login")
 	public ResponseEntity<User> loginUser(@RequestBody LoginRequest loginRequest){
 		Optional<User> op = userService.loginUser(loginRequest.getUsername(), loginRequest.getPassword());

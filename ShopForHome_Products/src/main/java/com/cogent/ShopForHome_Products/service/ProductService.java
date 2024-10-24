@@ -31,7 +31,21 @@ public class ProductService {
 	public List<Product> getAllProducts() {
 		return productRepository.findAll();
 	}
-
+	
+	public List<Product> getAllProductsByCategory(String category){
+		List<Product> productList = getAllProducts();
+		if(productList.isEmpty()) {
+			return null;
+		}
+		List<Product> productsByCategory = new ArrayList<>();
+		for(Product product: productList) {
+			if(product.getCategory().equals(category)) {
+				productsByCategory.add(product);
+			}
+		}
+		return productsByCategory;
+	}
+	
 	public Product updateProduct(int productId, Product product) {
 		Optional<Product> existingProduct = productRepository.findById(product.getProductId());
 		if (existingProduct.isEmpty()) {

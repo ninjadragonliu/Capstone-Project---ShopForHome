@@ -13,21 +13,21 @@ export class WishlistService {
 
   //get wishlist by user
   getWishlistByUser(userId: number): Observable<Wishlist> {
-    return this.http.get<Wishlist>('${this.apiUrl}/wishlist/${userId}');
+    return this.http.get<Wishlist>(`${this.apiUrl}/wishlist/${userId}`);
   }
 
   // add product to wishlist
   addProductToWishlist(userId: number, productId: number): Observable<WishlistItem[]> {
-    return this.http.post<WishlistItem[]>('${this.apiUrl}/wishlist/${userId}/items', productId);
+    return this.http.post<WishlistItem[]>(`${this.apiUrl}/wishlist/${userId}/items`, productId);
   }
 
   // remove product from wishlist
   removeProductFromWishlist(userId: number, wishlistItemId: number): Observable<WishlistItem[]> {
-    return this.http.delete<WishlistItem[]>('${this.apiUrl}/wishlist/${userId}/items/${wishlistItemId}');
+    return this.http.delete<WishlistItem[]>(`${this.apiUrl}/wishlist/${userId}/items/${wishlistItemId}`);
   }
 
   // clear wishlist
   clearCart(userId: number): Observable<WishlistItem[]> {
-    return this.http.delete<WishlistItem[]>('${this.apiUrl}/wishlist/${userId}/clear');
+    return this.http.delete<WishlistItem[]>(`${this.apiUrl}/wishlist/${userId}/clear`);
   }
 }

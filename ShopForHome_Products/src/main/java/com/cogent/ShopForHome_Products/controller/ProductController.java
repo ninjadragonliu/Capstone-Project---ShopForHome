@@ -36,6 +36,15 @@ public class ProductController {
 
 	}
 
+	@GetMapping("/products/{category}/items")
+	public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category){
+		List<Product> productList = productService.getAllProductsByCategory(category);
+		if (productList.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(productList);
+	}
+	
 	@GetMapping("/products")
 	public ResponseEntity<List<Product>> getProducts() {
 		List<Product> productList = productService.getAllProducts();

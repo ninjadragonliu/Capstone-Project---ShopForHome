@@ -10,7 +10,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import com.capstone.ShopForHome.enums.OrderStatus;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,17 +28,16 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-	private int userId = 0;
-	private int cartId = 0;
+	private int userId;
+	private int cartId;
 
 	@OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
 	private List<OrderItem> orderItems = new ArrayList<>();
-	
-	@Column(nullable = false)
-	private BigDecimal total = BigDecimal.ZERO;
+
+	private BigDecimal total;
 
 	@Enumerated(EnumType.STRING)
-	private OrderStatus status = OrderStatus.PENDING;
+	private OrderStatus status;
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
