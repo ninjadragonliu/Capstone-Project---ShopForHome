@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cogent.ShopForHome_Products.model.Product;
+import com.cogent.ShopForHome_Products.objectreference.ProductImportData;
 import com.cogent.ShopForHome_Products.service.ProductService;
 
 //not a bean
@@ -22,6 +23,8 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 
+	
+	
 	@PostMapping("/products/register")
 	public ResponseEntity<Product> register(@RequestBody Product product) {
 		Optional<Product> existingProduct = productService.findProductById(product.getProductId());
@@ -50,6 +53,14 @@ public class ProductController {
 		}
 		return ResponseEntity.notFound().build();
 	}
+	
+	@PostMapping("/products/bulkupload")
+	public ResponseEntity<List<Product>> productBulkUpload(@RequestBody ProductImportData data){
+		List<Product> addedProducts = productService.bulkUpload(data.getFilename());
+		return ResponseEntity.ok().body(addedProducts);
+	}
+	
+	
 
 	@PutMapping("/products/{productId}")
 	public ResponseEntity<Product> updateProduct(@PathVariable int productId, @RequestBody Product product) {
