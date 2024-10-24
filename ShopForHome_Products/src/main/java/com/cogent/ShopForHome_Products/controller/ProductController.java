@@ -1,5 +1,6 @@
 package com.cogent.ShopForHome_Products.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +34,15 @@ public class ProductController {
 
 	}
 
+	@GetMapping("/products/{category}")
+	public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category){
+		List<Product> productList = productService.getAllProductsByCategory(category);
+		if (productList.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(productList);
+	}
+	
 	@GetMapping("/products")
 	public ResponseEntity<List<Product>> getProducts() {
 		List<Product> productList = productService.getAllProducts();
