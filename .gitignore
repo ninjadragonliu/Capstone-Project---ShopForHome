@@ -79,3 +79,5 @@ build/
 */application.properties
 ShopForHome_Users/ShopForHome_Users/src/main/resources/application.properties
 /.metadata/
+ShopForHome_Carts/infoapp
+ShopForHome_Users/infoapp
