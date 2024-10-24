@@ -29,17 +29,17 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-	private int userId;
-	private int cartId;
+	private int userId = 0;
+	private int cartId = 0;
 
 	@OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
 	private List<OrderItem> orderItems = new ArrayList<>();
 	
 	@Column(nullable = false)
-	private BigDecimal total;
+	private BigDecimal total = BigDecimal.ZERO;
 
 	@Enumerated(EnumType.STRING)
-	private OrderStatus status;
+	private OrderStatus status = OrderStatus.PENDING;
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;

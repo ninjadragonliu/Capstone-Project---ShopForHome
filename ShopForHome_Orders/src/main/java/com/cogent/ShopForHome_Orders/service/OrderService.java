@@ -24,9 +24,7 @@ public class OrderService {
 		Order order = new Order(cart.getUserId(), cart.getCartId());
 		BigDecimal total = BigDecimal.ZERO;
 		List<OrderItem> orderItems = new ArrayList<OrderItem>();
-		order.setTotal(total);
-		order.setStatus(OrderStatus.PENDING);
-		order.setOrderItems(orderItems);
+		
 		orderRepository.save(order);
 		for(CartItem cartItem: cart.getCartItems()) {
 			
@@ -34,12 +32,10 @@ public class OrderService {
 			System.out.println(orderItem.getOrderId());
 			orderItems.add(orderItem);
 			total = total.add(cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
-		}
-		for(OrderItem item: orderItems) {
-			item.getQuantity();
-		}
-		
+		}		
 		cart.clearCart();
+		order.setTotal(total);
+		order.setOrderItems(orderItems);
 		return orderRepository.saveAndFlush(order);
 	}
 
