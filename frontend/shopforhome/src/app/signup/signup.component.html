@@ -1,10 +1,11 @@
 <app-user-interface-header></app-user-interface-header>
 <form (ngSubmit)="onSubmit()" #f="ngForm" style ="text-align: center; justify-content: center;max-width: 400px; margin: 0 auto;" >
+    <h1 class="text-center">Register</h1>
     <div class="form-group">
         <div class="mb-3">
             <label for="username">Username:</label>
             <div class="col-sm">
-                <input type="text" id="username" name="username" class="form-control" id="username" ngModel>
+                <input type="text" id="username" name="username" class="form-control" id="username" ngModel required>
             </div>
         </div>
         
@@ -14,7 +15,7 @@
     <div class="form-group">
         <div class="mb-3">
             <label for="pwd">Password:</label>
-            <input type="password" id="password"name="password" class="form-control" id="pwd" ngModel>
+            <input type="password" id="password"name="password" class="form-control" id="pwd" ngModel required>
         </div>
         
     </div>
@@ -27,6 +28,10 @@
     </div>
     <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Register</button>
 </form>
+
+<div *ngIf="submitted">
+    {{status}}
+</div>
 
 <!-- http://localhost:9001/users/register signup 
  
