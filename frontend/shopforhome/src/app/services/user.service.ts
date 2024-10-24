@@ -19,7 +19,7 @@ export class UserService {
 
   // register user
   register(user: User): Observable<User> {
-    return this.http.post<User>('${this.apiUrl}/users/register', user);
+    return this.http.post<User>(this.apiUrl + 'users/register', user);
   }
 
   // get user by id
