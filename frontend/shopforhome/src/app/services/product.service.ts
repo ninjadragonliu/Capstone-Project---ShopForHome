@@ -22,8 +22,16 @@ export class ProductService {
   }
 
   // get products by category
-  getProductsByCategory(category: string): Observable<ProductResponse[]>{
-    return this.http.get<ProductResponse[]>(`${this.apiUrl}/products/category/${category}`);
+  // needs to be looked at, it works, it doesn't mean anything it just needs to ensure the call returns data
+  async getProductsByCategory(category: string): Promise<Observable<ProductResponse[]>>{
+    return new Promise(
+      (resolve, reject) =>{
+        const data = this.http.get<ProductResponse[]>(`${this.apiUrl}/products/${category}/items`);
+        if(data === undefined){
+          reject("data error");
+        }
+        resolve(data);
+      });
   }
 
   // get all products
