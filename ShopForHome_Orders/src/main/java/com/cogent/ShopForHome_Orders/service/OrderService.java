@@ -50,6 +50,7 @@ public class OrderService {
 	public Order completeOrder(Order order) {
 		if(order.getStatus().equals(OrderStatus.PENDING)) {
 			order.setStatus(OrderStatus.COMPLETED);
+			orderRepository.saveAndFlush(order);
 			return order;
 		}
 		return order;
