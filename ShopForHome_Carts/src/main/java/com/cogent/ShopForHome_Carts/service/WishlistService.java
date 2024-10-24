@@ -28,46 +28,46 @@ public class WishlistService {
 	public Optional<WishlistItem> findByWishlistItemId(int wishlistItemId) {
 		return wishlistItemRepository.findById(wishlistItemId);
 	}
-	
+
 	public Wishlist getWishlistByUser(int userId) {
 		return wishlistRepository.findByUserId(userId).orElseGet(() -> {
 			Wishlist newWishlist = new Wishlist(userId);
 			return wishlistRepository.save(newWishlist);
 		});
 	}
-
-	public WishlistItem addProductToWishlist(User user, Product product) {
-		Wishlist wishlist = getWishlistByUser(user.getUserId());
-		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistAndProductId(wishlist, product.getProductId());
+//
+	public WishlistItem addProductToWishlist(Integer userId, Product product, Integer quantity) {
+		Wishlist wishlist = getWishlistByUser(userId);
+		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistIdAndProductId(wishlist.getWishlistId(), product.getProductId());
 		WishlistItem wishlistItem = new WishlistItem();
 		if (existingWishlistItem.isEmpty()) {
-			wishlistItem = new WishlistItem(wishlist, product.getProductId());
+			wishlistItem = new WishlistItem(wishlist.getWishlistId(), product.getProductId());
 		} else {
 			wishlistItem = existingWishlistItem.get();
 		}
-
+//
 		return wishlistItemRepository.save(wishlistItem);
 	}
-
-	public boolean removeProductFromWishlist(User user, Product product) {
-		Wishlist wishlist = getWishlistByUser(user.getUserId());
-		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistAndProductId(wishlist, product.getProductId());
-		if(existingWishlistItem.isEmpty()) {
-			return false;
-		} 
-		WishlistItem found = existingWishlistItem.get();
-		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-		if(wishlistItems.contains(found)) {
-			wishlistItems.remove(found);
-		}
-		wishlistItemRepository.delete(found);
-		return true;
-	}
-
-	public void clearWishlist(Wishlist wishlist) {
-		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-		wishlistItemRepository.deleteAll(wishlistItems);
-		wishlist.clearWishlist();
-		wishlistRepository.save(wishlist);
-	}
+//
+//	public boolean removeProductFromWishlist(User user, Product product) {
+//		Wishlist wishlist = getWishlistByUser(user.getUserId());
+//		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistAndProductId(wishlist, product.getProductId());
+//		if(existingWishlistItem.isEmpty()) {
+//			return false;
+//		} 
+//		WishlistItem found = existingWishlistItem.get();
+//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+//		if(wishlistItems.contains(found)) {
+//			wishlistItems.remove(found);
+//		}
+//		wishlistItemRepository.delete(found);
+//		return true;
+//	}
+//
+//	public void clearWishlist(Wishlist wishlist) {
+//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+//		wishlistItemRepository.deleteAll(wishlistItems);
+//		wishlist.clearWishlist();
+//		wishlistRepository.save(wishlist);
+//	}
 }

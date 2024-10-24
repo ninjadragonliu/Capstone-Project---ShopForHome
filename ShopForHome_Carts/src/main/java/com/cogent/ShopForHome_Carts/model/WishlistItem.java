@@ -1,6 +1,7 @@
 package com.cogent.ShopForHome_Carts.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -19,10 +20,7 @@ public class WishlistItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemId;
 	private int productId;
-	
-	@ManyToOne
-	@JoinColumn(name = "wishlistId", nullable = false)
-	private Wishlist wishlist;
+	private int wishlistId;
 	
 	@CreationTimestamp
 	private LocalDateTime createdAt;
@@ -31,8 +29,8 @@ public class WishlistItem {
 		// default
 	}
 
-	public WishlistItem(Wishlist wishlist, int productId) {
-		this.wishlist = wishlist;
+	public WishlistItem(int wishlistId, int productId) {
+		this.wishlistId = wishlistId;
 		this.productId = productId;
 	}
 
@@ -45,13 +43,16 @@ public class WishlistItem {
 		this.itemId = itemId;
 	}
 
-	public Wishlist getWishlist() {
-		return wishlist;
+	
+
+	public int getWishlistId() {
+		return wishlistId;
 	}
 
-	public void setWishlist(Wishlist wishlist) {
-		this.wishlist = wishlist;
+	public void setWishlistId(int wishlistId) {
+		this.wishlistId = wishlistId;
 	}
+
 
 	public int getProductId() {
 		return productId;

@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cogent.ShopForHome_Carts.model.Cart;
+import com.cogent.ShopForHome_Carts.model.CartItem;
 import com.cogent.ShopForHome_Carts.model.Wishlist;
 import com.cogent.ShopForHome_Carts.model.WishlistItem;
 import com.cogent.ShopForHome_Carts.objectreference.Product;
+import com.cogent.ShopForHome_Carts.objectreference.ProductData;
 import com.cogent.ShopForHome_Carts.objectreference.User;
 import com.cogent.ShopForHome_Carts.service.WishlistService;
 import com.cogent.ShopForHome_Carts.service.feign.ProductFeignClient;
@@ -38,23 +41,23 @@ public class WishlistController{
 		Wishlist existingWishlist = wishlistService.getWishlistByUser(userId);
 		return ResponseEntity.ok().body(existingWishlist);
 	}
-//	@PostMapping("/wishlist/{userId}/items")
-//	public ResponseEntity<List<WishlistItem>> addProductToWishlist(@PathVariable int userId, @RequestParam("productId") int productId) {
-//		Optional<User> existingUser = userFeignClient.getUserById(userId);
-//		if(existingUser.isEmpty()) {
-//			return ResponseEntity.notFound().build();
-//		}
-//		Optional<Product> existingProduct = productFeignClient.getProductById(productId);
-//		if(existingProduct.isEmpty()) {
-//			return ResponseEntity.notFound().build(); 
-//		}
-//		User user = existingUser.get();
-//		Product product = existingProduct.get();
-//		wishlistService.addProductToWishlist(user, product);
-//		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
-//		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-//		return ResponseEntity.ok(wishlistItems);
-//	}
+	
+@PostMapping("/wishlist/{userId}/items")
+public ResponseEntity<List<WishlistItem>> addProductToCart(@PathVariable int userId, @RequestBody ProductData productData) {
+	ResponseEntity<User> existingUser = userFeignClient.getUserById(userId);
+	if(!existingUser.hasBody()) {
+		return ResponseEntity.notFound().build();
+	}
+	Optional<Product> existingProduct = productFeignClient.getProductById(productData.getProductId());
+	if(existingProduct.isEmpty()) {
+		return ResponseEntity.notFound().build(); 
+	}
+	User user = existingUser.getBody();
+	wishlistService.addProductToWishlist(user.getUserId(), existingProduct.get(), productData.getQuantity());
+	Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
+	List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
+	return ResponseEntity.ok().body(wishlistItems);
+}
 // 
 //	@GetMapping("/wishlist/{userId}")
 //	public ResponseEntity<List<WishlistItem>> getWishlistByUser(@PathVariable int userId) {

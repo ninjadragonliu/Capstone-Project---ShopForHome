@@ -2027,3 +2027,9 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2024-10-23T19:23:28.194-04:00  INFO 77168 --- [ShopForHomeProducts] [http-nio-9005-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-10-23T19:23:28.198-04:00  INFO 77168 --- [ShopForHomeProducts] [http-nio-9005-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
 2024-10-23T19:28:06.665-04:00  INFO 77168 --- [ShopForHomeProducts] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T19:33:06.673-04:00  INFO 77168 --- [ShopForHomeProducts] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T19:38:06.680-04:00  INFO 77168 --- [ShopForHomeProducts] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T19:43:06.684-04:00  INFO 77168 --- [ShopForHomeProducts] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T19:48:06.690-04:00  INFO 77168 --- [ShopForHomeProducts] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T19:53:06.696-04:00  INFO 77168 --- [ShopForHomeProducts] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-23T19:58:06.699-04:00  INFO 77168 --- [ShopForHomeProducts] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
