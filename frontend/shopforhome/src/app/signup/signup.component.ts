@@ -18,7 +18,8 @@ export class SignupComponent {
   onSubmit(form: NgForm) {
     if (form.valid) {
       const { username, email, password } = form.value;
-      const user: User = {username, email, password};
+      const role: string = 'USER';
+      const user: User = {username, email, password, role};
       this.userService.register(user).subscribe({
         next: response => {
           this.loginSuccess = true;
