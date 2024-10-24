@@ -34,6 +34,14 @@ public class OrderItem {
 	@Column(nullable = false)
 	private BigDecimal price;
 
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 

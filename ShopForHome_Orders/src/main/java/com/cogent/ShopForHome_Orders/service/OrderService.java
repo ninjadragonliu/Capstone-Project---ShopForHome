@@ -1,6 +1,7 @@
 package com.cogent.ShopForHome_Orders.service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,14 +23,20 @@ public class OrderService {
 	public Order saveOrder(Cart cart) {
 		Order order = new Order(cart.getUserId(), cart.getCartId());
 		BigDecimal total = BigDecimal.ZERO;
+		List<OrderItem> orderItems = new ArrayList<OrderItem>();
 		for(CartItem cartItem: cart.getCartItems()) {
 			
-			OrderItem orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());
-			order.getOrderItems().add(orderItem);
+			OrderItem orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());	
+			System.out.println(orderItem.getProductId());
+			orderItems.add(orderItem);
 			total = total.add(cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
+		}
+		for(OrderItem item: orderItems) {
+			item.getQuantity();
 		}
 		order.setTotal(total);
 		order.setStatus(OrderStatus.PENDING);
+		order.setOrderItems(orderItems);
 		cart.clearCart();
 		return orderRepository.save(order);
 	}
