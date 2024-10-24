@@ -38,6 +38,7 @@ public class OrderController {
 		}
 		Cart cart = existingCart.get();
 		Order order = orderService.saveOrder(cart);
+		cartsFeignClient.clearCart(userId);
 		return ResponseEntity.ok(order);
 	}
 

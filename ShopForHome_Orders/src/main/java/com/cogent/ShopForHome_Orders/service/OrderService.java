@@ -26,6 +26,8 @@ public class OrderService {
 	public Order saveOrder(Cart cart) {
 		Order order = new Order(cart.getUserId(), cart.getCartId());
 		BigDecimal total = BigDecimal.ZERO;
+		order.setTotal(total);
+		orderRepository.save(order);
 		for(CartItem cartItem: cart.getCartItems()) {
 			OrderItem orderItem = new OrderItem(order.getOrderId(), cartItem.getProductId(), cartItem.getQuantity(), cartItem.getPrice());
 			order.getOrderItems().add(orderItem);
@@ -34,8 +36,7 @@ public class OrderService {
 		}
 		order.setTotal(total);
 		order.setStatus(OrderStatus.PENDING);
-		cart.clearCart();
-		return orderRepository.save(order);
+		return orderRepository.saveAndFlush(order);
 	}
 
 	public List<Order> getAllOrders() {
@@ -57,12 +58,16 @@ public class OrderService {
 	public boolean cancelOrder(Order order) {
 		if(order.getStatus().equals(OrderStatus.PENDING)) {
 			order.setStatus(OrderStatus.CANCELLED);
+			orderRepository.saveAndFlush(order);
 			return true;
 		}
 		return false;
 	}
 	
 	public boolean deleteOrder(Order order) {
+		for (OrderItem orderItem: order.getOrderItems()) {
+			orderItemRepository.delete(orderItem);
+		}
 		orderRepository.delete(order);
 		return true;
 	}

@@ -31,7 +31,7 @@ public class Order {
 	private int userId;
 	private int cartId;
 
-	@OneToMany(mappedBy = "orderId", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
 	private List<OrderItem> orderItems = new ArrayList<>();
 
 	private BigDecimal total;
