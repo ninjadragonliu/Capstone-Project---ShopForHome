@@ -9,6 +9,7 @@ import { UserResponse } from '../models/userresponse.model';
   providedIn: 'root'
 })
 export class UserService {
+  
   apiUrl = 'http://localhost:9001';
   loggedIn: boolean = false;
   currentUser: UserResponse | null = null;

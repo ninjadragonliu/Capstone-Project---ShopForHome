@@ -16,8 +16,14 @@ export class CartComponent {
   errorMessage: string | null = null;
   userId?: number | null = null;
 
-  constructor(private cartService: CartService, private userService: UserService, private router: Router){}
+  constructor(
+    private cartService: CartService, 
+    private userService: UserService, 
+    // might need router to move to order page later
+    private router: Router
+  ){}
   
+  // needs change
   ngOnInit(): void{
     if(this.userService.isLoggedIn()){
       this.userId = this.userService.getUserId();
