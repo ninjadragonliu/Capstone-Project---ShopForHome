@@ -13,7 +13,7 @@ export class WishlistService {
 
   //get wishlist by user
   getWishlistByUser(userId: number): Observable<Wishlist> {
-    return this.http.get<Wishlist>('${this.apiUrl}/wishlist/${userId}');
+    return this.http.get<Wishlist>(`${this.apiUrl}/wishlist/${userId}`);
   }
 
   // add product to wishlist

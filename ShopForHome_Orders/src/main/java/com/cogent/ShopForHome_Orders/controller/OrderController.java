@@ -42,7 +42,7 @@ public class OrderController {
 		return ResponseEntity.ok(order);
 	}
 
-	@PostMapping("/orders/{orderId}/complete")
+	@GetMapping("/orders/{orderId}/complete")
 	public ResponseEntity<Order> completeOrder(@PathVariable int orderId) {
 		Optional<Order> existingOrder = orderService.findOrderById(orderId);
 		if (existingOrder.isPresent()) {

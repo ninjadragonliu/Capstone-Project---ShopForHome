@@ -77,6 +77,7 @@ public class OrderService {
 		for(OrderItem orderItem: order.getOrderItems()) {
 			if(orderItem.getProductId() == updatedItem.getProductId()) {
 				orderItem = updatedItem;
+				orderItemRepository.saveAndFlush(orderItem);
 			}
 		}
 		return orderRepository.saveAndFlush(order);
