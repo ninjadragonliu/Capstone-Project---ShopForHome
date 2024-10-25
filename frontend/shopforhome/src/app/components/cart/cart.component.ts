@@ -23,7 +23,7 @@ export class CartComponent {
     this.cartService.getCartByUser(currentUser.userId).subscribe((data) => {
       this.cart = data;
 
-      
+      console.log('Cart:', this.cart);
       this.cart.cartItems.forEach((item: CartItem) => {
         this.productService.getProductById(item.productId).subscribe(
           (productDetails) => {

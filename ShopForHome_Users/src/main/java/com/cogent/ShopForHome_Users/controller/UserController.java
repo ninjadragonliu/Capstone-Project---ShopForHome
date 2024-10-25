@@ -1,6 +1,7 @@
 package com.cogent.ShopForHome_Users.controller;
 
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cogent.ShopForHome_Users.model.User;
 import com.cogent.ShopForHome_Users.objectreference.LoginRequest;
 import com.cogent.ShopForHome_Users.service.UserService;
+
+import feign.Response;
 
 //not a bean
 @RestController
@@ -54,7 +57,11 @@ public class UserController {
 		}
 		return ResponseEntity.ok(user.get());
 	}
-
+	@GetMapping("/users")
+	public ResponseEntity<List<User>> getAllUsers() {
+		List<User> users = userService.getAllUsers();
+		return ResponseEntity.ok(users);
+	}
 	@PutMapping("/users/{userId}")
 	public ResponseEntity<User> updateUser(@PathVariable int userId, @RequestBody User user) {
 		Optional<User> existingUser = userService.findUserById(userId);

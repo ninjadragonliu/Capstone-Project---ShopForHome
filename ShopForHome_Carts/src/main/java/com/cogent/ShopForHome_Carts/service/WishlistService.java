@@ -39,7 +39,7 @@ public class WishlistService {
 	public WishlistItem addProductToWishlist(int userId, Product product) {
 		Wishlist wishlist = getWishlistByUser(userId);
 		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistIdAndProductId(wishlist.getWishlistId(), product.getProductId());
-		WishlistItem wishlistItem = new WishlistItem();
+		WishlistItem wishlistItem;
 		if (existingWishlistItem.isEmpty()) {
 			wishlistItem = new WishlistItem(wishlist.getWishlistId(), product.getProductId());
 		} else {

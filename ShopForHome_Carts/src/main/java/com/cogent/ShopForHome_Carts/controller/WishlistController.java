@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cogent.ShopForHome_Carts.model.Wishlist;
@@ -52,8 +53,7 @@ public class WishlistController{
 			return ResponseEntity.notFound().build(); 
 		}
 		User user = existingUser.get();
-		Product product = existingProduct.get();
-		wishlistService.addProductToWishlist(user.getUserId(), product);
+		wishlistService.addProductToWishlist(user.getUserId(), existingProduct.get());
 		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
 		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
 		return ResponseEntity.ok(wishlistItems);

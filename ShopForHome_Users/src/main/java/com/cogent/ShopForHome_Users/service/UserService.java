@@ -1,6 +1,7 @@
 package com.cogent.ShopForHome_Users.service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,9 @@ public class UserService {
 	public Optional<User> findUserById(int userId) {
 		return userRepository.findById(userId);
 	}
-
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
     public void deleteUserById(int userId) {
 
         userRepository.deleteById(userId);

@@ -1,42 +1,21 @@
 <app-user-interface-header></app-user-interface-header>
 <h1 class="text-center">WishList</h1>
 <div class="list-group">
-  <div>
-    <a  class="list-group-item list-group-item-action" aria-current="true">
-      <img src="assets/images/smallDesk.jpg" class="img-thumbnail" style="width: 25%;" alt="Desk">
-      <div class ="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Small Desk</h5>
-        <small>$50.99</small>
-      </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
+  <div *ngFor="let item of wishlistWithDetails">
+    <a class="list-group-item list-group-item-action" aria-current="true">
+      <h5 class="mb-1">{{item.name}}</h5>
+      <div>
 
-      
-    </a>
-    <button type="button" class="btn" style = "border-color: rgb(0, 0, 0);">Remove</button>
-    </div>
-    <div>
-    <a class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Coffee Table</h5>
-        <small class="text-body-secondary">$84.99</small>
+      <small style ="float: right">{{item.price | currency}}</small>
       </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-      
+      <p class="mb-1">{{item.description}}</p>
+      <small>And some small print.</small>
     </a>
     <button type="button" class="btn" style = "border-color: rgb(0, 0, 0);">Remove</button>
-    </div>
-    <div>
-    <a  class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Dresser</h5>
-        <small class="text-body-secondary">$90.99</small>
-      </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-      
-    </a>
-    <button type="button" class="btn" style = "border-color: rgb(0, 0, 0);">Remove</button>
-    </div>
+  </div>
   </div>
   <div>
     <button type="reset">Clear WishList</button>
   </div>
+
+  <p>{{wishlist}}</p>
