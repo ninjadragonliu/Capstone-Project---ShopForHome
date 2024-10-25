@@ -25,6 +25,9 @@
                     <a class="nav-link disabled" aria-disabled="true">Contact</a>
                 </li>
             </ul>
+            <form (ngSubmit)="searchProducts()" class="d-flex">
+                <input type="text" [(ngModel)]="searchTerm" name="search" class="form-control" placeholder="Search products..." style="width:600px"/>
+            </form>
             <ul class="nav justify-content-end">
                 <ul class="nav nav-pills">
                     <ng-container *ngIf="!isLoggedIn; else loggedIn">

@@ -1,0 +1,26 @@
+<div>
+    <input type="text" [(ngModel)]="searchTerm" (input)="filterProducts()" placeholder="Search products..." />
+</div>
+
+<div *ngIf="filteredProducts.length > 0">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of filteredProducts">
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.price | currency }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

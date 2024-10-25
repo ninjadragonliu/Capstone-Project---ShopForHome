@@ -25,8 +25,6 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 
-	
-	
 	@PostMapping("/products/register")
 	public ResponseEntity<Product> register(@RequestBody Product product) {
 		Optional<Product> existingProduct = productService.findProductById(product.getProductId());
@@ -35,10 +33,18 @@ public class ProductController {
 		}
 		productService.saveProduct(product);
 		return ResponseEntity.ok(product);
-
 	}
 
-	@GetMapping("/products/{category}/items")
+	@GetMapping("/products/name/{name}")
+	public ResponseEntity<List<Product>> getProductsByName(@PathVariable String name){
+		List<Product> productList = productService.getAllProductsByName(name);
+		if (productList.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(productList);
+	}
+	
+	@GetMapping("/products/category/{category}")
 	public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category){
 		List<Product> productList = productService.getAllProductsByCategory(category);
 		if (productList.isEmpty()) {
@@ -71,8 +77,6 @@ public class ProductController {
 		return ResponseEntity.ok().body(addedProducts);
 	}
 	
-	
-
 	@PutMapping("/products/{productId}")
 	public ResponseEntity<Product> updateProduct(@PathVariable int productId, @RequestBody Product product) {
 		Optional<Product> existingProduct = productService.findProductById(productId);
