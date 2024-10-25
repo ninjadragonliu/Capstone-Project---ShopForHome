@@ -11,7 +11,6 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { UserComponent } from './components/user/user.component';
 import { ProductComponent } from './components/product/product.component';
 import { UserProductComponent } from './components/user-product/user-product.component';
-import { KitchenComponent } from './kitchen/kitchen.component';
 
 
 const routes = [
@@ -25,7 +24,6 @@ const routes = [
   { path: 'usermanagement', component: UserComponent },
   { path: 'productmanagement', component: ProductComponent },
   { path: 'products', component: UserProductComponent },
-  { path: 'kitchen', component: KitchenComponent },
 ]
 @NgModule({
   declarations: [],
