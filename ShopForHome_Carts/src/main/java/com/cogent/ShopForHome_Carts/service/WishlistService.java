@@ -32,20 +32,24 @@ public class WishlistService {
 	public Wishlist getWishlistByUser(int userId) {
 		return wishlistRepository.findByUserId(userId).orElseGet(() -> {
 			Wishlist newWishlist = new Wishlist(userId);
+			
 			return wishlistRepository.save(newWishlist);
 		});
 	}
 
 	public WishlistItem addProductToWishlist(int userId, Product product) {
+		System.out.println();
 		Wishlist wishlist = getWishlistByUser(userId);
 		Optional<WishlistItem> existingWishlistItem = wishlistItemRepository.findByWishlistIdAndProductId(wishlist.getWishlistId(), product.getProductId());
 		WishlistItem wishlistItem;
+		List<WishlistItem> newWishlist = wishlist.getWishlistItems();
 		if (existingWishlistItem.isEmpty()) {
-			wishlistItem = new WishlistItem(wishlist.getWishlistId(), product.getProductId());
+			wishlistItem = new WishlistItem(wishlist.getWishlistId(), product.getProductId());		
+			newWishlist.add(wishlistItem);
 		} else {
 			wishlistItem = existingWishlistItem.get();
 		}
-
+		wishlist.setWishlistItems(newWishlist);
 		return wishlistItemRepository.save(wishlistItem);
 	}
 	public void clearWishlist(Wishlist wishlist) {
