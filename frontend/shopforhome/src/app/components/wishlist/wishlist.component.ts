@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Wishlist } from '../../models/wishlist.model';
-import { UserService } from '../../services/user.service';
+import { currentUser, UserService } from '../../services/user.service';
 import { WishlistService } from '../../services/wishlist.service';
 import { ProductService } from '../../services/product.service';
 import { UserResponse } from '../../models/userresponse.model';

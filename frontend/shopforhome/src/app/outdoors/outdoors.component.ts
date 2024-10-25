@@ -8,6 +8,8 @@ import { CartService } from '../services/cart.service';
 import { ChildActivationStart } from '@angular/router';
 import { WishlistService } from '../services/wishlist.service';
 
+const buttonAddMessage = "Add to ";
+const buttonAddedMessage = "Added to ";
 
 @Component({
   selector: 'app-outdoors',
@@ -69,6 +71,7 @@ export class OutdoorsComponent implements OnInit {
            
             element["counter"] = 1;
 
+            
             
  
           });
