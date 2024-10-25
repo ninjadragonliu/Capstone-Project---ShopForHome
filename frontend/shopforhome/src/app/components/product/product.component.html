@@ -1,13 +1,15 @@
 <app-administrator-interface></app-administrator-interface>
 <h1 class="text-center">Product Management</h1>
 <button type="button" class="btn btn-primary">Add Product</button>
-<button type="button" class="btn btn-primary">Update Product</button>
-<button type="button" class="btn btn-primary">Delete All Products</button>
+<button type="button" [disabled]="!getSelectedProducts().length"class="btn btn-primary">Update Product</button>
+<button type="button" (click)="deleteSelectedProducts()"[disabled]="!getSelectedProducts().length"class="btn btn-primary">Delete Product</button>
+<button type="button" [disabled]="!getSelectedProducts().length"class="btn btn-primary">Delete All Products</button>
 
 
     <table class="table">
         <thead>
             <tr>
+                <th><input type="checkbox" [(ngModel)]="selectAll" (change)="toggleSelectAll()"></th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Category</th>
@@ -17,6 +19,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let product of products">
+                <td><input type="checkbox" [(ngModel)]="product.selected" (change)="updateSelectAllState()"></td>
                 <td>{{product.name}}</td>
                 <td>{{product.description}}</td>
                 <td>{{product.category}}</td>

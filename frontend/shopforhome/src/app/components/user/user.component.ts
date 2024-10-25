@@ -45,7 +45,7 @@ export class UserComponent implements OnInit {
   updateSelectedUsers() {
     const selectedUsers = this.getSelectedUsers();
     selectedUsers.forEach(user => {
-      this.userService.updateUser(user.id, user).subscribe();
+      this.userService.updateUser(user.userId, user).subscribe();
     });
   }
 }
