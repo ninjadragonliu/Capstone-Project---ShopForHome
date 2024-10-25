@@ -13,7 +13,6 @@ import { WishlistItem } from '../../models/wishlistitem.model';
 })
 export class WishlistComponent implements OnInit {
   wishlist!: Wishlist;
-  wishlistItems: WishlistItem[] = [];
   wishlistWithDetails: any[] = [];
 
   constructor(private wishlistService: WishlistService, private productService: ProductService
@@ -25,17 +24,14 @@ export class WishlistComponent implements OnInit {
     this.wishlistService.getWishlistByUser(userId).subscribe(
       (data: Wishlist) => {
         this.wishlist = data;
-        this.wishlistItems = this.wishlist.wishlistItems; // Assigning the array of wishlist items
-        console.log("Wishlist:", this.wishlist);
-        console.log(this.wishlistItems);
+
         // Now fetch product details for each item
-        this.wishlistItems.forEach((item: WishlistItem) => {
+        this.wishlist.wishlistItems.forEach((item: WishlistItem) => {
           this.productService.getProductById(item.productId).subscribe(
             (productDetails) => {
               this.wishlistWithDetails.push({
                 ...item,
                 name: productDetails.name,
-                price: productDetails.price,
                 description: productDetails.description
               });
             },
