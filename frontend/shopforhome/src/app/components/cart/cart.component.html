@@ -2,12 +2,15 @@
 <h1 class="text-center">Cart</h1>
 
 <div class="list-group">
-  <div *ngFor="let item of cartItemsWithDetails">
+  <div *ngFor="let item of cartItemsWithDetails; index as i;">
     <a class="list-group-item list-group-item-action" aria-current="true">
 
         <h5 class="mb-1">{{item.name}}</h5>
         <div>
+          <button type="submit" (click) = "decrement(i)" class="btn">-</button>
           <small>{{item.quantity}}</small>
+            <button type="submit" (click) = "increment(i)" class="btn">+</button>
+          
         <small style ="float: right">{{item.price | currency}}</small>
         </div>
         

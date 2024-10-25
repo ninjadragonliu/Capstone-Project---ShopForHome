@@ -26,7 +26,8 @@ export class WishlistComponent implements OnInit {
       (data: Wishlist) => {
         this.wishlist = data;
         this.wishlistItems = this.wishlist.wishlistItems; // Assigning the array of wishlist items
-    
+        console.log("Wishlist:", this.wishlist);
+        console.log(this.wishlistItems);
         // Now fetch product details for each item
         this.wishlistItems.forEach((item: WishlistItem) => {
           this.productService.getProductById(item.productId).subscribe(

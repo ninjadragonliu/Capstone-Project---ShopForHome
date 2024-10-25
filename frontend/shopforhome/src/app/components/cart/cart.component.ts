@@ -17,7 +17,13 @@ export class CartComponent {
 
   constructor(private cartService: CartService, private productService: ProductService, private userService: UserService) {
   }
-
+  increment(productAccess:number){
+    this.cartItemsWithDetails[productAccess].counter++;
+  }
+  decrement(productAccess:number){
+    if(this.cartItemsWithDetails[productAccess].quantity <=1) return;
+    this.cartItemsWithDetails[productAccess].counter--;
+  }
   ngOnInit(): void {
     
     this.cartService.getCartByUser(this.userService.getUserId()).subscribe((data) => {
