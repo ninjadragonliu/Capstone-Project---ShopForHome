@@ -22,10 +22,21 @@
             <p class="card-text">{{product.description}} | Price: {{product.price}} dollars</p>
 
             <button type="button" class="btn">Add to WishList</button>
-            <button type="button" (click)="onClick()" class="btn">Add to Cart</button>
+            <button type="submit" (click) = "onClick(product.productId)" class="btn">Add to Cart</button>
+            <button type="submit" (click) = "decrement()" class="btn">-</button>
+            {{counter}}
+            <button type="submit" (click) = "increment()" class="btn">+</button>
+            
+           
           </div>
+
+          
+
+
         </div>
       </div>
+
+      
       <footer style="text-align: center;">
         <p>Sourced from https://unsplash.com and https://www.pexels.com/</p>
       </footer>

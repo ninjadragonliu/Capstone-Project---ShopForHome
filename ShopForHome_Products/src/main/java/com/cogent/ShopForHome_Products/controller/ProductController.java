@@ -25,14 +25,7 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 
-	@GetMapping("/products/name/{name}")
-	public ResponseEntity<List<Product>> getProductsByNameSearch(@PathVariable String name){
-		List<Product> productList = productService.getAllProductsByName(name);
-		if (productList.isEmpty()) {
-			return ResponseEntity.noContent().build();
-		}
-		return ResponseEntity.ok(productList);
-	}
+	
 	
 	@PostMapping("/products/register")
 	public ResponseEntity<Product> register(@RequestBody Product product) {
@@ -45,7 +38,7 @@ public class ProductController {
 
 	}
 
-	@GetMapping("/products/category/{category}")
+	@GetMapping("/products/{category}/items")
 	public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category){
 		List<Product> productList = productService.getAllProductsByCategory(category);
 		if (productList.isEmpty()) {

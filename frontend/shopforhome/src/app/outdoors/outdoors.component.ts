@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { currentUser } from '../services/user.service';
 import { ProductService } from '../services/product.service';
+
 import { ProductResponse } from '../models/productresponse.model';
+import { CartItem } from '../models/cartitem.model';
+import { CartService } from '../services/cart.service';
+import { ChildActivationStart } from '@angular/router';
+
 
 @Component({
   selector: 'app-outdoors',
@@ -10,12 +15,27 @@ import { ProductResponse } from '../models/productresponse.model';
 })
 export class OutdoorsComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  counter:any = 1;
+
+
+  increment(){
+    this.counter++;
+  }
+  decrement(){
+    if(this.counter <=1) return;
+    this.counter--;
+  }
+
+  constructor(private productService: ProductService, private cartService:CartService) { }
 
     products:any | undefined;
 
-    onClick(){
-      console.log(this.products);
+    onClick(productId:any){
+
+      const item = this.cartService.addProductToCart(currentUser.userId, productId, this.counter);
+      item.subscribe(data=> {
+         console.log(data);
+      })
     };
     
 
