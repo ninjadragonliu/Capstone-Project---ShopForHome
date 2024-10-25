@@ -1,7 +1,7 @@
 <app-administrator-interface></app-administrator-interface>
 <h1 class="text-center">Product Management</h1>
 <button type="button" class="btn btn-primary">Add Product</button>
-<button type="button" [disabled]="!getSelectedProducts().length"class="btn btn-primary">Update Product</button>
+<button type="button" (click) ="updateProduct()"[disabled]="!getSelectedProducts().length"class="btn btn-primary">Update Product</button>
 <button type="button" (click)="deleteSelectedProducts()"[disabled]="!getSelectedProducts().length"class="btn btn-primary">Delete Product</button>
 <button type="button" [disabled]="!getSelectedProducts().length"class="btn btn-primary">Delete All Products</button>
 
@@ -28,3 +28,33 @@
             </tr>
         </tbody>
     </table>
+
+    <!-- Product Update Form -->
+<!-- Product Update Form -->
+<div *ngIf="selectedProduct" class="update-product-form">
+    <h2>Update Product</h2>
+    <form (ngSubmit)="onUpdateProductSubmit()">
+        <div>
+            <label>Name:</label>
+            <input type="text" [(ngModel)]="selectedProduct.name" name="name" required>
+        </div>
+        <div>
+            <label>Description:</label>
+            <input type="text" [(ngModel)]="selectedProduct.description" name="description" required>
+        </div>
+        <div>
+            <label>Category:</label>
+            <input type="text" [(ngModel)]="selectedProduct.category" name="category" required>
+        </div>
+        <div>
+            <label>Stock:</label>
+            <input type="number" [(ngModel)]="selectedProduct.stock" name="stock" required>
+        </div>
+        <div>
+            <label>Price:</label>
+            <input type="number" [(ngModel)]="selectedProduct.price" name="price" required>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </form>
+</div>
