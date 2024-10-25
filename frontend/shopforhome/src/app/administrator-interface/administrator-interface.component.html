@@ -20,7 +20,7 @@
                     Product Management
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="navbarDarkDropdownMenuLink">
-                      <li><a class="dropdown-item" routerLink="#">Show Products</a></li>
+                      <li><a class="dropdown-item" (click)="showProductManagement()">Show Products</a></li>
                       <li><a class="dropdown-item" routerLink="#">Show Products</a></li>
                       <li><a class="dropdown-item" href="#">Update Product</a></li>
                       <li><a class="dropdown-item" href="#">Delete Delete</a></li>
@@ -51,3 +51,25 @@
     </table>
 </div>
 
+<div *ngIf="showProducts && products.length > 0">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.name}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.stock}}</td>
+                <td>{{product.price | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
