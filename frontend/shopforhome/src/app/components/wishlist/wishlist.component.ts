@@ -12,7 +12,7 @@ import { WishlistItem } from '../../models/wishlistitem.model';
   styleUrl: './wishlist.component.css'
 })
 export class WishlistComponent implements OnInit {
-  wishlist!: Wishlist;
+  wishlist: Wishlist | null = null;
   wishlistWithDetails: any[] = [];
 
   constructor(private wishlistService: WishlistService, private productService: ProductService
@@ -20,31 +20,25 @@ export class WishlistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const userId = this.userService.getUserId();
-    this.wishlistService.getWishlistByUser(userId).subscribe(
-      (data: Wishlist) => {
-        this.wishlist = data;
 
-        // Now fetch product details for each item
-        this.wishlist.wishlistItems.forEach((item: WishlistItem) => {
-          this.productService.getProductById(item.productId).subscribe(
-            (productDetails) => {
-              this.wishlistWithDetails.push({
-                ...item,
-                name: productDetails.name,
-                description: productDetails.description
-              });
-            },
-            (error) => {
-              console.error('Error fetching product details:', error);
-            }
-          );
-        });
-      },
-      (error) => {
-        console.error('Error fetching wishlist:', error);
-      }
-    );
-    
+    this.wishlistService.getWishlistByUser(this.userService.getUserId()).subscribe((data) => {
+      this.wishlist = data;
+      console.log('Wishlist:', this.wishlist);
+      console.log('Wishlist items:', this.wishlist.wishlistItems);
+      
+      this.wishlist.wishlistItems.forEach((item: WishlistItem) => {
+        this.productService.getProductById(item.productId).subscribe(
+          (productDetails) => {
+            this.wishlistWithDetails.push({
+              ...item,
+              name: productDetails.name,
+              price: productDetails.price,
+              description: productDetails.description
+            });
+          });
+
+      });
+
+    })
   }
 }

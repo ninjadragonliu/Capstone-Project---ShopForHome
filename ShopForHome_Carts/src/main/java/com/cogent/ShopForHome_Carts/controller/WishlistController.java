@@ -60,15 +60,14 @@ public class WishlistController{
 	}
  
 	@GetMapping("/wishlist/{userId}")
-	public ResponseEntity<List<WishlistItem>> getWishlistByUser(@PathVariable int userId) {
+	public ResponseEntity<Wishlist> getWishlistByUser(@PathVariable int userId) {
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
 		User user = existingUser.get();
 		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
-		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-		return ResponseEntity.ok(wishlistItems);
+		return ResponseEntity.ok(wishlist);
 	}
 
 	@DeleteMapping("wishlist/{userId}/items/{wishlistItemId}")
