@@ -60,7 +60,7 @@ public class WishlistController{
 	}
  
 	@GetMapping("/wishlist/{userId}")
-	public ResponseEntity<List<WishlistItem>> getWishlistByUser(@PathVariable int userId) {
+	public ResponseEntity<Wishlist> getWishlistByUser(@PathVariable int userId) {
 		Optional<User> existingUser = userFeignClient.getUserById(userId);
 		if(existingUser.isEmpty()) {
 			return ResponseEntity.notFound().build();

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Wishlist } from '../../models/wishlist.model';
-import { UserService } from '../../services/user.service';
+import { currentUser, UserService } from '../../services/user.service';
 import { WishlistService } from '../../services/wishlist.service';
 import { ProductService } from '../../services/product.service';
 import { UserResponse } from '../../models/userresponse.model';
@@ -21,13 +21,13 @@ export class WishlistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const userId = this.userService.getUserId();
-    this.wishlistService.getWishlistByUser(userId).subscribe(
+    this.wishlistService.getWishlistByUser(currentUser.userId).subscribe(
       (data: Wishlist) => {
         this.wishlist = data;
-        this.wishlistItems = this.wishlist.wishlistItems; // Assigning the array of wishlist items
-        console.log("Wishlist:", this.wishlist);
-        console.log(this.wishlistItems);
+        this.wishlistItems = data.wishlistItems; // Assigning the array of wishlist items
+        console.log(currentUser.userId);
+        console.log("Wishlist:", data);
+        console.log(data.wishlistItems);
         // Now fetch product details for each item
         this.wishlistItems.forEach((item: WishlistItem) => {
           this.productService.getProductById(item.productId).subscribe(
