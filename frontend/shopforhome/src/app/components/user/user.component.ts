@@ -8,6 +8,7 @@ import { UserService } from '../../services/user.service';
 })
 export class UserComponent implements OnInit {
   users: any[] = [];
+  selectAll: any;
 
 
 
@@ -15,7 +16,35 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe((users) => {
-      this.users = users;
+      // Add `selected` property to each user
+      this.users = users.map(user => ({ ...user, selected: false }));
+    });
+  }
+
+  toggleSelectAll() {
+    this.users.forEach(user => (user.selected = this.selectAll));
+  }
+
+  updateSelectAllState() {
+    this.selectAll = this.users.every(user => user.selected);
+  }
+
+  getSelectedUsers() {
+    return this.users.filter(user => user.selected);
+  }
+
+  deleteSelectedUsers() {
+    const selectedUsers = this.getSelectedUsers();
+    selectedUsers.forEach(user => {
+      this.userService.deleteUser(user.id).subscribe();
+    });
+    this.users = this.users.filter(user => !user.selected);
+  }
+
+  updateSelectedUsers() {
+    const selectedUsers = this.getSelectedUsers();
+    selectedUsers.forEach(user => {
+      this.userService.updateUser(user.id, user).subscribe();
     });
   }
 }

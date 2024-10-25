@@ -1,19 +1,17 @@
 <app-administrator-interface></app-administrator-interface>
 <h1 class="text-center">User Management</h1>
-<li class="dropdown" ngbDropdown>
-    <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" ngbDropdownToggle aria-expanded="false">
-        User Management
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" >Show Users</a></li>
-            <li><a class="dropdown-item" href="#">Update User</a></li>
-            <li><a class="dropdown-item" href="#">Delete User</a></li>
-        </ul>
-</li>
+
+<button type="button" [disabled]="!getSelectedUsers().length"class="btn btn-primary">Update User</button>
+<button type="button" (click)="deleteSelectedUsers()"[disabled]="!getSelectedUsers().length"class="btn btn-primary">Delete User</button>
+<button type="button"[disabled]="!getSelectedUsers().length" class="btn btn-primary">Delete All Users</button>
+
 
 <table class="table">
     <thead>
         <tr>
+            <th>
+                <input type="checkbox" [(ngModel)]="selectAll" (change)="toggleSelectAll()">
+              </th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
@@ -21,6 +19,9 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of users">
+            <td>
+                <input type="checkbox" [(ngModel)]="user.selected" (change)="updateSelectAllState()">
+              </td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
             <td>{{user.role}}</td>
