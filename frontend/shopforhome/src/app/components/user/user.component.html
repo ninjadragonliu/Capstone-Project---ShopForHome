@@ -5,26 +5,25 @@
         User Management
         <span class="caret"></span></a>
         <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" (click)="showUserManagement()">Show Users</a></li>
+            <li><a class="dropdown-item" >Show Users</a></li>
             <li><a class="dropdown-item" href="#">Update User</a></li>
             <li><a class="dropdown-item" href="#">Delete User</a></li>
         </ul>
 </li>
-<div *ngIf="showUsers && users.length > 0">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{user.username}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.role}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+        </tr>
+    </tbody>
+</table>
