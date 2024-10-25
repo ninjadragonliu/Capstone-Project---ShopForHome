@@ -15,29 +15,31 @@ export class CartComponent {
   cart!: Cart;
   cartItemsWithDetails: any[] = []; 
 
-  constructor(private cartService: CartService, private productService: ProductService, ) {
+  constructor(private cartService: CartService, private productService: ProductService, private userService: UserService) {
   }
 
   ngOnInit(): void {
     
-    this.cartService.getCartByUser(currentUser.userId).subscribe((data) => {
+    this.cartService.getCartByUser(this.userService.getUserId()).subscribe((data) => {
       this.cart = data;
-
       console.log('Cart:', this.cart);
+      console.log('Cart items:', this.cart.cartItems);
+      
       this.cart.cartItems.forEach((item: CartItem) => {
         this.productService.getProductById(item.productId).subscribe(
           (productDetails) => {
             // Combine cart item with its product details and store in cartItemsWithDetails
             this.cartItemsWithDetails.push({
               ...item,
-              name: productDetails.name,  // Assuming productDetails has 'name' property
-              price: productDetails.price       // Assuming productDetails has 'price' property
-            });
+              name: productDetails.name, 
+              price: productDetails.price,
+              description: productDetails.description
           }
         );
       });
       
     });
 
-  }
+  })
+}
 }
