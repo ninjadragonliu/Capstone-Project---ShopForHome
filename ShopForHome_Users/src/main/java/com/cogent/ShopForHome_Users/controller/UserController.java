@@ -40,9 +40,9 @@ public class UserController {
 	
 	@PostMapping("/users/register")
 	public ResponseEntity<User> register(@RequestBody User user) {
-		Optional<User> op = userService.findUserById(user.getUserId());
-		if (!op.isEmpty()) {
-			return ResponseEntity.badRequest().build();
+		User op = userService.findUserByName(user.getUsername());
+		if (op != null) {
+			return ResponseEntity.unprocessableEntity().build();
 		}
 		userService.saveUser(user);
 		return ResponseEntity.ok(user);

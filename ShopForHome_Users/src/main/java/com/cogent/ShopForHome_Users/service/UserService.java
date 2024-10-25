@@ -44,6 +44,17 @@ public class UserService {
 	public Optional<User> findUserById(int userId) {
 		return userRepository.findById(userId);
 	}
+	
+	public User findUserByName(String name) {
+		for(User user : userRepository.findAll()){
+			if(user.getUsername().equals(name)) {
+				return user;
+			}
+		}
+		return null;
+	}
+	
+	
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
