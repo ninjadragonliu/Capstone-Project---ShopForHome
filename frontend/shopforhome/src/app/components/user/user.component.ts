@@ -9,6 +9,7 @@ import { UserService } from '../../services/user.service';
 export class UserComponent implements OnInit {
   users: any[] = [];
   selectAll: any;
+  selectedUsers: any[] = [];
 
 
 
@@ -34,9 +35,9 @@ export class UserComponent implements OnInit {
   }
 
   deleteSelectedUsers() {
-    const selectedUsers = this.getSelectedUsers();
-    selectedUsers.forEach(user => {
-      this.userService.deleteUser(user.id).subscribe();
+    this.selectedUsers = this.getSelectedUsers();
+    this.selectedUsers.forEach(user => {
+      this.userService.deleteUser(user.userId).subscribe();
     });
     this.users = this.users.filter(user => !user.selected);
   }
