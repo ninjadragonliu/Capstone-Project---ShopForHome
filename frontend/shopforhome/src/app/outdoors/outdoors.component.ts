@@ -20,74 +20,49 @@ const buttonAddedMessage = "Added to ";
 
 
 export class OutdoorsComponent implements OnInit {
+  counter: any = 1;
+  products: any[] = [];
+  category: string = 'outdoors';
 
-  counter:any = 1;
+  constructor(private productService: ProductService, private cartService: CartService, private wishlistService: WishlistService) { }
 
-  products:any | undefined;
- 
+  increment(productAccess: number) {
+    this.products[productAccess].counter++;
+  }
+  decrement(productAccess: number) {
+    if (this.products[productAccess].counter <= 1) return;
+    this.products[productAccess].counter--;
+  }
 
-  constructor(private productService: ProductService, private cartService:CartService, private wishlistService:WishlistService) { }
+  onClickCart(productId: any, productAccess: number) {
+    const item = this.cartService.addProductToCart(currentUser.userId, productId, this.products[productAccess].counter);
+    item.subscribe(data => {
+      console.log(data);
+    })
+  };
 
-    
+  onClickWishlist(productId: any) {
+    console.log(productId);
+    const item = this.wishlistService.addProductToWishlist(currentUser.userId, productId);
+    item.subscribe(data => {
+      console.log(data);
+    });
+  }
 
+  ngOnInit() {
+    this.fetchProductsByCategory(this.category);
+  }
 
-    increment(productAccess:number){
-      this.products[productAccess].counter++;
-    }
-    decrement(productAccess:number){
-      if(this.products[productAccess].counter <=1) return;
-      this.products[productAccess].counter--;
-    }
-
-    onClickCart(productId:any, productAccess:number){
-
-      const item = this.cartService.addProductToCart(currentUser.userId, productId, this.products[productAccess].counter);
-      item.subscribe( data => {
-        console.log(data);
-      })
-    };
-
-
-    onClickWishlist(productId:any){
-      console.log(productId);
-      const item = this.wishlistService.addProductToWishlist(currentUser.userId, productId);
-      item.subscribe(data => {
-         console.log(data);
+  fetchProductsByCategory(category: string) {
+    this.productService.getProductsByCategory(category).subscribe(productList => {
+      this.products = productList.map(product => {
+        return { ...product, counter: 1 };
       });
-    } 
+    });
+  }
 
-    
-
-    async ngOnInit(){
-      
-
-      // trying to have this autopopulate before onClick needs work, idk if this works
-      // disregard my change to a promise, this needs to be worked out
-      await this.productService.getProductsByCategory("outdoors").then((products) => {
-         products.subscribe(productList => {
-
-
-           productList.forEach((element:any) => {
-           
-            element["counter"] = 1;
-
-            
-            
- 
-          });
-
-          this.products = productList;
-
-       });
-      });
-     
-      
-
-      
-    }
-
-    
-
-    
-
+  onCategoryChange(newCategory: string) {
+    this.category = newCategory;
+    this.fetchProductsByCategory(this.category);
+  }
 }
