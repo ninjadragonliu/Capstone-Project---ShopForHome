@@ -1,7 +1,7 @@
 <app-administrator-interface></app-administrator-interface>
 <h1 class="text-center">User Management</h1>
 
-<button type="button" [disabled]="!getSelectedUsers().length"class="btn btn-primary">Update User</button>
+<button type="button" (click) ="updateUser()"[disabled]="!getSelectedUsers().length"class="btn btn-primary">Update User</button>
 <button type="button" (click)="deleteSelectedUsers()"[disabled]="!getSelectedUsers().length"class="btn btn-primary">Delete User</button>
 <button type="button"[disabled]="!getSelectedUsers().length" class="btn btn-primary">Delete All Users</button>
 
@@ -28,3 +28,26 @@
         </tr>
     </tbody>
 </table>
+<div *ngIf="selectedUser" class="update-product-form">
+    <h2>Update Product</h2>
+    <form (ngSubmit)="onUpdateUserSubmit()">
+        <div>
+            <label>UserName:</label>
+            <input type="text" [(ngModel)]="selectedUser.username" name="name" required>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="text" [(ngModel)]="selectedUser.password" name="password" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="text" [(ngModel)]="selectedUser.email" name="email" required>
+        </div>
+        <div>
+            <label>Role:</label>
+            <input type="text" [(ngModel)]="selectedUser.role" name="role" required>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </form>
+</div>

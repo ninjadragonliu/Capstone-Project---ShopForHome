@@ -11,6 +11,7 @@ export class UserComponent implements OnInit {
   selectAll: any;
   selectedUsers: any[] = [];
 
+  selectedUser: any = null;
 
 
   constructor (private userService: UserService) { }
@@ -42,10 +43,26 @@ export class UserComponent implements OnInit {
     this.users = this.users.filter(user => !user.selected);
   }
 
-  updateSelectedUsers() {
+  updateUser() {
     const selectedUsers = this.getSelectedUsers();
-    selectedUsers.forEach(user => {
-      this.userService.updateUser(user.userId, user).subscribe();
-    });
+    if (selectedUsers.length === 1) {
+      this.selectedUser = { ...selectedUsers[0] }; // Create a copy of the selected product for editing
+    } else {
+      alert("Please select exactly one product to update.");
+    }
+  }
+
+  onUpdateUserSubmit() {
+    if (this.selectedUser) {
+      this.userService.updateUser(this.selectedUser.userId, this.selectedUser).subscribe(updatedUser => {
+        const index = this.users.findIndex(p => p.productId === updatedUser.userId);
+        this.users[index] = updatedUser;
+        this.selectedUser = null; // Clear the selection
+      });
+    }
+  }
+
+  cancelEdit() {
+    this.selectedUser = null;
   }
 }
