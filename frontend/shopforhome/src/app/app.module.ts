@@ -18,12 +18,13 @@ import { UserComponent } from './components/user/user.component';
 import { ProductComponent } from './components/product/product.component';
 import { UserProductComponent } from './components/user-product/user-product.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
+import { LivingComponent } from './living/kitchen.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, OutdoorsComponent, HomeComponent, SignupComponent, AdministratorInterfaceComponent, UserInterfaceHeaderComponent,
-    LoginComponent, CartComponent, WishlistComponent, UserComponent, ProductComponent, UserProductComponent, KitchenComponent 
+    LoginComponent, CartComponent, WishlistComponent, UserComponent, ProductComponent, UserProductComponent, KitchenComponent, LivingComponent 
   ],
   imports: [
     BrowserModule,
