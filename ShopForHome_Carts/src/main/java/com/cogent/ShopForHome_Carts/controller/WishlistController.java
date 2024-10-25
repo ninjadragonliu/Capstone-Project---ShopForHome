@@ -67,8 +67,7 @@ public class WishlistController{
 		}
 		User user = existingUser.get();
 		Wishlist wishlist = wishlistService.getWishlistByUser(user.getUserId());
-		List<WishlistItem> wishlistItems = wishlist.getWishlistItems();
-		return ResponseEntity.ok(wishlistItems);
+		return ResponseEntity.ok(wishlist);
 	}
 
 	@DeleteMapping("wishlist/{userId}/items/{wishlistItemId}")

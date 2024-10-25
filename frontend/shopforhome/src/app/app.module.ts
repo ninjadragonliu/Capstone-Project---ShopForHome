@@ -14,12 +14,14 @@ import { CartComponent } from './components/cart/cart.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './components/user/user.component';
+import { ProductComponent } from './components/product/product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, OutdoorsComponent, HomeComponent, SignupComponent, AdministratorInterfaceComponent, UserInterfaceHeaderComponent,
-    LoginComponent, CartComponent, WishlistComponent
+    LoginComponent, CartComponent, WishlistComponent, UserComponent, ProductComponent
   ],
   imports: [
     BrowserModule,

@@ -12,8 +12,7 @@ import { WishlistItem } from '../../models/wishlistitem.model';
   styleUrl: './wishlist.component.css'
 })
 export class WishlistComponent implements OnInit {
-  wishlist!: Wishlist;
-  wishlistItems: WishlistItem[] = [];
+  wishlist: Wishlist | null = null;
   wishlistWithDetails: any[] = [];
 
   constructor(private wishlistService: WishlistService, private productService: ProductService
@@ -21,6 +20,7 @@ export class WishlistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this.wishlistService.getWishlistByUser(currentUser.userId).subscribe(
       (data: Wishlist) => {
         this.wishlist = data;
@@ -50,5 +50,27 @@ export class WishlistComponent implements OnInit {
       }
     );
     
+=======
+
+    this.wishlistService.getWishlistByUser(this.userService.getUserId()).subscribe((data) => {
+      this.wishlist = data;
+      console.log('Wishlist:', this.wishlist);
+      console.log('Wishlist items:', this.wishlist.wishlistItems);
+      
+      this.wishlist.wishlistItems.forEach((item: WishlistItem) => {
+        this.productService.getProductById(item.productId).subscribe(
+          (productDetails) => {
+            this.wishlistWithDetails.push({
+              ...item,
+              name: productDetails.name,
+              price: productDetails.price,
+              description: productDetails.description
+            });
+          });
+
+      });
+
+    })
+>>>>>>> 990964aecdfb0d22987fd517e76699737e786027
   }
 }
