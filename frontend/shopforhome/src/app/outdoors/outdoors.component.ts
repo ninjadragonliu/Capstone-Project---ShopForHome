@@ -6,6 +6,7 @@ import { ProductResponse } from '../models/productresponse.model';
 import { CartItem } from '../models/cartitem.model';
 import { CartService } from '../services/cart.service';
 import { ChildActivationStart } from '@angular/router';
+import { WishlistService } from '../services/wishlist.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class OutdoorsComponent implements OnInit {
   products:any | undefined;
  
 
-  constructor(private productService: ProductService, private cartService:CartService) { }
+  constructor(private productService: ProductService, private cartService:CartService, private wishlistService:WishlistService) { }
 
     
 
@@ -36,13 +37,23 @@ export class OutdoorsComponent implements OnInit {
       this.products[productAccess].counter--;
     }
 
-    onClick(productId:any, productAccess:number){
+    onClickCart(productId:any, productAccess:number){
 
       const item = this.cartService.addProductToCart(currentUser.userId, productId, this.products[productAccess].counter);
       item.subscribe( data => {
         console.log(data);
       })
     };
+
+
+    onClickWishlist(productId:any){
+      console.log(productId);
+      const item = this.wishlistService.addProductToWishlist(currentUser.userId, productId);
+      item.subscribe(data => {
+         console.log(data);
+      });
+    } 
+
     
 
     async ngOnInit(){

@@ -18,7 +18,8 @@ export class WishlistService {
 
   // add product to wishlist
   addProductToWishlist(userId: number, productId: number): Observable<WishlistItem[]> {
-    return this.http.post<WishlistItem[]>(`${this.apiUrl}/wishlist/${userId}/items`, productId);
+    const requestBody = {productId}
+    return this.http.post<WishlistItem[]>(`${this.apiUrl}/wishlist/${userId}/items`, requestBody);
   }
 
   // remove product from wishlist

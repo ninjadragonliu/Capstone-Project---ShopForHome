@@ -21,8 +21,8 @@
             <h5 class="card-title">{{product.name}}</h5>
             <p class="card-text">{{product.description}} | Price: {{product.price}} dollars</p>
 
-            <button type="button" class="btn">Add to WishList</button>
-            <button type="submit" (click) = "onClick(product.productId, i)" class="btn">Add to Cart</button>
+            <button type="button" (click) = "onClickWishlist(product.productId)" class="btn">Add to WishList</button>
+            <button type="submit" (click) = "onClickCart(product.productId, i)" class="btn">Add to Cart</button>
             <button type="submit" (click) = "decrement(i)" class="btn">-</button>
             {{product.counter}}
             <button type="submit" (click) = "increment(i)" class="btn">+</button>
