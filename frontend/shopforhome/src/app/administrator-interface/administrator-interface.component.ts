@@ -9,21 +9,13 @@ import { ProductService } from '../services/product.service';
   styleUrl: './administrator-interface.component.css'
 })
 export class AdministratorInterfaceComponent {
-    users: any[] = [];
     products: any[] = [];
 
-    showUsers = true;
     showProducts = false;
 
     isLoggedIn: boolean = false;
     userRole?: string | null = null;
     constructor(private userService: UserService, private productService: ProductService) {}
-    showUserManagement() {
-        this.showUsers = true;
-        this.userService.getAllUsers().subscribe((users) => {
-          this.users = users;
-        });
-    }
     showProductManagement() {
         this.showProducts = true;
         this.productService.getProducts().subscribe((products) => {

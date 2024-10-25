@@ -5,71 +5,20 @@
                 <a class="navbar-brand" routerLink="/admin">ShopForHome Administrator</a>
             </div>
             <ul class="nav nav-pills">
-              <li class="dropdown" ngbDropdown>
-                  <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" ngbDropdownToggle aria-expanded="false">
-                      User Management
-                  <span class="caret"></span></a>
-                  <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="navbarDarkDropdownMenuLink">
-                      <li><a class="dropdown-item" (click)="showUserManagement()">Show Users</a></li>
-                      <li><a class="dropdown-item" href="#">Update User</a></li>
-                      <li><a class="dropdown-item" href="#">Delete User</a></li>
-                  </ul>
-              </li>
-              <li class="dropdown" ngbDropdown>
-                <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" ngbDropdownToggle aria-expanded="false">
+            
+                <li class="nav-item"><a class="nav-link " routerLink="/usermanagement" id="navbarDarkDropdownMenuLink" aria-expanded="false">
+                    User Management</a></li>
+
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/productmanagement" id="navbarDarkDropdownMenuLink"aria-expanded="false">
                     Product Management
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu dropdown-menu-dark" ngbDropdownMenu aria-labelledby="navbarDarkDropdownMenuLink">
-                      <li><a class="dropdown-item" (click)="showProductManagement()">Show Products</a></li>
-                      <li><a class="dropdown-item" routerLink="#">Show Products</a></li>
-                      <li><a class="dropdown-item" href="#">Update Product</a></li>
-                      <li><a class="dropdown-item" href="#">Delete Delete</a></li>
-                </ul>
-            </li>                           
+                </a>
+                </li>                           
             <li class="nav-item"><a class="nav-link" (click)="logout()" routerLink="/">Logout</a></li>
             </ul>
         </div>
     </nav>
 </div>
 
-<div *ngIf="showUsers && users.length > 0">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{user.username}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.role}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
-<div *ngIf="showProducts && products.length > 0">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Stock</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td>{{product.name}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.category}}</td>
-                <td>{{product.stock}}</td>
-                <td>{{product.price | currency}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
