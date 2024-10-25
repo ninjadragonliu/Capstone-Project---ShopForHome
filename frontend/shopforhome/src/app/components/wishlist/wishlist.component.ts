@@ -20,37 +20,6 @@ export class WishlistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-<<<<<<< HEAD
-    this.wishlistService.getWishlistByUser(currentUser.userId).subscribe(
-      (data: Wishlist) => {
-        this.wishlist = data;
-        this.wishlistItems = data.wishlistItems; // Assigning the array of wishlist items
-        console.log(currentUser.userId);
-        console.log("Wishlist:", data);
-        console.log(data.wishlistItems);
-        // Now fetch product details for each item
-        this.wishlistItems.forEach((item: WishlistItem) => {
-          this.productService.getProductById(item.productId).subscribe(
-            (productDetails) => {
-              this.wishlistWithDetails.push({
-                ...item,
-                name: productDetails.name,
-                price: productDetails.price,
-                description: productDetails.description
-              });
-            },
-            (error) => {
-              console.error('Error fetching product details:', error);
-            }
-          );
-        });
-      },
-      (error) => {
-        console.error('Error fetching wishlist:', error);
-      }
-    );
-    
-=======
 
     this.wishlistService.getWishlistByUser(this.userService.getUserId()).subscribe((data) => {
       this.wishlist = data;
@@ -71,6 +40,5 @@ export class WishlistComponent implements OnInit {
       });
 
     })
->>>>>>> 990964aecdfb0d22987fd517e76699737e786027
   }
 }
