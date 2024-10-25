@@ -28,7 +28,7 @@ export class WishlistService {
   }
 
   // clear wishlist
-  clearCart(userId: number): Observable<WishlistItem[]> {
+  clearWishlist(userId: number): Observable<WishlistItem[]> {
     return this.http.delete<WishlistItem[]>(`${this.apiUrl}/wishlist/${userId}/clear`);
   }
 }
