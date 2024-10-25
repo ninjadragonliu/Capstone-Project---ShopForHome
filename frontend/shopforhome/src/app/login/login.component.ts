@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { currentUser, UserService } from '../services/user.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
@@ -23,6 +23,7 @@ export class LoginComponent {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
+      document.cookie = "username=" + form.value.username + ";";
       const username = form.value.username.trim();
       const password = form.value.password.trim();
       this.userService.login(username, password).subscribe({
@@ -33,7 +34,7 @@ export class LoginComponent {
           this.successMessage = 'Login Success!';
           this.errorMessage = null;
           this.userService.setLoginStatus(true);
-
+          currentUser.userId = response.userId;
           // merge cart on successful login
           const localCart = this.cartService.getLocalCart();
           this.cartService.getCartByUser(response.userId).subscribe(

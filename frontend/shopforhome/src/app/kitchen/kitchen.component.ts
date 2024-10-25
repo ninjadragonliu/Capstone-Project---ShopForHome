@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { currentUser } from '../services/user.service';
 import { ProductService } from '../services/product.service';
 
 import { ProductResponse } from '../models/productresponse.model';
@@ -7,6 +6,7 @@ import { CartItem } from '../models/cartitem.model';
 import { CartService } from '../services/cart.service';
 import { ChildActivationStart } from '@angular/router';
 import { WishlistService } from '../services/wishlist.service';
+import { currentUser } from '../services/user.service';
 
 const buttonAddMessage = "Add to ";
 const buttonAddedMessage = "Added to ";
@@ -35,6 +35,7 @@ export class KitchenComponent implements OnInit {
   }
 
   onClickCart(productId: any, productAccess: number) {
+    console.log(currentUser.userId);
     const item = this.cartService.addProductToCart(currentUser.userId, productId, this.products[productAccess].counter);
     item.subscribe(data => {
       console.log(data);

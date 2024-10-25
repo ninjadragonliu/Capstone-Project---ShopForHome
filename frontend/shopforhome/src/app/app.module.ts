@@ -18,7 +18,7 @@ import { UserComponent } from './components/user/user.component';
 import { ProductComponent } from './components/product/product.component';
 import { UserProductComponent } from './components/user-product/user-product.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
-import { LivingComponent } from './living/kitchen.component';
+import { LivingComponent } from './living/living.component';
 
 
 @NgModule({
