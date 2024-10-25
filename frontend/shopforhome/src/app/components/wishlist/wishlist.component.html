@@ -1,4 +1,7 @@
 <app-user-interface-header></app-user-interface-header>
+<head>
+  <link rel="stylesheet" href="wishlist.component.css">
+</head>
 <h1 class="text-center">WishList</h1>
 <div class="list-group">
   <div *ngFor="let item of wishlistWithDetails">
@@ -11,9 +14,10 @@
       <p class="mb-1">{{item.description}}</p>
       <small>And some small print.</small>
     </a>
-    <button type="button" class="btn" style = "border-color: rgb(0, 0, 0);">Remove</button>
+    <button type="button" (click) = "onRemoveWishlistItem(item.itemId)"class="btn removeButton">
+    Remove</button>
   </div>
   </div>
   <div>
-    <button type="reset">Clear WishList</button>
+    <button type="button" (click)="onClearWishlist()">Clear WishList</button>
   </div>

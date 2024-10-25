@@ -60,4 +60,15 @@ export class CartComponent {
       }
     );
   }
+
+  onClearCart(): void {
+    this.cartService.clearCart(this.userService.getUserId()).subscribe(data => {
+      console.log(data);
+    })
+  }
+  onRemoveCartItem(cartItemId: number) {
+    this.cartService.removeProductFromCart(this.userService.getUserId(), cartItemId).subscribe(data => {
+
+    })
+  }
 }

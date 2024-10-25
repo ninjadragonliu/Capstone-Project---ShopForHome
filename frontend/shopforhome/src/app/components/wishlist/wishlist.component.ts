@@ -41,4 +41,14 @@ export class WishlistComponent implements OnInit {
 
     })
   }
+  onRemoveWishlistItem(wishlistItemId: number) {
+    this.wishlistService.removeProductFromWishlist(this.userService.getUserId(), wishlistItemId).subscribe((data) => {
+      
+    });
+  }
+  onClearWishlist() {
+    this.wishlistService.clearWishlist(this.userService.getUserId()).subscribe((data) => {
+      
+    });
+  }
 }
