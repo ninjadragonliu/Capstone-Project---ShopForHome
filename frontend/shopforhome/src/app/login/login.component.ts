@@ -23,7 +23,6 @@ export class LoginComponent {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      document.cookie = "username=" + form.value.username + ";";
       const username = form.value.username.trim();
       const password = form.value.password.trim();
       this.userService.login(username, password).subscribe({

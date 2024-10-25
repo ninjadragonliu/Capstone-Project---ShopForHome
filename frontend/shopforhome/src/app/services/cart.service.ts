@@ -31,7 +31,7 @@ export class CartService {
 
   // update cart item quantity
   updateCartItemQuantity(userId: number, cartItemId: number, quantity: number): Observable<CartItem> {
-    return this.http.patch<CartItem>(`${this.apiUrl}/carts/${userId}/items/${cartItemId}`, quantity);
+    return this.http.patch<CartItem>(`${this.apiUrl}/cart/${userId}/items/${cartItemId}`, quantity);
   }
 
   // clear cart
@@ -49,4 +49,8 @@ export class CartService {
     const cart: CartResponse = { userId, cartId, cartItems };
     return this.http.put<CartResponse>(`${this.apiUrl}/carts/${userId}`, cart);
   }
+ 
+
+
+
 }
