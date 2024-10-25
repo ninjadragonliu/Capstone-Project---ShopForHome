@@ -15,14 +15,6 @@ export class ProductComponent implements OnInit {
   selectedProducts: any[] = [];
   selectedProduct: any = null;
 
-  // selectProduct: boolean = false;
-  // tempName?: string;
-  // tempDescription?: string;
-  // tempCategory?: string;
-  // tempPrice?: typeof Decimal;
-  // tempStock?: number;
-
-
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -50,19 +42,6 @@ export class ProductComponent implements OnInit {
     });
     this.products = this.products.filter(product => !product.selected);
   }
-
-  // updateSelectedProducts() {
-  //   this.selectedProducts = this.getSelectedProducts();
-  //   this.selectedProducts.forEach(product => {
-  //     this.productService.updateProduct(product.productId, product).subscribe();
-  //   });
-  // }
-  // updateProduct() {
-  //   this.selectProduct = true;
-  // }
-  // cancelEdit() {
-  //   this.selectProduct = false;
-  // }
 
   updateProduct() {
     const selectedProducts = this.getSelectedProducts();
